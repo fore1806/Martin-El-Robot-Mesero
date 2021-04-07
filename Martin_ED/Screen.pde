@@ -10,18 +10,19 @@ void buttonArray(){
   array[2] = button3; 
 }
 
-void showButton(int posI, int posF){
+void showCheckButton(int posI, int posF){
   for(int i = posI; i<=posF; i++){
+    array[i].seleccionador();
     array[i].display();
   }
 }
 void startScreen(){
-  background(0);
+  //background(0);
   button1 = new Button("boton 1", 900, 300);
   button2 = new Button("boton 2", 900, 500);
   button3 = new Button("boton 3", 900, 700);
   buttonArray();
-  showButton(0,2);
+  showCheckButton(0,2);
   textAlign(CENTER, CENTER);
   fill(200);
   textSize(20);

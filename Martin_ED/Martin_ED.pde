@@ -1,4 +1,3 @@
-//welcome
 //Booleanos de pantallas
 
 boolean screenStart = true;
@@ -14,7 +13,7 @@ Button button3;
 Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite añadir y borrar mas facil, creo yo
 
 void setup() {
-  size(1450, 840);
+  size(1000, 840);
 }
 
 void draw() {
