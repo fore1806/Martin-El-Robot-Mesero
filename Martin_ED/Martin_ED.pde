@@ -13,12 +13,12 @@ Button button3;
 Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite añadir y borrar mas facil, creo yo
 
 void setup() {
-  size(1000, 840);
+  size(1300, 650);
 }
 
 void draw() {
-  background(0);
-  buttons();
+  background(32,35,85);
+  //buttons();
   buttonArray();
   if (screenStart) {
     startScreen();
