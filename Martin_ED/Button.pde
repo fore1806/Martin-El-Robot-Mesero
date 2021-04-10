@@ -1,10 +1,10 @@
 public class Button{
-  int [] size = {250,100};
+  int [] size = {220,100};
   float [] pos = {0,0};
   color strokeColor = #1C1412;
   color strokeSeleccioned;
-  color fillColor = #BDC3C7;
-  color textColor = #1C1412;
+  color fillColor = color6;//#BDC3C7;
+  color textColor = color2;
   String bText;
   int sw = 2;
   
@@ -41,6 +41,7 @@ public class Button{
     rectMode(CENTER);
     rect(pos[0], pos[1], size[0], size[1], 6);
     textAlign(CENTER, CENTER);
+    textSize(40);
     fill(textColor);
     text(bText, pos[0], pos[1]);
     pop();
@@ -57,7 +58,7 @@ public class Button{
   void seleccionador() {  //Metodo para cambiar el color del stroke, que nos indica cuando el mouse esta sobre el botón
     if (check()) {
       strokeSeleccioned = strokeColor;
-      strokeColor = #3BE0F2;
+      strokeColor = color4;
       sw = 7;
     }else{
       strokeColor = strokeSeleccioned;

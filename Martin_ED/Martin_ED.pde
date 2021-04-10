@@ -5,6 +5,19 @@ boolean screen1 = false;
 boolean screen2 = false;
 boolean screen3 = false;
 
+//imagenes
+
+PImage startImage;
+
+//Colors
+
+color color1 = #FFD01E; //Amarillo
+color color2 = #141414; //Negro
+color color3 = #B6B6BA; //Grisesito
+color color4 = #C10000; //Rojito
+color color5 = #00326E; //Azul oscuro
+color color6 = #faf7fa; //Blanquito
+
 //Botones
 Button button1;
 Button button2;
@@ -14,10 +27,17 @@ Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite
 
 void setup() {
   size(1300, 650);
+  startImage = loadImage("robot.png");
+  
 }
 
 void draw() {
-  background(32,35,85);
+  background(color1);
+  push();
+  rectMode(CENTER);
+  fill(color5);
+  rect(width/2, height/2, width-10,height-10);
+  pop();
   //buttons();
   buttonArray();
   if (screenStart) {
@@ -26,8 +46,6 @@ void draw() {
     firstScreen();
   }else if(screen2){
     secondScreen();
-  }else if(screen3){
-    thirdScreen();
   }
 }
 
@@ -39,9 +57,6 @@ void mousePressed() {
     }else if(button2.check()){
       screenStart = !screenStart;
       screen2 = !screen2;
-    }else if(button3.check()){
-      screenStart = !screenStart;
-      screen3 = !screen3;
     }
   }
 }
