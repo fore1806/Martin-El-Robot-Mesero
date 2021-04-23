@@ -23,6 +23,8 @@ Button button1;
 Button button2;
 Button button3;
 
+ButtonList arrayButton = new ButtonList();
+
 Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite añadir y borrar mas facil, creo yo
 
 void setup() {
@@ -39,7 +41,7 @@ void draw() {
   rect(width/2, height/2, width-10,height-10);
   pop();
   //buttons();
-  buttonArray();
+  //buttonArray();
   if (screenStart) {
     startScreen();
   }else if(screen1){

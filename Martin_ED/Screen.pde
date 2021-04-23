@@ -1,27 +1,30 @@
 
 
-void buttons() {
-  button1 = new Button("boton 1", width/1.5, height/4);
-  button2 = new Button("boton 2", width/1.5, height/2 );
-}
+//void buttons() {
+//  button1 = new Button("boton 1", width/1.5, height/4);
+//  button2 = new Button("boton 2", width/1.5, height/2 );
+//}
 
-void buttonArray() {
-  array[0] = button1;
-  array[1] = button2;
-}
+//void buttonArray() {
+//  array[0] = button1;
+//  array[1] = button2;
+//}
 
-void showCheckButton(int posI, int posF) {
-  for (int i = posI; i<=posF; i++) {
-    array[i].seleccionador();
-    array[i].display();
+void showCheckButton(ButtonList array) {
+  for (int i = 0; i<array.posF; i++) {
+    array.array[i].seleccionador();
+    array.array[i].display();
   }
 }
 void startScreen() {
   image(startImage, width/8, 180, 3*width/4, height-180);
   button1 = new Button("ADMIN", (width/2)-390, (height/2)-50 );
   button2 = new Button("CLIENTE", (width/2)+390, (height/2)-50 );
-  buttonArray();
-  showCheckButton(0, 1);
+  if (arrayButton.isEmpty()) {
+    arrayButton.insert(button1);
+    arrayButton.insert(button2);
+  }
+  showCheckButton(arrayButton);
   textAlign(CENTER, CENTER);
   textSize(80);
   fill(color6);
