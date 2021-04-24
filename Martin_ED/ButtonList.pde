@@ -16,7 +16,7 @@ public class ButtonList{
     return posF==0;
   }
   
-  void madeEmpty(){
+  void makeEmpty(){
     for(int i = posF-1;i<=0;i--){
       array[i] = null;
     }

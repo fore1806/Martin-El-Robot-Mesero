@@ -56,9 +56,11 @@ void mousePressed() {
     if(button1.check()){
       screenStart = !screenStart;
       screen1 = !screen1;
+      arrayButton.makeEmpty();
     }else if(button2.check()){
       screenStart = !screenStart;
       screen2 = !screen2;
+      arrayButton.makeEmpty();
     }
   }
 }
