@@ -1,16 +1,17 @@
 public class Robot {
 
-  int batery;
+  int battery;
   int [] pos = new int [2]; //x,y
   int [] dir = new int [2]; //x,y
-  int disMesas;
+  int disMesas = 25; //Cambiar esta a lo que se decida
   boolean empty = true;
   boolean arrived = false;
+  boolean charging = false;
 
-  Robot (int posX, int posY, int disMesas) { //El disMesas sera una constante que debe ser definida :v
+  Robot (int posX, int posY, int battery) { //El disMesas sera una constante que debe ser definida :v
     this.pos[0] = posX;
     this.pos[1] = posY;
-    this.disMesas = disMesas;
+    this.battery = battery;
   }
 
   void setDirection (int dirX, int dirY) {
@@ -47,5 +48,29 @@ public class Robot {
 
   boolean hasArrived() {
     return arrived;
+  }
+  
+  boolean isCharging(){
+    return charging;
+  }
+
+  void charge() {
+    if (battery<100 && charging) {
+      this.battery+=1;
+    }
+  }
+  
+  void discharge(){
+    if (battery>0 && !charging) {
+      this.battery-=1;
+    }
+  }
+  
+  void connect(){
+    charging = true;
+  }
+  
+  void disconnect(){
+    charging = false;
   }
 }
