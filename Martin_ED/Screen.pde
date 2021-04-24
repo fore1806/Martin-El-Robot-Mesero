@@ -31,11 +31,11 @@ void startScreen() {
   text("Martin El Robot Mesero", width/2, 100);
 }
 
-void firstScreen() {
+void adminScreen() {
   background(255, 0, 0);
 }
 
-void secondScreen() {
+void clientScreen() {
   background(0, 255, 0);
 }
 

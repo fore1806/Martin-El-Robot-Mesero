@@ -1,9 +1,8 @@
 //Booleanos de pantallas
 
 boolean screenStart = true;
-boolean screen1 = false;
-boolean screen2 = false;
-boolean screen3 = false;
+boolean screenAdmin = false;
+boolean screenClient = false;
 
 //imagenes
 
@@ -44,10 +43,10 @@ void draw() {
   //buttonArray();
   if (screenStart) {
     startScreen();
-  }else if(screen1){
-    firstScreen();
-  }else if(screen2){
-    secondScreen();
+  }else if(screenAdmin){
+    adminScreen();
+  }else if(screenClient){
+    clientScreen();
   }
 }
 
@@ -55,11 +54,11 @@ void mousePressed() {
   if(screenStart){
     if(button1.check()){
       screenStart = !screenStart;
-      screen1 = !screen1;
+      screenAdmin = !screenAdmin;
       arrayButton.makeEmpty();
     }else if(button2.check()){
       screenStart = !screenStart;
-      screen2 = !screen2;
+      screenClient = !screenClient;
       arrayButton.makeEmpty();
     }
   }
