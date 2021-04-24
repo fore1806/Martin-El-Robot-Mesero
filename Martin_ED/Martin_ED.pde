@@ -11,6 +11,7 @@ boolean screenRobots = false;
 boolean menuCreado = false;
 ArrayList<Producto> productos = new ArrayList<Producto>();
 int k = 0;
+int scroll=0;
 //imagenes
 
 PImage startImage;
@@ -73,6 +74,8 @@ void draw() {
 }
 
 void mousePressed() {
+  scroll += 20;
+  scroll%=height*2;
   if(screenStart){
     if(button1.check()){
       screenStart = !screenStart;

@@ -69,13 +69,13 @@ void clientScreen() {
 
 void menuScreen() {
   background(0, 0, 0);
-  
-  
-  
-  if(!menuCreado){
+  crearMenu(menuCreado);
+}
+
+void crearMenu(boolean menu_creado){
+  if(!menu_creado){
   /////////////////////////////////////////////////////////////////////
   String[] lines = loadStrings("./menu/menu.txt"); //Cargamos el archivo
-  int cantidad_renglones = lines.length;
   String cantidad_categorias = split(lines[1]," ")[0]; //Obtenemos el primer elemento de la segunda linea (cantidad de categorias)
   int[] categorias = new int[Integer.valueOf(cantidad_categorias)]; //Creamos un arrray con la cantidad de categorias, cada elemento tiene la cantidad de productos de cada uno
   int renglon = 2; //Iniciamos el analisis en el renglon 2 (Primera categoria
@@ -116,11 +116,11 @@ void menuScreen() {
     categorias[i]=numeros_categoria;  //la almacenamos en el array
     renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
   }
-  /*// DEBUG imprimimos el arreglo
+  // DEBUG imprimimos el arreglo
   for(int i=0; i<categorias.length; i++){
     print("[" + categorias[i] + "]");
   } println();
-  */
+  
   ///////////////////////////////////////
   menuCreado = true;
   } else{
@@ -128,23 +128,16 @@ void menuScreen() {
       textSize(20);
       Producto ptr = new Producto(); 
       ptr= productos.get(k); 
+      ptr.displayProducto(50, height/2);
       println(ptr.nombre + "  " + k);
-      image(ptr.image,50,200);
-      text(ptr.categoria,800,200);
-      text(ptr.nombre,800,300);
-      text(ptr.descripcion,800,400);
-      text(ptr.costo,800,500);
-      delay(500);
+      delay(10);
       
       k++;
       k %= productos.size();
       pop();
   }
-
- 
-
-
 }
+
 
 void thirdScreen() {
   background(0, 0, 255);
