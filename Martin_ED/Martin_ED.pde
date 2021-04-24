@@ -10,6 +10,7 @@ boolean screenRobots = false;
 //menú
 boolean menuCreado = false;
 ArrayList<Producto> productos = new ArrayList<Producto>();
+LinkedList productos2 = new LinkedList<Node<Producto>>();
 int k = 0;
 int scroll=0;
 //imagenes

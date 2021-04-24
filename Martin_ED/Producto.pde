@@ -3,6 +3,7 @@ class Producto {
   String nombre;
   String descripcion;
   int costo;
+  int cantidad=0;
   PImage image;
   
   Producto(String categoria, String nombre, String descripcion, int costo, PImage image){
@@ -35,6 +36,9 @@ class Producto {
     text("$" + costo, xTextos, y + width/6);
     rectMode(CENTER);  
     rect(xTextos,y + (2*width)/7,width/11,width/11);
+    textAlign(CENTER,CENTER);
+    fill(0);
+    text(cantidad, xTextos ,y + (2*width)/7);
     
     pop();
     
