@@ -1,41 +1,67 @@
 //////////////////////////////////////////////////////////////////
 5 Categorias:(1)
-	2 Hotdogs(2)
-		Loli (3)
-			Una loli normal y corriente, nada especial, casi que vulgar(4)
-			200 image1.jpg
-		Loli (6)
-			Un bicho raro, fuma y dice groserias(7)
-			5000 image2.png
-	3 Hamburgesas (9)
-		Loli (10)
-			Una loli normal y corriente, nada especial, casi que vulgar(11)
-			200 image1.jpg
-		Loli (13)
-			Un bicho raro, fuma y dice groserias ._.(14)
-			5000 image2.png
-		Loli  (16)
-			Un bicho raro, fuma y dice groserias ._.(17)
-			5000 image2.png
-	1 Bebidas (19)
-		jugo aburrido(20)
-			Un bicho raro, fuma y dice groserias ._.(21)
-			5000 image2.png
-	1 Pizza (23)
-		jugo bueno (24)
-			loli ._.(25)
-			5000 image1.jpg
-	1 Acompañantes(27)
-		jugo malo (28)
-			Un bicho raro, fuma y dice groserias ._.(29)
-			5000 image2.png
-
-
-1
-Gato Fumeta
-200
-image2.png
-
-Loli kawaii
-100000
-image1.jpg
+	4 Hotdogs(2)
+		Hotdog Mostaza-Cebolla (3)
+			Hot dog con mostaza y cebolla, salchicha frita y pan blanco(4)
+			3200 hotdog1.jpg
+		Hotdog Chispas Clasico (6)
+			Clasico hotdog con papas fritas en forma de chipas y salchicha frita (7)
+			3800 hotdog2.png
+		Hotdog ensalado frio (6)
+			Hotdog con papas francesas, ensalada fria, salchicha cocida al vapor (7)
+			4500 hotdog3.png
+		Urban Hotdog clasico (6)
+			Hotdog clasico con queso, mostaza y salchicha frita (7)
+			4800 hotdog4.png
+	5 Hamburgesas (9)
+		Hamburguesa simple-lite (10)
+			Hamburguesa simple, sin queso, con tomate grande y carne de res(11)
+			2000 hamburguesa1.jpg
+		Hamburguesa con queso (13)
+			Hamburguesa simple con queso, con tomate grande y carne de res y salsas
+			2500 hamburguesa3.jpg
+		Hamburguesa Big-Res
+			Hamburguesa grande con queso, doble lechuga y carne de res y salsas
+			4000 hamburguesa2.jpg
+		Hamburguesa grande premium 
+			Hamburguesa con carne premium, carne grande cocinada en horno
+			4500 hamburguesa4.jpg
+		Megaburguer deluxe
+			Super hamburguesa tripe carne, con jalapeños
+			9000 hamburguesa6.jpg
+	4 Pizza  (19)
+		Pizza de queso clasica (20)
+			Pizza de queso, bordes pequeños y fuertemente horneados
+			3500 pizza1.png
+		Pizza tomatillo (20)
+			Pizza de tomate italiano, tomates en rodajas y queso
+			3500 pizza2.jpg
+		Pizza PepePizza (20)
+			Pizza con peperoni grande, queso y bordes rellenos de queso
+			3600 pizza3.jpg
+		Pizza jamón horneado(20)
+			Pizza orneada con cama gruesa de masa y excesos de queso
+			4000 pizza4.jpg
+	4 Bebidas (23)
+		Agua
+			Vaso de agua 330ml
+			5000 agua.jpg
+		Cerveza
+			El loquido de la vida
+			2000 cerveza.jpg
+		limonada
+			Limonada 500ml
+			2500 limonada.png
+		Vino
+			Copa de Vino 240ml
+			4000 vino.jpg
+	3 Acompañantes(27)
+		Aros de cebolla (28)
+			Aros de cebolla apanados
+			4800 cebolla.jpg
+		Papas francecas (28)
+			Porcion de papas francesas
+			5000 papas.jpg
+		Yuca frita
+			Porcion de yucas fritas
+			5200 yucas.png
