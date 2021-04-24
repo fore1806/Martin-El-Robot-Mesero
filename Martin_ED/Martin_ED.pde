@@ -3,6 +3,9 @@
 boolean screenStart = true;
 boolean screenAdmin = false;
 boolean screenClient = false;
+boolean screenPedidos = false;
+boolean screenMesas = false;
+boolean screenRobots = false;
 
 //imagenes
 
@@ -18,11 +21,15 @@ color color5 = #00326E; //Azul oscuro
 color color6 = #faf7fa; //Blanquito
 
 //Botones
+Button backButton;
 Button button1;
 Button button2;
 Button button3;
+Button button4;
 
 ButtonList arrayButton = new ButtonList();
+
+//Robot martin = new Robot(0,0,25);
 
 Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite añadir y borrar mas facil, creo yo
 
@@ -39,14 +46,25 @@ void draw() {
   fill(color5);
   rect(width/2, height/2, width-10,height-10);
   pop();
-  //buttons();
-  //buttonArray();
+  
   if (screenStart) {
+    //print("x: "+martin.pos[0]);
+    //print("y: "+martin.pos[1]);
+    //martin.setDirection(50,100);
+    //martin.goDirection();
+    //print("x: "+martin.pos[0]);
+    //print("y: "+martin.pos[1]);
     startScreen();
   }else if(screenAdmin){
     adminScreen();
   }else if(screenClient){
     clientScreen();
+  }else if(screenPedidos){
+    pedidosScreen();
+  }else if(screenMesas){
+    mesasScreen();
+  }else if(screenRobots){
+    robotsScreen();
   }
 }
 
@@ -60,6 +78,24 @@ void mousePressed() {
       screenStart = !screenStart;
       screenClient = !screenClient;
       arrayButton.makeEmpty();
+    }
+  }else if(screenAdmin){
+    if(button1.check()){
+      screenAdmin = !screenAdmin;
+      screenPedidos = !screenPedidos;
+      arrayButton = new ButtonList();
+    } else if(button2.check()){
+      screenAdmin = !screenAdmin;
+      screenMesas = !screenMesas;
+      arrayButton = new ButtonList();
+    } else if(button3.check()){
+      screenAdmin = !screenAdmin;
+      screenRobots = !screenRobots;
+      arrayButton = new ButtonList();
+    } else if(backButton.check()){
+      screenStart = !screenStart;
+      screenAdmin = !screenAdmin;
+      arrayButton = new ButtonList();
     }
   }
 }
