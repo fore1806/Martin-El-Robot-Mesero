@@ -1,0 +1,41 @@
+//////////////////////////////////////////////////////////////////
+5 Categorias:(1)
+	2 Hotdogs(2)
+		Loli (3)
+			Una loli normal y corriente, nada especial, casi que vulgar(4)
+			200 image1.jpg
+		Loli (6)
+			Un bicho raro, fuma y dice groserias(7)
+			5000 image2.png
+	3 Hamburgesas (9)
+		Loli (10)
+			Una loli normal y corriente, nada especial, casi que vulgar(11)
+			200 image1.jpg
+		Loli (13)
+			Un bicho raro, fuma y dice groserias ._.(14)
+			5000 image2.png
+		Loli  (16)
+			Un bicho raro, fuma y dice groserias ._.(17)
+			5000 image2.png
+	1 Bebidas (19)
+		jugo aburrido(20)
+			Un bicho raro, fuma y dice groserias ._.(21)
+			5000 image2.png
+	1 Pizza (23)
+		jugo bueno (24)
+			loli ._.(25)
+			5000 image1.jpg
+	1 Acompañantes(27)
+		jugo malo (28)
+			Un bicho raro, fuma y dice groserias ._.(29)
+			5000 image2.png
+
+
+1
+Gato Fumeta
+200
+image2.png
+
+Loli kawaii
+100000
+image1.jpg

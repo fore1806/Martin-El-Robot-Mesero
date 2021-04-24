@@ -36,7 +36,87 @@ void adminScreen() {
 }
 
 void clientScreen() {
-  background(0, 255, 0);
+  background(0, 0, 0);
+  menuScreen();
+}
+
+void menuScreen() {
+  background(0, 0, 0);
+  
+  
+  
+  if(!menuCreado){
+  /////////////////////////////////////////////////////////////////////
+  String[] lines = loadStrings("./menu/menu.txt"); //Cargamos el archivo
+  int cantidad_renglones = lines.length;
+  String cantidad_categorias = split(lines[1]," ")[0]; //Obtenemos el primer elemento de la segunda linea (cantidad de categorias)
+  int[] categorias = new int[Integer.valueOf(cantidad_categorias)]; //Creamos un arrray con la cantidad de categorias, cada elemento tiene la cantidad de productos de cada uno
+  int renglon = 2; //Iniciamos el analisis en el renglon 2 (Primera categoria
+  
+  for(int i=0; i<categorias.length; i++){
+    String categoria = lines[renglon];  //obtenemos el renglon
+    categoria = categoria.replace("\t",""); //quitamos la tabulacion
+    println(categoria.substring(2));
+    String nombre_categoria = categoria.substring(2); //Obtenemos el nombre de la categoria
+    int numeros_categoria = Integer.valueOf(split(categoria," ")[0]);  //obtenemos la cantidad de productos de esa categoria  
+    for(int j=0; j<numeros_categoria; j++){
+      renglon++;
+      String nombre_producto = lines[renglon];
+      nombre_producto = nombre_producto.replace("\t",""); //quitamos la tabulacion
+      println(nombre_producto);
+      renglon++;
+      String descripcion_producto = lines[renglon];
+      descripcion_producto = descripcion_producto.replace("\t",""); //quitamos la tabulacion
+      println(descripcion_producto);
+      renglon++;
+      String str_precio_producto = lines[renglon];
+      str_precio_producto = str_precio_producto.replace("\t","");  //quitamos la tabulacion   
+      str_precio_producto = split(str_precio_producto," ")[0]; 
+      int precio_producto = Integer.valueOf(str_precio_producto);
+      println(precio_producto);
+      String nimagen_producto = lines[renglon];
+      nimagen_producto = split(nimagen_producto," ")[1];    
+      println("./menu/" + nimagen_producto);
+      PImage imagen = loadImage("./menu/" + nimagen_producto);
+  //                       Producto(categoria,       nombre,       descripcion,             costo,         image){
+      Producto ptr = new Producto(nombre_categoria,nombre_producto,descripcion_producto, precio_producto, imagen );
+      productos.add((Producto)ptr);
+      //image(imagen,200,200);
+    }
+    
+    
+    
+    categorias[i]=numeros_categoria;  //la almacenamos en el array
+    renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
+  }
+  /*// DEBUG imprimimos el arreglo
+  for(int i=0; i<categorias.length; i++){
+    print("[" + categorias[i] + "]");
+  } println();
+  */
+  ///////////////////////////////////////
+  menuCreado = true;
+  } else{
+      push();
+      textSize(20);
+      Producto ptr = new Producto(); 
+      ptr= productos.get(k); 
+      println(ptr.nombre + "  " + k);
+      image(ptr.image,50,200);
+      text(ptr.categoria,800,200);
+      text(ptr.nombre,800,300);
+      text(ptr.descripcion,800,400);
+      text(ptr.costo,800,500);
+      delay(500);
+      
+      k++;
+      k %= productos.size();
+      pop();
+  }
+
+ 
+
+
 }
 
 void thirdScreen() {

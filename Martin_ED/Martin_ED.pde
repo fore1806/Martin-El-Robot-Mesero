@@ -4,6 +4,10 @@ boolean screenStart = true;
 boolean screenAdmin = false;
 boolean screenClient = false;
 
+//menú
+boolean menuCreado = false;
+ArrayList<Producto> productos = new ArrayList<Producto>();
+int k = 0;
 //imagenes
 
 PImage startImage;

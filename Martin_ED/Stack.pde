@@ -5,7 +5,7 @@ public class Stack<T> {
         this.head=null;
     }
 
-    public void push(Node newNode){
+    public void push(Node<T> newNode){
         newNode.setNext(head);
         head = newNode;
     }
