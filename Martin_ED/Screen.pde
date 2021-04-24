@@ -137,10 +137,13 @@ void crearMenu(boolean menu_creado) {
     push();
     textSize(20);
     Producto ptr = new Producto(); 
-    ptr= productos.get(k); 
-    ptr.displayProducto(50, height/2);
+    /*ptr = ()productos2.head.data;
+    for(int j=0; j<k; j++){
+    ptr= productos2.
+    }
+    ptr.displayProducto(50, height/2);*/
     //println(ptr.nombre + "  " + k);
-    delay(10);
+    delay(100);
 
     k++;
     k %= productos.size();
