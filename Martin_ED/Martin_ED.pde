@@ -14,6 +14,7 @@ boolean screenPago = false;
 boolean menuCreado = false;
 ArrayList<Producto> productos = new ArrayList<Producto>();
 LinkedList productos2 = new LinkedList<Node<Producto>>();
+LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
 int k = 0;
 int scroll=0;
 int[] producto_categorias;
@@ -151,8 +152,9 @@ void mousePressed() {
       arrayButton = new ButtonList();
     } else if (button8.check()||button9.check()){
       screenPago=!screenPago;
-    }else if(screenMenu){
-    screenMenuButtons();
     }
   }
+  else if(screenMenu){
+    screenMenuButtons();
+    }
 }
