@@ -15,8 +15,11 @@ class Producto {
     this.image = image;
     this.tiempo_preparacion = tiempo_preparacion;
   }
-  Producto( ){
-    
+  Producto(int tiempop){
+    this.tiempo_preparacion = tiempop;
+  }
+  
+  Producto(){
   }
   
   void displayProducto(int x, int y){

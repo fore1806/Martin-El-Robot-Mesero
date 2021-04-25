@@ -110,7 +110,6 @@ class LinkedList <T> {
             count++;
             current = current.next;
         }
-        assert (false);
         return null;
     }
 
