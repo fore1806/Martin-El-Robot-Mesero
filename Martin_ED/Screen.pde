@@ -116,11 +116,15 @@ void crearMenu(boolean menu_creado) {
         nimagen_producto = split(nimagen_producto, " ")[1];    
         //println("./menu/" + nimagen_producto);
         PImage imagen = loadImage("./menu/" + nimagen_producto);
-        //                       Producto(categoria,       nombre,       descripcion,             costo,         image){
-        Producto ptr = new Producto(nombre_categoria, nombre_producto, descripcion_producto, precio_producto, imagen );
+        renglon++;
+        String str_tiempo_preparacion = lines[renglon];
+        str_tiempo_preparacion = str_tiempo_preparacion.replace("\t", "");
+        int tiempo_preparacion = Integer.valueOf(str_tiempo_preparacion);
+        println(tiempo_preparacion);
+        //                       Producto(categoria,       nombre,       descripcion,             costo,         image   , tiempo preparacion){
+        Producto ptr = new Producto(nombre_categoria, nombre_producto, descripcion_producto, precio_producto, imagen, tiempo_preparacion );
         Node puntero_producto = new Node(ptr);
         productos2.insertEnd(puntero_producto);
-        productos.add((Producto)ptr);
       }
 
 
@@ -146,18 +150,17 @@ void crearMenu(boolean menu_creado) {
     menuCreado = true;
   } else {
     push();
-    textSize(20);
-    Producto ptr = new Producto(); 
-    /*ptr = ()productos2.head.data;
+    textSize(20); 
+    Node puntero_grafico = productos2.head;
     for(int j=0; j<k; j++){
-    ptr= productos2.
+      puntero_grafico = puntero_grafico.next;
     }
-    ptr.displayProducto(50, height/2);*/
+    ((Producto)puntero_grafico.data).displayProducto(50, height/2);
     //println(ptr.nombre + "  " + k);
     delay(100);
 
     k++;
-    k %= productos.size();
+    k %= productos2.elements;
     pop();
   }
 }

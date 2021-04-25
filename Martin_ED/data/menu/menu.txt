@@ -4,64 +4,84 @@
 		Hotdog Mostaza-Cebolla 
 			Hot dog con mostaza y cebolla, salchicha frita y pan blanco
 			3200 hotdog1.jpg
+			15
 		Hotdog Chispas Clasico 
 			Clasico hotdog con papas fritas en forma de chipas y salchicha frita 
 			3800 hotdog2.png
+			3
 		Hotdog ensalado frio 
 			Hotdog con papas francesas, ensalada fria, salchicha cocida al vapor 
 			4500 hotdog3.png
+			4
 		Urban Hotdog clasico 
 			Hotdog clasico con queso, mostaza y salchicha frita 
 			4800 hotdog4.png
+			5
 	5 Hamburgesas 
 		Hamburguesa simple-lite 
 			Hamburguesa simple, sin queso, con tomate grande y carne de res
 			2000 hamburguesa1.jpg
+			6
 		Hamburguesa con queso 
 			Hamburguesa simple con queso, con tomate grande y carne de res y salsas
 			2500 hamburguesa3.jpg
+			7
 		Hamburguesa Big-Res
 			Hamburguesa grande con queso, doble lechuga y carne de res y salsas
 			4000 hamburguesa2.jpg
+			8
 		Hamburguesa grande premium 
 			Hamburguesa con carne premium, carne grande cocinada en horno
 			4500 hamburguesa4.jpg
+			9
 		Megaburguer deluxe
 			Super hamburguesa tripe carne, con jalapeños
 			9000 hamburguesa6.jpg
+			10
 	4 Pizza  
 		Pizza de queso clasica 
 			Pizza de queso, bordes pequeños y fuertemente horneados
 			3500 pizza1.png
+			11
 		Pizza tomatillo 
 			Pizza de tomate italiano, tomates en rodajas y queso
 			3500 pizza2.jpg
+			12
 		Pizza PepePizza 
 			Pizza con peperoni grande, queso y bordes rellenos de queso
 			3600 pizza3.jpg
+			13
 		Pizza jamón horneado
 			Pizza orneada con cama gruesa de masa y excesos de queso
 			4000 pizza4.jpg
+			14
 	4 Bebidas 
 		Agua
 			Vaso de agua 330ml
 			5000 agua.jpg
+			15
 		Cerveza
 			El loquido de la vida
 			2000 cerveza.jpg
+			16
 		limonada
 			Limonada 500ml
 			2500 limonada.png
+			17
 		Vino
 			Copa de Vino 240ml
 			4000 vino.jpg
+			18
 	3 Acompañantes
 		Aros de cebolla 
 			Aros de cebolla apanados
 			4800 cebolla.jpg
+			19
 		Papas francecas 
 			Porcion de papas francesas
 			5000 papas.jpg
+			20
 		Yuca frita
 			Porcion de yucas fritas
 			5200 yucas.png
+			21

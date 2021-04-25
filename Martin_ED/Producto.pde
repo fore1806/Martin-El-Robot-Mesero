@@ -4,15 +4,16 @@ class Producto {
   String descripcion;
   int costo;
   int cantidad=0;
+  int tiempo_preparacion;
   PImage image;
   
-  Producto(String categoria, String nombre, String descripcion, int costo, PImage image){
+  Producto(String categoria, String nombre, String descripcion, int costo, PImage image, int tiempo_preparacion){
     this.categoria = categoria;
     this.nombre = nombre;
     this.descripcion = descripcion;
     this.costo = costo;
     this.image = image;
-    
+    this.tiempo_preparacion = tiempo_preparacion;
   }
   Producto( ){
     
@@ -32,6 +33,7 @@ class Producto {
     text(nombre, xTextos, y);
     textSize(20);
     text(descripcion, xTextos, y + width/10);
+    text("Tiempo de preparacion: " + tiempo_preparacion, xTextos, y + width/8);
     textSize(50);
     text("$" + costo, xTextos, y + width/6);
     rectMode(CENTER);  
