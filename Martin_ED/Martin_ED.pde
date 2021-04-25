@@ -44,11 +44,15 @@ Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite
 
 int nRobots = 3;
 LinkedList robotsList = new LinkedList<Node<Robot>>();
+Queue robotsinactivos = new Queue<Node<Robot>>();
 
 //Tiempo
 
 int timer;  //Tiempo 
 int intervalo = 20; 
+
+int timer2;  //Tiempo 
+int intervalo2 = 20; 
 
 void setup() {
   size(1300, 650);
@@ -64,6 +68,7 @@ void draw() {
   rect(width/2, height/2, width-10,height-10);
   pop();
   tiempo();
+  //tiempo2();
   if (screenStart) {
     //print("x: "+martin.pos[0]);
     //print("y: "+martin.pos[1]);
