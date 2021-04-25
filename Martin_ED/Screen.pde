@@ -80,16 +80,30 @@ void clientScreen() {
 }
 
 void menuScreen() {
-  background(0, 0, 0);
-  crearMenu(menuCreado);
+  background(#00326E);
+  int[] producto_categorias = new int[1];
+  if(!menuCreado){
+  producto_categorias = crearMenu(menuCreado);
+  println(producto_categorias);
+  }
+  
+  if(arrayButton.isEmpty()){
+    for(int i=0; i < producto_categorias.length; i++){
+    Button buttondinamic = new Button ("botón de prueba", 450+ random(-400,200), 450+ random(0,200));
+    arrayButton.insert(buttondinamic);
+    }
+  }
+  
+  showCheckButton(arrayButton);
 }
 
-void crearMenu(boolean menu_creado) {
+int[] crearMenu(boolean menu_creado) {
+  int [] categorias = new int[1];
   if (!menu_creado) {
     /////////////////////////////////////////////////////////////////////
     String[] lines = loadStrings("./menu/menu.txt"); //Cargamos el archivo
     String cantidad_categorias = split(lines[1], " ")[0]; //Obtenemos el primer elemento de la segunda linea (cantidad de categorias)
-    int[] categorias = new int[Integer.valueOf(cantidad_categorias)]; //Creamos un arrray con la cantidad de categorias, cada elemento tiene la cantidad de productos de cada uno
+    categorias = new int[Integer.valueOf(cantidad_categorias)]; //Creamos un arrray con la cantidad de categorias, cada elemento tiene la cantidad de productos de cada uno
     int renglon = 2; //Iniciamos el analisis en el renglon 2 (Primera categoria
 
     for (int i=0; i<categorias.length; i++) {
@@ -127,24 +141,20 @@ void crearMenu(boolean menu_creado) {
         Node puntero_producto = new Node(ptr);
         productos2.insertEnd(puntero_producto);
       }
-
-
-
       categorias[i]=numeros_categoria;  //la almacenamos en el array
       renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
     }
-    // DEBUG imprimimos el arreglo
-    for (int i=0; i<categorias.length; i++) {
-     // print("[" + categorias[i] + "]");
-    } 
-    println();
+   // DEBUG imprimimos el arreglo
+   // for (int i=0; i<categorias.length; i++) {
+    //  print("[" + categorias[i] + "]");
+    //} 
+    //println();
 
     Node puntero_impresion = productos2.head;
     
     while(puntero_impresion!= null){
-    println(((Producto)(puntero_impresion.data)).nombre); 
-//println(puntero_impresion.getNext());
-     puntero_impresion = puntero_impresion.getNext();
+      println(((Producto)(puntero_impresion.data)).nombre); 
+      puntero_impresion = puntero_impresion.getNext();
     }
 
     ///////////////////////////////////////
@@ -164,6 +174,8 @@ void crearMenu(boolean menu_creado) {
     k %= productos2.elements;
     pop();
   }
+
+  return categorias;
 }
 
 
