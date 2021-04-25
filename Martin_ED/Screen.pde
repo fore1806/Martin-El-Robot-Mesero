@@ -147,13 +147,29 @@ void menuScreen() {
     background(color5);
     Node put = new Node();
     put = (productos_a_mostrar.head);
-    ((Producto)(put.data)).displayProducto(100,100);
+    //((Producto)(put.data)).displayProducto(100,100);
+    //Mostramos productos:
+    //println(productos_a_mostrar.elements);
+    for(int i=0; i<productos_a_mostrar.elements; i++){
+      ((Producto)(put.data)).displayProducto(50,350+(550*i) + (int)scroll*20);
+      put = put.next;
+    }
+    if(scroll>0){
+     scroll = 0; 
+    }
+    if(scroll<-(22*productos_a_mostrar.elements)){
+      scroll = -22*productos_a_mostrar.elements;
+    }
+    
+    //scroll %= (25*(productos_a_mostrar.elements));
+    //scroll = -abs(scroll);
+    println(scroll);
     
     //((Producto)(productos_a_mostrar.head)).displayProducto(500,500);
     if(backButton.check() && mousePressed){
     productos_a_mostrar = new LinkedList();
     }
-    backButton = new Button("Back",/*(width/2)-520*/ 1000, height-80);
+    backButton = new Button("Back",/*(width/2)-520*/ 1180, height-80);
   }
   
   
@@ -246,14 +262,13 @@ int[] crearMenu(boolean menu_creado) {
 }
 
 void screenMenuButtons(){
-    println("Menú: " + screenMenu);
   if(productos_a_mostrar.isEmpty()){
+    scroll=0;
   int botones_categorias = arrayButton.posF;
   for(int i=0; i<botones_categorias; i++){
     if(arrayButton.array[i].check()){
     productos_a_mostrar = new LinkedList();
     print(arrayButton.array[i].bText);
-   // delay(1000);
     Node puntero = productos2.head;
     int elementos_anteriores = 0;
     for(int k=0; k<i; k++){

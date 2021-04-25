@@ -16,7 +16,7 @@ ArrayList<Producto> productos = new ArrayList<Producto>();
 LinkedList productos2 = new LinkedList<Node<Producto>>();
 LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
 int k = 0;
-int scroll=0;
+float scroll=0;
 int[] producto_categorias;
 //imagenes
 
@@ -99,8 +99,6 @@ void draw() {
 }
 
 void mousePressed() {
-  scroll += 20;
-  scroll%=height*2;
   if(screenStart){
     if(button1.check()){
       screenStart = !screenStart;
@@ -157,4 +155,11 @@ void mousePressed() {
   else if(screenMenu){
     screenMenuButtons();
     }
+}
+
+void mouseWheel(MouseEvent event) {
+  if(screenMenu){
+    scroll += event.getCount();   
+  }
+   
 }
