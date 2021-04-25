@@ -87,7 +87,7 @@ void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
   background(#00326E);
-  producto_categorias = new int[1];
+  //producto_categorias = new int[1];
   if(!menuCreado){
   producto_categorias = crearMenu(menuCreado);
   println(producto_categorias);
@@ -192,21 +192,25 @@ int[] crearMenu(boolean menu_creado) {
 void screenClienteButtons(){
   int botones_categorias = arrayButton.posF;
   for(int i=0; i<botones_categorias; i++){
-    
     if(arrayButton.array[i].check()){
-    print(arrayButton.array[i].bText);
+    //print(arrayButton.array[i].bText);
     Node puntero = productos2.head;
-      for(int j=0; j<(i-1);j++){ //Llego al primer producto de la categoria
-      puntero = puntero.next;
-       print(((Producto)(puntero.data)).nombre);
-      }
+    int elementos_anteriores = 0;
+    for(int k=0; k<i; k++){
+      elementos_anteriores += producto_categorias[k];
+    }
+    println(elementos_anteriores);
+     for(int j=0; j<(elementos_anteriores);j++){ //Llego al primer producto de la categoria
+       println(((Producto)(puntero.data)).nombre);
+       puntero = puntero.next;
+     }
       
-      
+     // println(i + " " + producto_categorias[i] );
     
     }
     
   }
-  delay(1000);
+
 }
 
 
