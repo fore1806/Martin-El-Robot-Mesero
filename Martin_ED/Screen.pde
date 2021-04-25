@@ -31,10 +31,14 @@ void startScreen() {
   text("Martin El Robot Mesero", width/2, 100);
   if(robotsList.isEmpty()){
   for(int i = 0; i<nRobots; i++){
-    robotsList.insertEnd(new Node(new Robot(0,0,(20 + (int) (Math.random()*101)))));
+    robotsList.insertEnd(new Node(new Robot(0,0,(20 + (int) (Math.random()*81)))));
   }
   }
   ((Robot)(robotsList.head.data)).setDirection(250,300);
+  
+  //println("bateria: " + ((Robot)(robotsList.head.data)).battery);
+  //println("pos y: " + ((Robot)(robotsList.head.data)).dir[1]);
+  //((Robot)(robotsList.head.next.next.data)).setDirection(420,280);
   //Node pointer = robotsList.head;
     
   //  while(pointer!= null){

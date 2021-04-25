@@ -41,7 +41,7 @@ Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite
 
 //Robots
 
-int nRobots = 1;
+int nRobots = 3;
 LinkedList robotsList = new LinkedList<Node<Robot>>();
 
 //Tiempo
