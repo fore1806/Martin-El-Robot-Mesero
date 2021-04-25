@@ -98,6 +98,21 @@ class LinkedList <T> {
     }
     return found;
   }
+  
+  Node getNth(int index)
+    {
+        Node current = head;
+        int count = 0; 
+        while (current != null)
+        {
+            if (count == index)
+                return current;
+            count++;
+            current = current.next;
+        }
+        assert (false);
+        return null;
+    }
 
   boolean isEmpty() {
     return elements==0;

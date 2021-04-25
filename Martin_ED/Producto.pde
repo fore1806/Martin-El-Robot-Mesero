@@ -46,5 +46,8 @@ class Producto {
     
   }
   
+  int getTiempoDePreparacion(){
+    return this.tiempo_preparacion;
+  }
   
 }
