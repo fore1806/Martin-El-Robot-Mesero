@@ -3,7 +3,7 @@ public class Robot {
   int battery;
   int [] pos = new int [2]; //x,y
   int [] dir = new int [2]; //x,y
-  int disMesas = 25; //Cambiar esta a lo que se decida
+  int disMesas = 1; //Cambiar esta a lo que se decida
   boolean empty = true;
   boolean arrived = false;
   boolean charging = false;
@@ -33,12 +33,12 @@ public class Robot {
   }
 
   void goDirection() {
-    while (!hasArrived()) {
-      move(0);
-      move(1);
-      //println("x: "+pos[0]);
-      //println("y: "+pos[1]);
-      //println(arrived);
+    if (!hasArrived()) {
+      if (pos[0]!=dir[0]) {
+        move(0);
+      } else if (pos[1]!=dir[1]) {
+        move(1);
+      }
     }
   }
 
@@ -49,8 +49,8 @@ public class Robot {
   boolean hasArrived() {
     return arrived;
   }
-  
-  boolean isCharging(){
+
+  boolean isCharging() {
     return charging;
   }
 
@@ -59,18 +59,18 @@ public class Robot {
       this.battery+=1;
     }
   }
-  
-  void discharge(){
+
+  void discharge() {
     if (battery>0 && !charging) {
       this.battery-=1;
     }
   }
-  
-  void connect(){
+
+  void connect() {
     charging = true;
   }
-  
-  void disconnect(){
+
+  void disconnect() {
     charging = false;
   }
 }

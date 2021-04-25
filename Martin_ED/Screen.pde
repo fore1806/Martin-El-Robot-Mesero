@@ -34,6 +34,7 @@ void startScreen() {
     robotsList.insertEnd(new Node(new Robot(0,0,(20 + (int) (Math.random()*101)))));
   }
   }
+  ((Robot)(robotsList.head.data)).setDirection(250,300);
   //Node pointer = robotsList.head;
     
   //  while(pointer!= null){

@@ -40,8 +40,14 @@ ButtonList arrayButton = new ButtonList();
 Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite añadir y borrar mas facil, creo yo
 
 //Robots
-int nRobots = 3;
+
+int nRobots = 1;
 LinkedList robotsList = new LinkedList<Node<Robot>>();
+
+//Tiempo
+
+int timer;  //Tiempo 
+int intervalo = 20; 
 
 void setup() {
   size(1300, 650);
@@ -56,7 +62,7 @@ void draw() {
   fill(color5);
   rect(width/2, height/2, width-10,height-10);
   pop();
-  
+  tiempo();
   if (screenStart) {
     //print("x: "+martin.pos[0]);
     //print("y: "+martin.pos[1]);
