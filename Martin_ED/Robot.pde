@@ -55,7 +55,7 @@ public class Robot {
     return empty;
   }
 
-  boolean isMoving(){
+  boolean isMoving() {
     return !(pos[0]==dir[0] && pos[1]==dir[1]);
   }
 

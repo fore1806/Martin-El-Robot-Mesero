@@ -36,7 +36,7 @@ void startScreen() {
   }
   ((Robot)(robotsList.head.data)).setDirection(250,300);
   
-  println("bateria: " + ((Robot)(robotsList.head.data)).battery);
+  //println("bateria: " + ((Robot)(robotsList.head.data)).battery);
   //println("pos y: " + ((Robot)(robotsList.head.data)).dir[1]);
   //((Robot)(robotsList.head.next.next.data)).setDirection(420,280);
   //Node pointer = robotsList.head;
