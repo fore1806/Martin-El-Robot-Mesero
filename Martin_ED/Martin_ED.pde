@@ -144,7 +144,7 @@ void mousePressed() {
       screenPago = !screenPago;
       arrayButton = new ButtonList();
     } else if(backButton.check()){
-      screenAdmin = !screenAdmin;
+      screenStart = !screenStart;
       screenClient = !screenClient;
       arrayButton = new ButtonList();
     }
@@ -155,6 +155,7 @@ void mousePressed() {
       arrayButton = new ButtonList();
     } else if (button8.check()||button9.check()){
       screenPago=!screenPago;
+      pedidoRealizado=false;
     }
   }
   else if(screenMenu){

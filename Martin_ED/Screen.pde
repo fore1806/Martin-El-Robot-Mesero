@@ -49,10 +49,10 @@ void startScreen() {
 
 void adminScreen() {
   if (arrayButton.isEmpty()) {
-    button1 = new Button("PEDIDOS", (width/2)-180, (height/2)-220, 320, 100 );
-    button2 = new Button("MESAS", (width/2)-180, (height/2)-40, 320, 100 );
-    button3 = new Button("ROBOTS", (width/2)-180, (height/2)+140, 320, 100 );
-    backButton = new Button ("BACK", (width/2)-520, height-80);
+    button1 = new Button("Pedidos", (width/2)-180, (height/2)-220, 320, 100 );
+    button2 = new Button("Mesas", (width/2)-180, (height/2)-40, 320, 100 );
+    button3 = new Button("Robots", (width/2)-180, (height/2)+140, 320, 100 );
+    backButton = new Button ("Back", (width/2)-520, height-80);
     arrayButton.insert(button1);
     arrayButton.insert(button2);
     arrayButton.insert(button3);
@@ -84,7 +84,7 @@ void clientScreen() {
     button5 = new Button ("Menu", 450, (height/2)-200);
     button6 = new Button ("Realizar Pedido", 450, (height/2));
     button7 = new Button ("Pagar", 450, (height/2)+200);
-    backButton = new Button ("BACK", (width/2)-520, height-80);
+    backButton = new Button ("Back", (width/2)-520, height-80);
     arrayButton.insert(button5);
     arrayButton.insert(button6);
     arrayButton.insert(button7);
@@ -99,9 +99,9 @@ void pagoScreen() {
   fill(color2);
   text("VALOR A PAGAR:", (width/2)-180, height/3);
   if (arrayButton.isEmpty()) {
-    button8 = new Button("PAGO EN EFECTIVO", (width/2)-180, height/2, 320, 100 );
-    button9 = new Button("PAGO CON TARJETA", (width/2)-180, (height/2)+150, 320, 100 );
-    backButton = new Button ("BACK", (width/2)-520, height-80);
+    button8 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
+    button9 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
+    backButton = new Button ("Back", (width/2)-520, height-80);
     arrayButton.insert(button8);
     arrayButton.insert(button9);
     arrayButton.insert(backButton);
@@ -137,8 +137,8 @@ void menuScreen() {
       }
     }
     if(backButton.check() && mousePressed){
-    screenStart = !screenStart;
     screenClient = !screenClient;
+    screenMenu = !screenMenu;
     arrayButton = new ButtonList();
     }
   }
