@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////
-5 Categorias:
+6 Categorias:
 	4 Hotdogs
 		Hotdog Mostaza-Cebolla 
 			Hot dog con mostaza y cebolla, salchicha frita y pan blanco
@@ -81,6 +81,11 @@
 			Porcion de papas francesas
 			5000 papas.jpg
 			20
+		Yuca frita
+			Porcion de yucas fritas
+			5200 yucas.png
+			21
+	1 Postres
 		Yuca frita
 			Porcion de yucas fritas
 			5200 yucas.png

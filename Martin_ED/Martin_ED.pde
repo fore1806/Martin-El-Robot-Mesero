@@ -13,6 +13,7 @@ ArrayList<Producto> productos = new ArrayList<Producto>();
 LinkedList productos2 = new LinkedList<Node<Producto>>();
 int k = 0;
 int scroll=0;
+int[] producto_categorias;
 //imagenes
 
 PImage startImage;
@@ -115,5 +116,8 @@ void mousePressed() {
       screenAdmin = !screenAdmin;
       arrayButton = new ButtonList();
     }
+  } else if(screenClient){
+    screenClienteButtons();
+    
   }
 }
