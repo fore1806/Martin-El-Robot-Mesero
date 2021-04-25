@@ -80,17 +80,24 @@ void clientScreen() {
 }
 
 void menuScreen() {
+  int buttonX = width/3;
+  int buttonY = height/4;
   background(#00326E);
-  int[] producto_categorias = new int[1];
+  producto_categorias = new int[1];
   if(!menuCreado){
   producto_categorias = crearMenu(menuCreado);
   println(producto_categorias);
   }
   
   if(arrayButton.isEmpty()){
+    Node puntero_categoria = productos2.head;
     for(int i=0; i < producto_categorias.length; i++){
-    Button buttondinamic = new Button ("botón de prueba", 450+ random(-400,200), 450+ random(0,200));
-    arrayButton.insert(buttondinamic);
+      //println(((Producto)(puntero_categoria.data)).nombre);
+      Button buttondinamic = new Button (((Producto)(puntero_categoria.data)).categoria, buttonX*((i%2) + 1) , buttonY* ((i%3) + 0.7),width/4 ,height/6);
+      arrayButton.insert(buttondinamic);
+      for(int j = 0; j<producto_categorias[i]; j++){
+        puntero_categoria = puntero_categoria.next;
+      }
     }
   }
   
@@ -177,6 +184,28 @@ int[] crearMenu(boolean menu_creado) {
 
   return categorias;
 }
+
+void screenClienteButtons(){
+  int botones_categorias = arrayButton.posF;
+  for(int i=0; i<botones_categorias; i++){
+    
+    if(arrayButton.array[i].check()){
+    print(arrayButton.array[i].bText);
+    Node puntero = productos2.head;
+      for(int j=0; j<(i-1);j++){ //Llego al primer producto de la categoria
+      puntero = puntero.next;
+       print(((Producto)(puntero.data)).nombre);
+      }
+      
+      
+    
+    }
+    
+  }
+  delay(1000);
+}
+
+
 
 
 void thirdScreen() {
