@@ -79,8 +79,34 @@ void robotsScreen() {
 }
 
 void clientScreen() {
-  background(0, 0, 0);
-  menuScreen();
+   background(0, 0, 0);
+  if (arrayButton.isEmpty()) {
+    button5 = new Button ("Menu", 450, (height/2)-200);
+    button6 = new Button ("Realizar Pedido", 450, (height/2));
+    button7 = new Button ("Pagar", 450, (height/2)+200);
+    backButton = new Button ("BACK", (width/2)-520, height-80);
+    arrayButton.insert(button5);
+    arrayButton.insert(button6);
+    arrayButton.insert(button7);
+    arrayButton.insert(backButton);
+  }
+  showCheckButton(arrayButton);
+}
+
+void pagoScreen() {
+  background(245, 200, 66);
+  textSize(40);
+  fill(color2);
+  text("VALOR A PAGAR:", (width/2)-180, height/3);
+  if (arrayButton.isEmpty()) {
+    button8 = new Button("PAGO EN EFECTIVO", (width/2)-180, height/2, 320, 100 );
+    button9 = new Button("PAGO CON TARJETA", (width/2)-180, (height/2)+150, 320, 100 );
+    backButton = new Button ("BACK", (width/2)-520, height-80);
+    arrayButton.insert(button8);
+    arrayButton.insert(button9);
+    arrayButton.insert(backButton);
+  }
+  showCheckButton(arrayButton);
 }
 
 void menuScreen() {
@@ -189,7 +215,7 @@ int[] crearMenu(boolean menu_creado) {
   return categorias;
 }
 
-void screenClienteButtons(){
+void screenMenuButtons(){
   int botones_categorias = arrayButton.posF;
   for(int i=0; i<botones_categorias; i++){
     if(arrayButton.array[i].check()){
