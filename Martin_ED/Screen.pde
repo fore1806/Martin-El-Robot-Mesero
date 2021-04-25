@@ -29,6 +29,17 @@ void startScreen() {
   textSize(80);
   fill(color6);
   text("Martin El Robot Mesero", width/2, 100);
+  if(robotsList.isEmpty()){
+  for(int i = 0; i<nRobots; i++){
+    robotsList.insertEnd(new Node(new Robot(0,0,(20 + (int) (Math.random()*101)))));
+  }
+  }
+  //Node pointer = robotsList.head;
+    
+  //  while(pointer!= null){
+  //  println(((Robot)(pointer.data)).battery); 
+  //   pointer = pointer.getNext();
+  //  }
 }
 
 void adminScreen() {
