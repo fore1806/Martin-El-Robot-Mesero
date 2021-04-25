@@ -19,11 +19,9 @@ class Pedido{
      this.horaALaQueSePide = millis();
    }
    
+      
    boolean estaListo(){
-     if (millis()-this.horaALaQueSePide>=this.tiempoDePreparacion){
-       int[] c = this.mesaDestino.getCoordenadas();
-       this.robotAsignado.setDirection(c[0],c[1]);
-       
+     if (millis()-this.horaALaQueSePide>=this.tiempoDePreparacion){         
        return true;
      }
      return false;
@@ -35,6 +33,12 @@ class Pedido{
    
    void setRobotAsignado(Robot r){
      this.robotAsignado = r;
+   }
+   
+   void llevarComida(Robot robotelegido){
+     this.robotAsignado=robotelegido;
+     int[] c = this.mesaDestino.getCoordenadas();       
+     this.robotAsignado.setDirection(c[0],c[1]);
    }
    
 }
