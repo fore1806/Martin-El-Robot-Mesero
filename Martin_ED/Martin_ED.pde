@@ -39,6 +39,10 @@ ButtonList arrayButton = new ButtonList();
 
 Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite añadir y borrar mas facil, creo yo
 
+//Robots
+int nRobots = 3;
+LinkedList robotsList = new LinkedList<Node<Robot>>();
+
 void setup() {
   size(1300, 650);
   startImage = loadImage("robot.png");
