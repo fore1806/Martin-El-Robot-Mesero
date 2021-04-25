@@ -6,11 +6,15 @@ boolean screenClient = false;
 boolean screenPedidos = false;
 boolean screenMesas = false;
 boolean screenRobots = false;
+boolean screenMenu = false;
+boolean pedidoRealizado = false;
+boolean screenPago = false;
 
 //menú
 boolean menuCreado = false;
 ArrayList<Producto> productos = new ArrayList<Producto>();
 LinkedList productos2 = new LinkedList<Node<Producto>>();
+LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
 int k = 0;
 int scroll=0;
 int[] producto_categorias;
@@ -33,6 +37,11 @@ Button button1;
 Button button2;
 Button button3;
 Button button4;
+Button button5;
+Button button6;
+Button button7;
+Button button8;
+Button button9;
 
 ButtonList arrayButton = new ButtonList();
 
@@ -87,6 +96,10 @@ void draw() {
     mesasScreen();
   }else if(screenRobots){
     robotsScreen();
+  }else if (screenMenu){
+    menuScreen();
+  }else if (screenPago){
+    pagoScreen();
   }
 }
 
@@ -121,8 +134,32 @@ void mousePressed() {
       screenAdmin = !screenAdmin;
       arrayButton = new ButtonList();
     }
-  } else if(screenClient){
-    screenClienteButtons();
-    
+  } else if (screenClient) {
+     if (button5.check()) {
+      screenClient = !screenClient;
+      screenMenu = !screenMenu;
+      arrayButton = new ButtonList();
+     } else if(button6.check()){
+      pedidoRealizado=true;
+    } else if(button7.check()){
+      screenClient = !screenClient;
+      screenPago = !screenPago;
+      arrayButton = new ButtonList();
+    } else if(backButton.check()){
+      screenAdmin = !screenAdmin;
+      screenClient = !screenClient;
+      arrayButton = new ButtonList();
+    }
+  } else if (screenPago) {
+    if(backButton.check()){
+      screenPago = !screenPago;
+      screenClient = !screenClient;
+      arrayButton = new ButtonList();
+    } else if (button8.check()||button9.check()){
+      screenPago=!screenPago;
+    }
   }
+  else if(screenMenu){
+    screenMenuButtons();
+    }
 }

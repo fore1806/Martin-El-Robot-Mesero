@@ -79,21 +79,53 @@ void robotsScreen() {
 }
 
 void clientScreen() {
-  background(0, 0, 0);
-  menuScreen();
+   background(0, 0, 0);
+  if (arrayButton.isEmpty()) {
+    button5 = new Button ("Menu", 450, (height/2)-200);
+    button6 = new Button ("Realizar Pedido", 450, (height/2));
+    button7 = new Button ("Pagar", 450, (height/2)+200);
+    backButton = new Button ("BACK", (width/2)-520, height-80);
+    arrayButton.insert(button5);
+    arrayButton.insert(button6);
+    arrayButton.insert(button7);
+    arrayButton.insert(backButton);
+  }
+  showCheckButton(arrayButton);
+}
+
+void pagoScreen() {
+  background(245, 200, 66);
+  textSize(40);
+  fill(color2);
+  text("VALOR A PAGAR:", (width/2)-180, height/3);
+  if (arrayButton.isEmpty()) {
+    button8 = new Button("PAGO EN EFECTIVO", (width/2)-180, height/2, 320, 100 );
+    button9 = new Button("PAGO CON TARJETA", (width/2)-180, (height/2)+150, 320, 100 );
+    backButton = new Button ("BACK", (width/2)-520, height-80);
+    arrayButton.insert(button8);
+    arrayButton.insert(button9);
+    arrayButton.insert(backButton);
+  }
+  showCheckButton(arrayButton);
 }
 
 void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
-  background(#00326E);
+  //background(#00326E);
   //producto_categorias = new int[1];
   if(!menuCreado){
   producto_categorias = crearMenu(menuCreado);
   println(producto_categorias);
   }
   
-  if(arrayButton.isEmpty()){
+  println(productos_a_mostrar.isEmpty());
+  
+  if(productos_a_mostrar.isEmpty()){
+    backButton = new Button("Back",(width/2)-520, height-80);
+    background(color5);
+    showCheckButton(arrayButton);
+    if(arrayButton.isEmpty()){
     Node puntero_categoria = productos2.head;
     for(int i=0; i < producto_categorias.length; i++){
       //println(((Producto)(puntero_categoria.data)).nombre);
@@ -101,11 +133,36 @@ void menuScreen() {
       arrayButton.insert(buttondinamic);
       for(int j = 0; j<producto_categorias[i]; j++){
         puntero_categoria = puntero_categoria.next;
+        }
       }
     }
+    if(backButton.check() && mousePressed){
+    screenStart = !screenStart;
+    screenClient = !screenClient;
+    arrayButton = new ButtonList();
+    }
+  }
+  else{
+    //backButton = new Button("Back",(width/2), height-80);
+    background(color5);
+    Node put = new Node();
+    put = (productos_a_mostrar.head);
+    ((Producto)(put.data)).displayProducto(100,100);
+    
+    //((Producto)(productos_a_mostrar.head)).displayProducto(500,500);
+    if(backButton.check() && mousePressed){
+    productos_a_mostrar = new LinkedList();
+    }
+    backButton = new Button("Back",/*(width/2)-520*/ 1000, height-80);
   }
   
-  showCheckButton(arrayButton);
+  
+  backButton.seleccionador();
+  backButton.display();
+  
+  //
+  
+  
 }
 
 int[] crearMenu(boolean menu_creado) {
@@ -179,7 +236,6 @@ int[] crearMenu(boolean menu_creado) {
     }
     ((Producto)puntero_grafico.data).displayProducto(50, height/2);
     //println(ptr.nombre + "  " + k);
-    delay(100);
 
     k++;
     k %= productos2.elements;
@@ -189,11 +245,15 @@ int[] crearMenu(boolean menu_creado) {
   return categorias;
 }
 
-void screenClienteButtons(){
+void screenMenuButtons(){
+    println("Menú: " + screenMenu);
+  if(productos_a_mostrar.isEmpty()){
   int botones_categorias = arrayButton.posF;
   for(int i=0; i<botones_categorias; i++){
     if(arrayButton.array[i].check()){
-    //print(arrayButton.array[i].bText);
+    productos_a_mostrar = new LinkedList();
+    print(arrayButton.array[i].bText);
+   // delay(1000);
     Node puntero = productos2.head;
     int elementos_anteriores = 0;
     for(int k=0; k<i; k++){
@@ -201,7 +261,15 @@ void screenClienteButtons(){
     }
     println(elementos_anteriores);
      for(int j=0; j<(elementos_anteriores);j++){ //Llego al primer producto de la categoria
+       //println(((Producto)(puntero.data)).nombre);
+       puntero = puntero.next;
+     }
+     
+     //Aqui obtenemos los que queremos
+     for(int l= elementos_anteriores; l<(elementos_anteriores+producto_categorias[i]); l++){
        println(((Producto)(puntero.data)).nombre);
+       //((Producto)(puntero.data)).displayProducto(500,500);
+       productos_a_mostrar.insertEnd(puntero);
        puntero = puntero.next;
      }
       
@@ -210,7 +278,7 @@ void screenClienteButtons(){
     }
     
   }
-
+  }
 }
 
 
