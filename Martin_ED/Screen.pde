@@ -119,6 +119,7 @@ void menuScreen() {
   }
 
   if (productos_a_mostrar.isEmpty()) { //Si no hay productos a mostrar mostramos el menu categorias
+    duplicarPedidos();
     backButton = new Button("Back", (width/2)-520, height-80);
     background(color5);
     showCheckButton(arrayButton);
@@ -136,6 +137,7 @@ void menuScreen() {
     if (backButton.check() && mousePressed) {
       ordenados = 0;
       reiniciarProductos();
+      pedidoEnTramite = new LinkedList<Node<Producto>>();
       screenClient = !screenClient;
       screenMenu = !screenMenu;
       arrayButton = new ButtonList();
@@ -260,8 +262,6 @@ void screenMenuButtons() {  //Detectamos que botone de cateogira fue presionado
 }
 
 
-
-
 void thirdScreen() {
   background(0, 0, 255);
 }
@@ -274,4 +274,22 @@ void reiniciarProductos(){
     ((Producto)(ptr.data)).cantidad=0;
     ptr = ptr.next;
   }
+}
+
+void duplicarPedidos(){
+  Node ptr = productos2.head;
+  while(ptr!=null){
+    if(((Producto)(ptr.data)).cantidad!=0){
+      Producto puntero = new Producto();
+      puntero = ((Producto)(ptr.data)).clone();
+      Node nodo = new Node(puntero);
+      pedidoEnTramite.insertEnd(nodo);
+    }
+    ptr = ptr.next;
+  }
+ /* ptr = pedidoEnTramite.head;
+  while(ptr!=null){
+    print (((Producto)(ptr.data)).nombre   + "  " + ((Producto)(ptr.data)).cantidad);
+    ptr = ptr.next;
+  }*/
 }

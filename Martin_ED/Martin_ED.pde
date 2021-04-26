@@ -13,6 +13,7 @@ boolean screenPago = false;
 //menú
 boolean menuCreado = false;
 LinkedList productos2 = new LinkedList<Node<Producto>>();
+LinkedList pedidoEnTramite = new LinkedList<Node<Producto>>();
 LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
 
 int k = 0;
