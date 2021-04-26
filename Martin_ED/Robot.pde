@@ -8,7 +8,9 @@ public class Robot {
   int dischargeC = 0;
   boolean empty = true;
   boolean charging = false;
+  boolean estaenlamesa = false;
   int id;
+  
 
   Robot (int posX, int posY, int battery, int idR) { //El disMesas sera una constante que debe ser definida :v
     this.pos[0] = posX;

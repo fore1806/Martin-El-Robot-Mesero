@@ -1,9 +1,13 @@
 class Pedido{
    int tiempoDePreparacion = 0;
+   int tiempoDeSuministro = 10000;
    Mesa mesaDestino;
    int horaALaQueSePide;
+   int horaALaQueLlega;
    LinkedList<Node<Producto>> productos;
    Robot robotAsignado;
+   boolean enCamino;
+   
    
    Pedido(LinkedList<Node<Producto>> p,Mesa mesaDes){
      this.mesaDestino = mesaDes;
@@ -26,7 +30,8 @@ class Pedido{
      }
      return false;
    }
-  
+   
+
    void setProductos(LinkedList<Node<Producto>> p){
      this.productos = p;
    }
@@ -39,6 +44,7 @@ class Pedido{
      if (robotAsignado != null){
        int[] c = this.mesaDestino.getCoordenadas();       
        this.robotAsignado.setDirection(c[0],c[1]);
+       this.enCamino=true;
      }
    }
    
