@@ -12,14 +12,14 @@ boolean screenPago = false;
 
 //menú
 boolean menuCreado = false;
-//REVISARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR LA LINEA A CONTINUECION
-ArrayList<Producto> productos = new ArrayList<Producto>(); //Debe eliminarse, o NO? 
 LinkedList productos2 = new LinkedList<Node<Producto>>();
 LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
+
 int k = 0;
 float scroll=0;
 int[] producto_categorias;
 boolean realeased = false;
+int ordenados = 0; //Numero de ordenados
 //imagenes
 
 PImage startImage;

@@ -112,6 +112,7 @@ void pagoScreen() {
 void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
+  Button finalizarpedido = new Button("Realizar pedido", width/2, height-80,400,110);
   
   if (!menuCreado) { //Si no hay menú importado, crea el menú
     producto_categorias = crearMenu(menuCreado); //Almacenamos los productos por categorias
@@ -133,6 +134,8 @@ void menuScreen() {
       }
     }
     if (backButton.check() && mousePressed) {
+      ordenados = 0;
+      reiniciarProductos();
       screenClient = !screenClient;
       screenMenu = !screenMenu;
       arrayButton = new ButtonList();
@@ -157,17 +160,15 @@ void menuScreen() {
 
     //((Producto)(productos_a_mostrar.head)).displayProducto(500,500);
     if (backButton.check() && mousePressed) {
-      productos_a_mostrar = new LinkedList();
-     /*    Node puntero_impresion = productos2.head;
-
-    while (puntero_impresion!= null) {
-      println((((Producto)(puntero_impresion.data)).nombre)   + " Cantidad " + ((Producto)(puntero_impresion.data)).cantidad) ; 
-      puntero_impresion = puntero_impresion.getNext();
-    }*/
-      
-      
+      productos_a_mostrar = new LinkedList();     
     }
     backButton = new Button("Back", /*(width/2)-520*/ 1180, height-80);
+  }
+
+ if(ordenados>0 && productos_a_mostrar.isEmpty()){
+   finalizarpedido.seleccionador();
+   finalizarpedido.display();
+   //println("Hay pedido chicos, repito, hay foto" +  ordenados); 
   }
 
 
@@ -263,4 +264,14 @@ void screenMenuButtons() {  //Detectamos que botone de cateogira fue presionado
 
 void thirdScreen() {
   background(0, 0, 255);
+}
+
+void reiniciarProductos(){
+  Node ptr = new Node();
+  ptr = productos2.head;
+  
+  while(ptr!=null){
+    ((Producto)(ptr.data)).cantidad=0;
+    ptr = ptr.next;
+  }
 }

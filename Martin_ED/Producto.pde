@@ -68,10 +68,12 @@ class Producto {
     if (buttonadd.check() && mousePressed && addOprimido  == false) {
       addOprimido = true;
       cantidad++;
+      ordenados++;
     }
     if (buttonremove.check() && mousePressed && removeOprimido  == false  && cantidad>0) {
       removeOprimido = true;
       cantidad--;
+      ordenados--;
     }
 
     if (!mousePressed) {
