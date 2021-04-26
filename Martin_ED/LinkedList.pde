@@ -80,15 +80,20 @@ class LinkedList <T> {
     Node aux = move.next;
     move.prev = move.next;
     aux.prev = move.prev;
-    elements+=1;
+    elements-=1;
+  }
+  
+  void deleteNode(Node nodeDelete){
+    nodeDelete.prev.next = nodeDelete.next;
+    nodeDelete.next.prev = nodeDelete.prev;
+    nodeDelete.next = null;
+    nodeDelete.prev = null;
   }
 
   Node search(T data) {
     Node found = null;
     Node act = head;
-    if (elements == 0) {
-      found = null;
-    } else {
+    if (elements != 0) {
       while (act!= null && act.next !=null) {
         if (act.data == data) {
           found = act;
