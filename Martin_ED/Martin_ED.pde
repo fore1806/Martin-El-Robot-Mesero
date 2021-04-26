@@ -63,7 +63,7 @@ LinkedList mesas = new LinkedList<Node<Mesa>>();
 //Tiempo
 
 int timer;  //Tiempo 
-int intervalo = 200; 
+int intervalo = 20; 
 
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
@@ -95,6 +95,7 @@ void draw() {
   rect(width/2, height/2, width-10, height-10);
   pop();
   tiempo();
+  //tiempo3();
   tiempo2(p1);
   if (screenStart) {
     //print("x: "+martin.pos[0]);

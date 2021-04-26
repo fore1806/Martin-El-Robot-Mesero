@@ -82,13 +82,25 @@ class LinkedList <T> {
     aux.prev = move.prev;
     elements-=1;
   }
-  
-  void deleteNode(Node nodeDelete){
-    nodeDelete.prev.next = nodeDelete.next;
-    nodeDelete.next.prev = nodeDelete.prev;
-    nodeDelete.next = null;
-    nodeDelete.prev = null;
-  }
+
+  //void deleteNode(Node<T> nodeDelete) {
+  //  if (isEmpty()) {
+  //    println("Esta vacia la lista");
+  //  } else if (nodeDelete == head) {
+  //    nodeDelete.next.prev = new Node();
+  //    head = nodeDelete.next;
+  //    //head.prev = null;
+  //  } else if (nodeDelete == tail) {
+  //    tail = nodeDelete.prev;
+  //    tail.next = null;
+  //  } else {
+  //    nodeDelete.prev.next = nodeDelete.next;
+  //    nodeDelete.next.prev = nodeDelete.prev;
+  //  }
+  //  nodeDelete.next = null;
+  //  nodeDelete.prev = null;
+  //  elements-=1;
+  //}
 
   Node search(T data) {
     Node found = null;

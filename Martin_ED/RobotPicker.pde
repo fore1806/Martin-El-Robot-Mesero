@@ -2,12 +2,13 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
   int[] cm = mesa.getCoordenadas();
   float dri = sqrt((cm[0]^2)+(cm[1]^2));
   int ganador= -1;
+  Robot martinElElegido = null;
   if (RobotsActivos.isEmpty()) {
-    return ((Robot)((Node)listaRobots.deQueue()).getData());
-  } else {
+    martinElElegido =  ((Robot)((Node)listaRobots.deQueue()).getData());
+  }else {
+    float dmin =dri;
     for (int i=0; i<RobotsActivos.length(); i++) {
-      if ( !((Robot) RobotsActivos.getNth(i).getData()).isMoving() ) {
-        float dmin =dri;        
+      if ( !((Robot) RobotsActivos.getNth(i).getData()).isMoving() /*&& ((Robot) RobotsActivos.getNth(i).getData()).battery>30*/ ) {      
         int[] cr = ((Robot) RobotsActivos.getNth(i).getData()).pos; 
         float dra = abs(sqrt((cr[0]-cm[0])^2)+((cr[1]-cm[1])^2));
         if (dra<dmin) {
@@ -17,11 +18,14 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
       }
     }
     if (ganador !=-1) {
-      return ((Robot) RobotsActivos.getNth(ganador).getData());
+      martinElElegido =  ((Robot) RobotsActivos.getNth(ganador).getData());
     } else {
-      return ((Robot)((Node)listaRobots.deQueue()).getData());
+      martinElElegido = ((Robot)((Node)listaRobots.deQueue()).getData());
     }
   }
+  
+  martinElElegido.battery = 100; //De momento le seteamos la bateria arbitrariamente en 100
+  return martinElElegido;
 }
 
 void tiempo2(Pedido pedido) {
@@ -29,16 +33,11 @@ void tiempo2(Pedido pedido) {
     if (pedido.estaListo() && !pedido.yaSeAsigno) {
       println("se asigno un robot");
       pedido.robotAsignado = EscogerRobot(robotsinactivos, robotsList, pedido.mesaDestino);
+      //pedido.robotAsignado.empty = false;
       pedido.llevarComida();
       pedido.yaSeAsigno = true;
     }
-    //while (pedido.robotAsignado!=null && (pedido.robotAsignado.pos[0]!=pedido.robotAsignado.dir[0] || pedido.robotAsignado.pos[1]!=pedido.robotAsignado.dir[1]) ) {
-    //    if(pedido.robotAsignado.isMoving()){
-    //      pedido.robotAsignado.goDirection();
-    //      println("pos x: " + (pedido.robotAsignado.pos[0]));
-    //      println("pos y: " + (pedido.robotAsignado.pos[1]));
-    //    }
-    //  }
+
     robotArrived(pedido);
     if (pedido.robotAsignado!=null) {
       if ((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
@@ -46,6 +45,7 @@ void tiempo2(Pedido pedido) {
         pedido.robotAsignado.setDirection(0, 0);
         robotsinactivos.enQueue(new Node(pedido.robotAsignado));
         pedido.robotAsignado.activo = false;
+        pedido.robotAsignado.empty = true;
       }
     }
 
