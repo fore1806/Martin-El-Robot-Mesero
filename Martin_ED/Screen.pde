@@ -62,7 +62,7 @@ void adminScreen() {
 }
 
 void pedidosScreen() {
-  background(color2);
+  background(color5);
   if (arrayButton.isEmpty()) {
     button4 = new Button ("botón de prueba", 450, 450);
     arrayButton.insert(button4);
@@ -71,19 +71,19 @@ void pedidosScreen() {
 }
 
 void mesasScreen() {
-  background(color3);
+  background(color5);
 }
 
 void robotsScreen() {
-  background(color4);
+  background(color5);
 }
 
 void clientScreen() {
-  background(0, 0, 0);
+  background(color5);
   if (arrayButton.isEmpty()) {
-    button5 = new Button ("Menu", 450, (height/2)-200);
-    button6 = new Button ("Realizar Pedido", 450, (height/2));
-    button7 = new Button ("Pagar", 450, (height/2)+200);
+    button5 = new Button ("Menu", 450, (height/2)-200, 320, 100);
+    button6 = new Button ("Realizar Pedido", 450, (height/2), 320, 100);
+    button7 = new Button ("Pagar", 450, (height/2)+200,320, 100);
     backButton = new Button ("Back", (width/2)-520, height-80);
     arrayButton.insert(button5);
     arrayButton.insert(button6);
