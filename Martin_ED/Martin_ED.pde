@@ -63,7 +63,7 @@ LinkedList mesas = new LinkedList<Node<Mesa>>();
 //Tiempo
 
 int timer;  //Tiempo 
-int intervalo = 20; 
+int intervalo = 60; 
 
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
