@@ -3,9 +3,7 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
   float dri = sqrt((cm[0]^2)+(cm[1]^2));
   int ganador= -1;
   if(RobotsActivos.isEmpty()){
-    
     return ((Robot)((Node)listaRobots.deQueue()).getData());
-    
   }
   else{
     for(int i=0;i<RobotsActivos.length();i++){
@@ -30,10 +28,34 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
 void tiempo2(Pedido pedido){
   if (millis() - timer2 >= intervalo2){
     if(pedido.estaListo()){
-      pedido.llevarComida(EscogerRobot(robotsinactivos,robotsList,pedido.mesaDestino));
-      
+      pedido.robotAsignado = EscogerRobot(robotsinactivos,robotsList,pedido.mesaDestino);
+      pedido.llevarComida();
+    }
+    while (pedido.robotAsignado != null) {
+      if(pedido.robotAsignado.isMoving()){
+        pedido.robotAsignado.goDirection();
+        println("pos x: " + (pedido.robotAsignado.pos[0]));
+        println("pos y: " + (pedido.robotAsignado.pos[1]));
+      }
     }
   timer2=millis();
   }
+}
 
+void addRobots(int cantidad){
+  for (int i=0; i<=cantidad; i++){
+    Robot martin = new Robot(0,0,100,i);
+    Node n = new Node(martin);
+    robotsinactivos.enQueue(n);
+  }
+}
+
+void crearMesas(int mesasH, int mesasV){
+  for (int i=0; i<=mesasH; i++){
+     for (int j=0; j<=mesasV; j++){
+         Mesa m = new Mesa(str(i)+'-'+str(j));
+         Node n = new Node(m);
+         mesas.insertEnd(n);
+     }
+  }
 }

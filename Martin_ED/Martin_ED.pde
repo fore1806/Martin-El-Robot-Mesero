@@ -54,6 +54,7 @@ Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite
 int nRobots = 3;
 LinkedList robotsList = new LinkedList<Node<Robot>>();
 Queue robotsinactivos = new Queue<Node<Robot>>();
+LinkedList mesas = new LinkedList<Node<Mesa>>();
 
 //Tiempo
 
@@ -63,10 +64,23 @@ int intervalo = 20;
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
 
+//Producto test
+
+Producto pej = new Producto(2000);
+Node n1 = new Node(pej);
+LinkedList<Node<Producto>> llpr = new LinkedList();
+Pedido p1 = new Pedido();
+
 void setup() {
   size(1300, 650);
   startImage = loadImage("robot.png");
-  
+  addRobots(5); 
+  crearMesas(6,6);
+  Mesa m = new Mesa("120-120");
+  llpr.insertFront(n1);
+  p1.productos = llpr;
+  p1.mesaDestino = m;
+  p1.HacerPedido();
 }
 
 void draw() {
@@ -77,7 +91,7 @@ void draw() {
   rect(width/2, height/2, width-10,height-10);
   pop();
   tiempo();
-  //tiempo2();
+  tiempo2(p1);
   if (screenStart) {
     //print("x: "+martin.pos[0]);
     //print("y: "+martin.pos[1]);

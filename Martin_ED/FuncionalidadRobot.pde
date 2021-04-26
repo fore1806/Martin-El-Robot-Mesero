@@ -17,6 +17,7 @@ void tiempo() {
       }
       pointer = pointer.getNext();
     }
+    
     timer = millis();  //Asignamos el valor de millis a la variable para asi empezar un nuevo "intervalo"
   }
 }

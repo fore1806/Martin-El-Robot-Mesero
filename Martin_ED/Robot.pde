@@ -8,13 +8,23 @@ public class Robot {
   int dischargeC = 0;
   boolean empty = true;
   boolean charging = false;
+  int id;
 
-  Robot (int posX, int posY, int battery) { //El disMesas sera una constante que debe ser definida :v
+  Robot (int posX, int posY, int battery, int idR) { //El disMesas sera una constante que debe ser definida :v
     this.pos[0] = posX;
     this.pos[1] = posY;
     this.battery = battery;
     this.dir[0] = pos[0];
     this.dir[1] = pos[1];
+    this.id = idR;
+  }
+
+  Robot (int posX, int posY, int battery) { //El disMesas sera una constante que debe ser definida :v
+  this.pos[0] = posX;
+  this.pos[1] = posY;
+  this.battery = battery;
+  this.dir[0] = pos[0];
+  this.dir[1] = pos[1];
   }
 
   void setDirection (int dirX, int dirY) {
