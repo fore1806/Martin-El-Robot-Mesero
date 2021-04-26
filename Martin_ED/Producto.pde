@@ -6,6 +6,13 @@ class Producto {
   int cantidad=0;
   int tiempo_preparacion;
   PImage image;
+  int x=0;
+  int y=0;
+  //String bText, float x_pos, float y_pos
+  Button buttonadd = new Button("+",x,y);
+  boolean addOprimido=false;
+  Button buttonremove = new Button("-",x,y);
+  boolean removeOprimido=false;
   
   Producto(String categoria, String nombre, String descripcion, int costo, PImage image, int tiempo_preparacion){
     this.categoria = categoria;
@@ -25,7 +32,10 @@ class Producto {
   void displayProducto(int x, int y){
     int xTextos =(width - (x + width/3))/2 + (x + width/3);
     y -= width/6;
+    
     push();
+    
+    
     textAlign(LEFT,BOTTOM);
     image.resize(width/3, width/3);
     image(image,x,y);
@@ -40,13 +50,34 @@ class Producto {
     textSize(50);
     text("$" + costo, xTextos, y + width/6);
     rectMode(CENTER);  
-    rect(xTextos,y + (2*width)/7,width/11,width/11);
+    rect(xTextos,y + (2*width)/7,width/11,width/11,5);
     textAlign(CENTER,CENTER);
     fill(0);
-    text(cantidad, xTextos ,y + (2*width)/7);
-    
+    text(cantidad, xTextos ,y + (2*width)/7); 
+    buttonadd.pos[0]=xTextos + (1.2*width)/11;
+    buttonadd.pos[1]=y +  width/3 - width/22  -4;
+    buttonremove.pos[0]=xTextos - (1.2*width)/11;
+    buttonremove.pos[1]=y +  width/3 - width/22  -4;
+    //buttonadd.pos[1]=y + (16*(width))/66)  -4;
+    buttonadd.size[0]= width/11;
+    buttonadd.size[1]= width/11;
+    buttonremove.size[0]= width/11;
+    buttonremove.size[1]= width/11;
     pop();
     
+    if(buttonadd.check() && mousePressed && addOprimido  == false){
+      addOprimido = true;
+      cantidad++;
+    }
+    if(buttonremove.check() && mousePressed && removeOprimido  == false){
+      removeOprimido = true;
+      cantidad++;
+    }
+    
+    buttonadd.display();
+    buttonremove.display();
+    buttonremove.seleccionador();
+    buttonadd.seleccionador();
   }
   
   int getTiempoDePreparacion(){
