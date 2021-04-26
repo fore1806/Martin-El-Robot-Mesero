@@ -34,13 +34,13 @@ void tiempo2(Pedido pedido){
       pedido.yaSeAsigno = true;
       
     }
-    while (pedido.robotAsignado!=null && (pedido.robotAsignado.pos[0]!=pedido.robotAsignado.dir[0] || pedido.robotAsignado.pos[1]!=pedido.robotAsignado.dir[1]) ) {
-        if(pedido.robotAsignado.isMoving()){
-          pedido.robotAsignado.goDirection();
-          println("pos x: " + (pedido.robotAsignado.pos[0]));
-          println("pos y: " + (pedido.robotAsignado.pos[1]));
-        }
-      }
+    //while (pedido.robotAsignado!=null && (pedido.robotAsignado.pos[0]!=pedido.robotAsignado.dir[0] || pedido.robotAsignado.pos[1]!=pedido.robotAsignado.dir[1]) ) {
+    //    if(pedido.robotAsignado.isMoving()){
+    //      pedido.robotAsignado.goDirection();
+    //      println("pos x: " + (pedido.robotAsignado.pos[0]));
+    //      println("pos y: " + (pedido.robotAsignado.pos[1]));
+    //    }
+    //  }
     robotArrived(pedido);
     if(pedido.robotAsignado!=null){
       if((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {

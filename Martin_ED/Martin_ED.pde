@@ -60,7 +60,7 @@ LinkedList robotsActivos = new LinkedList<Node<Robot>>();
 //Tiempo
 
 int timer;  //Tiempo 
-int intervalo = 20; 
+int intervalo = 200; 
 
 int timer2;  //Tiempo 
 int intervalo2 = 20; 

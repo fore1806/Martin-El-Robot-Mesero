@@ -11,6 +11,7 @@ public class Robot {
   boolean estaenlamesa = false;
   boolean activo = false;
   int id;
+  Pedido pedidoAct;
   
 
   Robot (int posX, int posY, int battery, int idR) { //El disMesas sera una constante que debe ser definida :v
@@ -74,6 +75,10 @@ public class Robot {
 
   boolean isCharging() {
     return charging;
+  }
+  
+  boolean isInTheTable(){
+    return estaenlamesa;
   }
 
   void charge() {
