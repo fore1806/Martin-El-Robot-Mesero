@@ -27,25 +27,30 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
 
 void tiempo2(Pedido pedido){
   if (millis() - timer2 >= intervalo2){
-    if(pedido.estaListo()){
+    if(pedido.estaListo() && !pedido.yaSeAsigno){
+      println("se asigno un robot");
       pedido.robotAsignado = EscogerRobot(robotsinactivos,robotsList,pedido.mesaDestino);
       pedido.llevarComida();
+      pedido.yaSeAsigno = true;
+      
     }
-    if(pedido.robotAsignado!=null){
-      while (!(pedido.robotAsignado.pos[0]== pedido.mesaDestino.coordenadas[0]) && (pedido.robotAsignado.pos[1]== pedido.mesaDestino.coordenadas[1])) {
+    while (pedido.robotAsignado!=null && (pedido.robotAsignado.pos[0]!=pedido.robotAsignado.dir[0] || pedido.robotAsignado.pos[1]!=pedido.robotAsignado.dir[1]) ) {
         if(pedido.robotAsignado.isMoving()){
           pedido.robotAsignado.goDirection();
           println("pos x: " + (pedido.robotAsignado.pos[0]));
           println("pos y: " + (pedido.robotAsignado.pos[1]));
         }
       }
-    }
     robotArrived(pedido);
     if(pedido.robotAsignado!=null){
-      if((pedido.robotAsignado.estaenlamesa) && (millis()-pedido.horaALaQueLlega>=pedido.tiempoDeSuministro)) { 
+      if((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
+        println("pase por aki");
         pedido.robotAsignado.setDirection(0,0);
+        robotsinactivos.enQueue(new Node(pedido.robotAsignado));
+        pedido.robotAsignado.activo = false;
       }
     }
+    
   timer2=millis();
   }
 }
@@ -71,6 +76,7 @@ void crearMesas(int mesasH, int mesasV){
 void robotArrived(Pedido pedido){
   if(pedido.robotAsignado!=null){
     if((pedido.robotAsignado.pos[0]== pedido.mesaDestino.coordenadas[0]) && (pedido.robotAsignado.pos[1]== pedido.mesaDestino.coordenadas[1]) && (pedido.enCamino==true)){
+      println("ahora por aki");
       pedido.robotAsignado.estaenlamesa=true; 
       pedido.horaALaQueLlega=millis();
       pedido.enCamino=false;

@@ -9,6 +9,7 @@ public class Robot {
   boolean empty = true;
   boolean charging = false;
   boolean estaenlamesa = false;
+  boolean activo = false;
   int id;
   
 

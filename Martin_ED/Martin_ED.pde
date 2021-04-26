@@ -55,7 +55,7 @@ int nRobots = 3;
 LinkedList robotsList = new LinkedList<Node<Robot>>();
 Queue robotsinactivos = new Queue<Node<Robot>>();
 LinkedList mesas = new LinkedList<Node<Mesa>>();
-
+LinkedList robotsActivos = new LinkedList<Node<Robot>>();
 //Tiempo
 
 int timer;  //Tiempo 

@@ -7,6 +7,7 @@ class Pedido{
    LinkedList<Node<Producto>> productos;
    Robot robotAsignado;
    boolean enCamino;
+   boolean yaSeAsigno;
    
    
    Pedido(LinkedList<Node<Producto>> p,Mesa mesaDes){
@@ -31,6 +32,12 @@ class Pedido{
      return false;
    }
    
+   boolean yaSirvio(){
+     if (millis()-this.horaALaQueLlega>=this.tiempoDeSuministro){         
+       return true;
+     }
+     return false;
+   }
 
    void setProductos(LinkedList<Node<Producto>> p){
      this.productos = p;
@@ -45,6 +52,9 @@ class Pedido{
        int[] c = this.mesaDestino.getCoordenadas();       
        this.robotAsignado.setDirection(c[0],c[1]);
        this.enCamino=true;
+       Node n = new Node(this.robotAsignado);
+       robotsActivos.insertEnd(n);
+       this.robotAsignado.activo = true;
      }
    }
    
