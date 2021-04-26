@@ -18,6 +18,7 @@ LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
 int k = 0;
 float scroll=0;
 int[] producto_categorias;
+boolean realeased = false;
 //imagenes
 
 PImage startImage;
@@ -181,5 +182,9 @@ void mouseWheel(MouseEvent event) {
   if(screenMenu){
     scroll += event.getCount();   
   }
-   
+ 
+}
+
+void mouseRelased(){
+  realeased = true;;
 }

@@ -69,9 +69,14 @@ class Producto {
       addOprimido = true;
       cantidad++;
     }
-    if(buttonremove.check() && mousePressed && removeOprimido  == false){
+    if(buttonremove.check() && mousePressed && removeOprimido  == false  && cantidad>0){
       removeOprimido = true;
-      cantidad++;
+      cantidad--;
+    }
+    
+    if(!mousePressed){
+      removeOprimido = false;
+      addOprimido = false;
     }
     
     buttonadd.display();
