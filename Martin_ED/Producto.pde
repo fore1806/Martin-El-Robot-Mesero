@@ -30,7 +30,7 @@ class Producto {
   }
 
   void displayProducto(int x, int y) {
-    int xTextos =(width - (x + width/3))/2 + (x + width/3);
+    int xTextos =(width - (x + width/3))/2 + (x + width/3) -width/20 ;
     y -= width/6;
 
     push();

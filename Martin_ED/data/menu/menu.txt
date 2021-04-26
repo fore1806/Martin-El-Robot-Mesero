@@ -6,11 +6,11 @@
 			3200 hotdog1.jpg
 			15
 		Hotdog Chispas Clasico 
-			Clasico hotdog con papas fritas en forma de chipas y salchicha frita 
+			Clasico hotdog con papas fritas de chipas y salchicha frita 
 			3800 hotdog2.png
 			3
 		Hotdog ensalado frio 
-			Hotdog con papas francesas, ensalada fria, salchicha cocida al vapor 
+			Hotdog con papas francesas y ensalada fria
 			4500 hotdog3.png
 			4
 		Urban Hotdog clasico 
@@ -19,19 +19,19 @@
 			5
 	5 Hamburgesas 
 		Hamburguesa simple-lite 
-			Hamburguesa simple, sin queso, con tomate grande y carne de res
+			Hamburguesa simple, sin queso, con tomate y carne de res
 			2000 hamburguesa1.jpg
 			6
 		Hamburguesa con queso 
-			Hamburguesa simple con queso, con tomate grande y carne de res y salsas
+			Hamburguesa simple  con tomate grande y carne de res y salsas
 			2500 hamburguesa3.jpg
 			7
 		Hamburguesa Big-Res
-			Hamburguesa grande con queso, doble lechuga y carne de res y salsas
+			Hamburguesa grande con queso, doble lechuga y carne de res
 			4000 hamburguesa2.jpg
 			8
-		Hamburguesa grande premium 
-			Hamburguesa con carne premium, carne grande cocinada en horno
+		Hamburguesa premium 
+			Hamburguesa con carne premium, carne grande
 			4500 hamburguesa4.jpg
 			9
 		Megaburguer deluxe
