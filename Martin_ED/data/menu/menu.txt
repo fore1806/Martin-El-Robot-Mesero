@@ -52,26 +52,26 @@
 			3600 pizza3.jpg
 			13
 		Pizza jamón horneado
-			Pizza orneada con cama gruesa de masa y excesos de queso
+			Pizza horneada con cama gruesa de masa y excesos de queso
 			4000 pizza4.jpg
 			14
 	4 Bebidas 
 		Agua
 			Vaso de agua 330ml
 			5000 agua.jpg
-			15
+			0
 		Cerveza
-			El loquido de la vida
+			El liquido de la vida
 			2000 cerveza.jpg
-			16
+			0
 		limonada
 			Limonada 500ml
 			2500 limonada.png
-			17
+			1
 		Vino
 			Copa de Vino 240ml
 			4000 vino.jpg
-			18
+			0
 	3 Acompañantes
 		Aros de cebolla 
 			Aros de cebolla apanados
@@ -85,8 +85,12 @@
 			Porcion de yucas fritas
 			5200 yucas.png
 			21
-	1 Postres
-		Yuca frita
-			Porcion de yucas fritas
-			5200 yucas.png
-			21
+	2 Postres
+		Helado Costeño
+			Hela'o coteño sabroso
+			2000 helado.jpg
+			0
+		Cupcake
+			Cupcake de crema
+			2800 cupcake.jpg
+			0

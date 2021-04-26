@@ -1,4 +1,4 @@
-class Producto {
+class Producto implements Cloneable {
   String categoria;
   String nombre;
   String descripcion;
@@ -28,6 +28,18 @@ class Producto {
 
   Producto() {
   }
+  
+   public Producto clone() {
+    Producto obj=null;
+    try {
+      obj=(Producto)super.clone();
+    }
+    catch(CloneNotSupportedException ex) {
+      System.out.println(" no se puede duplicar");
+    }
+    return obj;
+  }
+  
 
   void displayProducto(int x, int y) {
     int xTextos =(width - (x + width/3))/2 + (x + width/3) -width/20 ;
