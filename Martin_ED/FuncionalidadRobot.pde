@@ -5,7 +5,8 @@ void tiempo() {
 
     Node pointer = robotsActivos.head;
     while (pointer!= null) {
-      if(((Robot)(pointer.data)).isMoving()){
+
+      if (((Robot)(pointer.data)).isMoving()) {
         ((Robot)(pointer.data)).goDirection();
         println("Robot");
         println("pos x: " + ((Robot)(pointer.data)).pos[0]);
@@ -15,9 +16,14 @@ void tiempo() {
         //println("Bateria: " + ((Robot)(pointer.data)).battery);
         println("Se mueve?: " + ((Robot)(pointer.data)).isMoving());
       }
+
+      if (((Robot)(pointer.data)).battery <= 30) {
+        robotsToCharge.insertEnd(pointer);
+      }
+
       pointer = pointer.getNext();
     }
-    
+
     timer = millis();  //Asignamos el valor de millis a la variable para asi empezar un nuevo "intervalo"
   }
 }

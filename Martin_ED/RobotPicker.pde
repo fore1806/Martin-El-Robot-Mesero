@@ -1,38 +1,36 @@
-Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> RobotsActivos, Mesa mesa ){
+Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> RobotsActivos, Mesa mesa ) {
   int[] cm = mesa.getCoordenadas();
   float dri = sqrt((cm[0]^2)+(cm[1]^2));
   int ganador= -1;
-  if(RobotsActivos.isEmpty()){
+  if (RobotsActivos.isEmpty()) {
     return ((Robot)((Node)listaRobots.deQueue()).getData());
-  }
-  else{
-    for(int i=0;i<RobotsActivos.length();i++){
-      if( !((Robot) RobotsActivos.getNth(i).getData()).isMoving() ){
+  } else {
+    for (int i=0; i<RobotsActivos.length(); i++) {
+      if ( !((Robot) RobotsActivos.getNth(i).getData()).isMoving() ) {
         float dmin =dri;        
         int[] cr = ((Robot) RobotsActivos.getNth(i).getData()).pos; 
         float dra = abs(sqrt((cr[0]-cm[0])^2)+((cr[1]-cm[1])^2));
-        if(dra<dmin){
+        if (dra<dmin) {
           dmin=dra;
           ganador=i;
         }
       }
     }
-    if(ganador !=-1){
+    if (ganador !=-1) {
       return ((Robot) RobotsActivos.getNth(ganador).getData());
-    }else{
+    } else {
       return ((Robot)((Node)listaRobots.deQueue()).getData());
     }
   }
 }
 
-void tiempo2(Pedido pedido){
-  if (millis() - timer2 >= intervalo2){
-    if(pedido.estaListo() && !pedido.yaSeAsigno){
+void tiempo2(Pedido pedido) {
+  if (millis() - timer2 >= intervalo2) {
+    if (pedido.estaListo() && !pedido.yaSeAsigno) {
       println("se asigno un robot");
-      pedido.robotAsignado = EscogerRobot(robotsinactivos,robotsList,pedido.mesaDestino);
+      pedido.robotAsignado = EscogerRobot(robotsinactivos, robotsList, pedido.mesaDestino);
       pedido.llevarComida();
       pedido.yaSeAsigno = true;
-      
     }
     //while (pedido.robotAsignado!=null && (pedido.robotAsignado.pos[0]!=pedido.robotAsignado.dir[0] || pedido.robotAsignado.pos[1]!=pedido.robotAsignado.dir[1]) ) {
     //    if(pedido.robotAsignado.isMoving()){
@@ -42,40 +40,40 @@ void tiempo2(Pedido pedido){
     //    }
     //  }
     robotArrived(pedido);
-    if(pedido.robotAsignado!=null){
-      if((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
+    if (pedido.robotAsignado!=null) {
+      if ((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
         println("pase por aki");
-        pedido.robotAsignado.setDirection(0,0);
+        pedido.robotAsignado.setDirection(0, 0);
         robotsinactivos.enQueue(new Node(pedido.robotAsignado));
         pedido.robotAsignado.activo = false;
       }
     }
-    
-  timer2=millis();
+
+    timer2=millis();
   }
 }
 
-void addRobots(int cantidad){
-  for (int i=0; i<=cantidad; i++){
-    Robot martin = new Robot(0,0,100,i);
+void addRobots(int cantidad) {
+  for (int i=0; i<=cantidad; i++) {
+    Robot martin = new Robot(0, 0, 100, i);
     Node n = new Node(martin);
     robotsinactivos.enQueue(n);
   }
 }
 
-void crearMesas(int mesasH, int mesasV){
-  for (int i=0; i<=mesasH; i++){
-     for (int j=0; j<=mesasV; j++){
-         Mesa m = new Mesa(str(i)+'-'+str(j));
-         Node n = new Node(m);
-         mesas.insertEnd(n);
-     }
+void crearMesas(int mesasH, int mesasV) {
+  for (int i=0; i<=mesasH; i++) {
+    for (int j=0; j<=mesasV; j++) {
+      Mesa m = new Mesa(str(i)+'-'+str(j));
+      Node n = new Node(m);
+      mesas.insertEnd(n);
+    }
   }
 }
 
-void robotArrived(Pedido pedido){
-  if(pedido.robotAsignado!=null){
-    if((pedido.robotAsignado.pos[0]== pedido.mesaDestino.coordenadas[0]) && (pedido.robotAsignado.pos[1]== pedido.mesaDestino.coordenadas[1]) && (pedido.enCamino==true)){
+void robotArrived(Pedido pedido) {
+  if (pedido.robotAsignado!=null) {
+    if ((pedido.robotAsignado.pos[0]== pedido.mesaDestino.coordenadas[0]) && (pedido.robotAsignado.pos[1]== pedido.mesaDestino.coordenadas[1]) && (pedido.enCamino==true)) {
       println("ahora por aki");
       pedido.robotAsignado.estaenlamesa=true; 
       pedido.horaALaQueLlega=millis();

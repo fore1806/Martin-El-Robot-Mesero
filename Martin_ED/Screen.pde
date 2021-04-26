@@ -29,18 +29,18 @@ void startScreen() {
   textSize(80);
   fill(color6);
   text("Martin El Robot Mesero", width/2, 100);
-  if(robotsList.isEmpty()){
-  for(int i = 0; i<nRobots; i++){
-    robotsList.insertEnd(new Node(new Robot(0,0,(20 + (int) (Math.random()*81)))));
+  if (robotsList.isEmpty()) {
+    for (int i = 0; i<nRobots; i++) {
+      robotsList.insertEnd(new Node(new Robot(0, 0, (20 + (int) (Math.random()*81)))));
+    }
   }
-  }
-  ((Robot)(robotsList.head.data)).setDirection(250,300);
-  
+  ((Robot)(robotsList.head.data)).setDirection(250, 300);
+
   //println("bateria: " + ((Robot)(robotsList.head.data)).battery);
   //println("pos y: " + ((Robot)(robotsList.head.data)).dir[1]);
   //((Robot)(robotsList.head.next.next.data)).setDirection(420,280);
   //Node pointer = robotsList.head;
-    
+
   //  while(pointer!= null){
   //  println(((Robot)(pointer.data)).battery); 
   //   pointer = pointer.getNext();
@@ -79,7 +79,7 @@ void robotsScreen() {
 }
 
 void clientScreen() {
-   background(0, 0, 0);
+  background(0, 0, 0);
   if (arrayButton.isEmpty()) {
     button5 = new Button ("Menu", 450, (height/2)-200);
     button6 = new Button ("Realizar Pedido", 450, (height/2));
@@ -114,35 +114,34 @@ void menuScreen() {
   int buttonY = height/4;
   //background(#00326E);
   //producto_categorias = new int[1];
-  if(!menuCreado){
-  producto_categorias = crearMenu(menuCreado);
-  println(producto_categorias);
+  if (!menuCreado) {
+    producto_categorias = crearMenu(menuCreado);
+    println(producto_categorias);
   }
-  
+
   println(productos_a_mostrar.isEmpty());
-  
-  if(productos_a_mostrar.isEmpty()){
-    backButton = new Button("Back",(width/2)-520, height-80);
+
+  if (productos_a_mostrar.isEmpty()) {
+    backButton = new Button("Back", (width/2)-520, height-80);
     background(color5);
     showCheckButton(arrayButton);
-    if(arrayButton.isEmpty()){
-    Node puntero_categoria = productos2.head;
-    for(int i=0; i < producto_categorias.length; i++){
-      //println(((Producto)(puntero_categoria.data)).nombre);
-      Button buttondinamic = new Button (((Producto)(puntero_categoria.data)).categoria, buttonX*((i%2) + 1) , buttonY* ((i%3) + 0.7),width/4 ,height/6);
-      arrayButton.insert(buttondinamic);
-      for(int j = 0; j<producto_categorias[i]; j++){
-        puntero_categoria = puntero_categoria.next;
+    if (arrayButton.isEmpty()) {
+      Node puntero_categoria = productos2.head;
+      for (int i=0; i < producto_categorias.length; i++) {
+        //println(((Producto)(puntero_categoria.data)).nombre);
+        Button buttondinamic = new Button (((Producto)(puntero_categoria.data)).categoria, buttonX*((i%2) + 1), buttonY* ((i%3) + 0.7), width/4, height/6);
+        arrayButton.insert(buttondinamic);
+        for (int j = 0; j<producto_categorias[i]; j++) {
+          puntero_categoria = puntero_categoria.next;
         }
       }
     }
-    if(backButton.check() && mousePressed){
-    screenClient = !screenClient;
-    screenMenu = !screenMenu;
-    arrayButton = new ButtonList();
+    if (backButton.check() && mousePressed) {
+      screenClient = !screenClient;
+      screenMenu = !screenMenu;
+      arrayButton = new ButtonList();
     }
-  }
-  else{
+  } else {
     //backButton = new Button("Back",(width/2), height-80);
     background(color5);
     Node put = new Node();
@@ -150,35 +149,33 @@ void menuScreen() {
     //((Producto)(put.data)).displayProducto(100,100);
     //Mostramos productos:
     //println(productos_a_mostrar.elements);
-    for(int i=0; i<productos_a_mostrar.elements; i++){
-      ((Producto)(put.data)).displayProducto(50,350+(550*i) + (int)scroll*20);
+    for (int i=0; i<productos_a_mostrar.elements; i++) {
+      ((Producto)(put.data)).displayProducto(50, 350+(550*i) + (int)scroll*20);
       put = put.next;
     }
-    if(scroll>0){
-     scroll = 0; 
+    if (scroll>0) {
+      scroll = 0;
     }
-    if(scroll<-(22*productos_a_mostrar.elements)){
+    if (scroll<-(22*productos_a_mostrar.elements)) {
       scroll = -22*productos_a_mostrar.elements;
     }
-    
+
     //scroll %= (25*(productos_a_mostrar.elements));
     //scroll = -abs(scroll);
     println(scroll);
-    
+
     //((Producto)(productos_a_mostrar.head)).displayProducto(500,500);
-    if(backButton.check() && mousePressed){
-    productos_a_mostrar = new LinkedList();
+    if (backButton.check() && mousePressed) {
+      productos_a_mostrar = new LinkedList();
     }
-    backButton = new Button("Back",/*(width/2)-520*/ 1180, height-80);
+    backButton = new Button("Back", /*(width/2)-520*/ 1180, height-80);
   }
-  
-  
+
+
   backButton.seleccionador();
   backButton.display();
-  
+
   //
-  
-  
 }
 
 int[] crearMenu(boolean menu_creado) {
@@ -228,15 +225,15 @@ int[] crearMenu(boolean menu_creado) {
       categorias[i]=numeros_categoria;  //la almacenamos en el array
       renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
     }
-   // DEBUG imprimimos el arreglo
-   // for (int i=0; i<categorias.length; i++) {
+    // DEBUG imprimimos el arreglo
+    // for (int i=0; i<categorias.length; i++) {
     //  print("[" + categorias[i] + "]");
     //} 
     //println();
 
     Node puntero_impresion = productos2.head;
-    
-    while(puntero_impresion!= null){
+
+    while (puntero_impresion!= null) {
       println(((Producto)(puntero_impresion.data)).nombre); 
       puntero_impresion = puntero_impresion.getNext();
     }
@@ -247,7 +244,7 @@ int[] crearMenu(boolean menu_creado) {
     push();
     textSize(20); 
     Node puntero_grafico = productos2.head;
-    for(int j=0; j<k; j++){
+    for (int j=0; j<k; j++) {
       puntero_grafico = puntero_grafico.next;
     }
     ((Producto)puntero_grafico.data).displayProducto(50, height/2);
@@ -261,38 +258,36 @@ int[] crearMenu(boolean menu_creado) {
   return categorias;
 }
 
-void screenMenuButtons(){
-  if(productos_a_mostrar.isEmpty()){
+void screenMenuButtons() {
+  if (productos_a_mostrar.isEmpty()) {
     scroll=0;
-  int botones_categorias = arrayButton.posF;
-  for(int i=0; i<botones_categorias; i++){
-    if(arrayButton.array[i].check()){
-    productos_a_mostrar = new LinkedList();
-    print(arrayButton.array[i].bText);
-    Node puntero = productos2.head;
-    int elementos_anteriores = 0;
-    for(int k=0; k<i; k++){
-      elementos_anteriores += producto_categorias[k];
+    int botones_categorias = arrayButton.posF;
+    for (int i=0; i<botones_categorias; i++) {
+      if (arrayButton.array[i].check()) {
+        productos_a_mostrar = new LinkedList();
+        print(arrayButton.array[i].bText);
+        Node puntero = productos2.head;
+        int elementos_anteriores = 0;
+        for (int k=0; k<i; k++) {
+          elementos_anteriores += producto_categorias[k];
+        }
+        println(elementos_anteriores);
+        for (int j=0; j<(elementos_anteriores); j++) { //Llego al primer producto de la categoria
+          //println(((Producto)(puntero.data)).nombre);
+          puntero = puntero.next;
+        }
+
+        //Aqui obtenemos los que queremos
+        for (int l= elementos_anteriores; l<(elementos_anteriores+producto_categorias[i]); l++) {
+          println(((Producto)(puntero.data)).nombre);
+          //((Producto)(puntero.data)).displayProducto(500,500);
+          productos_a_mostrar.insertEnd(puntero);
+          puntero = puntero.next;
+        }
+
+        // println(i + " " + producto_categorias[i] );
+      }
     }
-    println(elementos_anteriores);
-     for(int j=0; j<(elementos_anteriores);j++){ //Llego al primer producto de la categoria
-       //println(((Producto)(puntero.data)).nombre);
-       puntero = puntero.next;
-     }
-     
-     //Aqui obtenemos los que queremos
-     for(int l= elementos_anteriores; l<(elementos_anteriores+producto_categorias[i]); l++){
-       println(((Producto)(puntero.data)).nombre);
-       //((Producto)(puntero.data)).displayProducto(500,500);
-       productos_a_mostrar.insertEnd(puntero);
-       puntero = puntero.next;
-     }
-      
-     // println(i + " " + producto_categorias[i] );
-    
-    }
-    
-  }
   }
 }
 

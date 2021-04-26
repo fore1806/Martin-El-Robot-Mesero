@@ -12,7 +12,7 @@ public class Robot {
   boolean activo = false;
   int id;
   Pedido pedidoAct;
-  
+
 
   Robot (int posX, int posY, int battery, int idR) { //El disMesas sera una constante que debe ser definida :v
     this.pos[0] = posX;
@@ -24,11 +24,11 @@ public class Robot {
   }
 
   Robot (int posX, int posY, int battery) { //El disMesas sera una constante que debe ser definida :v
-  this.pos[0] = posX;
-  this.pos[1] = posY;
-  this.battery = battery;
-  this.dir[0] = pos[0];
-  this.dir[1] = pos[1];
+    this.pos[0] = posX;
+    this.pos[1] = posY;
+    this.battery = battery;
+    this.dir[0] = pos[0];
+    this.dir[1] = pos[1];
   }
 
   void setDirection (int dirX, int dirY) {
@@ -76,8 +76,8 @@ public class Robot {
   boolean isCharging() {
     return charging;
   }
-  
-  boolean isInTheTable(){
+
+  boolean isInTheTable() {
     return estaenlamesa;
   }
 

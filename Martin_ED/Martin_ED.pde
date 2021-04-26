@@ -12,7 +12,8 @@ boolean screenPago = false;
 
 //menú
 boolean menuCreado = false;
-ArrayList<Producto> productos = new ArrayList<Producto>();
+//REVISARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR LA LINEA A CONTINUECION
+ArrayList<Producto> productos = new ArrayList<Producto>(); //Debe eliminarse, o NO? 
 LinkedList productos2 = new LinkedList<Node<Producto>>();
 LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
 int k = 0;
@@ -46,17 +47,18 @@ Button button9;
 
 ButtonList arrayButton = new ButtonList();
 
-//Robot martin = new Robot(0,0,25);
-
-Button [] array = new Button[3]; //Esto debe ser cambiado por una lista!,permite añadir y borrar mas facil, creo yo
-
 //Robots
 
 int nRobots = 3;
 LinkedList robotsList = new LinkedList<Node<Robot>>();
 Queue robotsinactivos = new Queue<Node<Robot>>();
-LinkedList mesas = new LinkedList<Node<Mesa>>();
+LinkedList robotsToCharge = new LinkedList<Node<Robot>>();
 LinkedList robotsActivos = new LinkedList<Node<Robot>>();
+
+//Mesas
+
+LinkedList mesas = new LinkedList<Node<Mesa>>();
+
 //Tiempo
 
 int timer;  //Tiempo 
@@ -76,7 +78,7 @@ void setup() {
   size(1300, 650);
   startImage = loadImage("robot.png");
   addRobots(5); 
-  crearMesas(6,6);
+  crearMesas(6, 6);
   Mesa m = new Mesa("120-120");
   llpr.insertFront(n1);
   p1.productos = llpr;
@@ -89,7 +91,7 @@ void draw() {
   push();
   rectMode(CENTER);
   fill(color5);
-  rect(width/2, height/2, width-10,height-10);
+  rect(width/2, height/2, width-10, height-10);
   pop();
   tiempo();
   tiempo2(p1);
@@ -101,90 +103,89 @@ void draw() {
     //print("x: "+martin.pos[0]);
     //print("y: "+martin.pos[1]);
     startScreen();
-  }else if(screenAdmin){
+  } else if (screenAdmin) {
     adminScreen();
-  }else if(screenClient){
+  } else if (screenClient) {
     clientScreen();
-  }else if(screenPedidos){
+  } else if (screenPedidos) {
     pedidosScreen();
-  }else if(screenMesas){
+  } else if (screenMesas) {
     mesasScreen();
-  }else if(screenRobots){
+  } else if (screenRobots) {
     robotsScreen();
-  }else if (screenMenu){
+  } else if (screenMenu) {
     menuScreen();
-  }else if (screenPago){
+  } else if (screenPago) {
     pagoScreen();
   }
 }
 
 void mousePressed() {
-  if(screenStart){
-    if(button1.check()){
+  if (screenStart) {
+    if (button1.check()) {
       screenStart = !screenStart;
       screenAdmin = !screenAdmin;
       arrayButton.makeEmpty();
-    }else if(button2.check()){
+    } else if (button2.check()) {
       screenStart = !screenStart;
       screenClient = !screenClient;
       arrayButton.makeEmpty();
     }
-  }else if(screenAdmin){
-    if(button1.check()){
+  } else if (screenAdmin) {
+    if (button1.check()) {
       screenAdmin = !screenAdmin;
       screenPedidos = !screenPedidos;
       arrayButton = new ButtonList();
-    } else if(button2.check()){
+    } else if (button2.check()) {
       screenAdmin = !screenAdmin;
       screenMesas = !screenMesas;
       arrayButton = new ButtonList();
-    } else if(button3.check()){
+    } else if (button3.check()) {
       screenAdmin = !screenAdmin;
       screenRobots = !screenRobots;
       arrayButton = new ButtonList();
-    } else if(backButton.check()){
+    } else if (backButton.check()) {
       screenStart = !screenStart;
       screenAdmin = !screenAdmin;
       arrayButton = new ButtonList();
     }
   } else if (screenClient) {
-     if (button5.check()) {
+    if (button5.check()) {
       screenClient = !screenClient;
       screenMenu = !screenMenu;
       arrayButton = new ButtonList();
-     } else if(button6.check()){
+    } else if (button6.check()) {
       pedidoRealizado=true;
-    } else if(button7.check()){
+    } else if (button7.check()) {
       screenClient = !screenClient;
       screenPago = !screenPago;
       arrayButton = new ButtonList();
-    } else if(backButton.check()){
+    } else if (backButton.check()) {
       screenStart = !screenStart;
       screenClient = !screenClient;
       arrayButton = new ButtonList();
     }
   } else if (screenPago) {
-    if(backButton.check()){
+    if (backButton.check()) {
       screenPago = !screenPago;
       screenClient = !screenClient;
       arrayButton = new ButtonList();
-    } else if (button8.check()||button9.check()){
+    } else if (button8.check()||button9.check()) {
       screenPago=!screenPago;
       pedidoRealizado=false;
     }
-  }
-  else if(screenMenu){
+  } else if (screenMenu) {
     screenMenuButtons();
-    }
+  }
 }
 
 void mouseWheel(MouseEvent event) {
-  if(screenMenu){
-    scroll += event.getCount();   
+  if (screenMenu) {
+    scroll += event.getCount();
   }
- 
 }
 
-void mouseRelased(){
-  realeased = true;;
+void mouseRelased() {
+  realeased = true;
+  ;
 }

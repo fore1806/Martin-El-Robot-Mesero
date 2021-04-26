@@ -9,12 +9,12 @@ class Producto {
   int x=0;
   int y=0;
   //String bText, float x_pos, float y_pos
-  Button buttonadd = new Button("+",x,y);
+  Button buttonadd = new Button("+", x, y);
   boolean addOprimido=false;
-  Button buttonremove = new Button("-",x,y);
+  Button buttonremove = new Button("-", x, y);
   boolean removeOprimido=false;
-  
-  Producto(String categoria, String nombre, String descripcion, int costo, PImage image, int tiempo_preparacion){
+
+  Producto(String categoria, String nombre, String descripcion, int costo, PImage image, int tiempo_preparacion) {
     this.categoria = categoria;
     this.nombre = nombre;
     this.descripcion = descripcion;
@@ -22,26 +22,26 @@ class Producto {
     this.image = image;
     this.tiempo_preparacion = tiempo_preparacion;
   }
-  Producto(int tiempop){
+  Producto(int tiempop) {
     this.tiempo_preparacion = tiempop;
   }
-  
-  Producto(){
+
+  Producto() {
   }
-  
-  void displayProducto(int x, int y){
+
+  void displayProducto(int x, int y) {
     int xTextos =(width - (x + width/3))/2 + (x + width/3);
     y -= width/6;
-    
+
     push();
-    
-    
-    textAlign(LEFT,BOTTOM);
+
+
+    textAlign(LEFT, BOTTOM);
     image.resize(width/3, width/3);
-    image(image,x,y);
+    image(image, x, y);
     textSize(40);
     text(categoria, x, y- height/30);
-    textAlign(CENTER,TOP);
+    textAlign(CENTER, TOP);
     textSize(50);
     text(nombre, xTextos, y);
     textSize(20);
@@ -50,10 +50,10 @@ class Producto {
     textSize(50);
     text("$" + costo, xTextos, y + width/6);
     rectMode(CENTER);  
-    rect(xTextos,y + (2*width)/7,width/11,width/11,5);
-    textAlign(CENTER,CENTER);
+    rect(xTextos, y + (2*width)/7, width/11, width/11, 5);
+    textAlign(CENTER, CENTER);
     fill(0);
-    text(cantidad, xTextos ,y + (2*width)/7); 
+    text(cantidad, xTextos, y + (2*width)/7); 
     buttonadd.pos[0]=xTextos + (1.2*width)/11;
     buttonadd.pos[1]=y +  width/3 - width/22  -4;
     buttonremove.pos[0]=xTextos - (1.2*width)/11;
@@ -64,29 +64,28 @@ class Producto {
     buttonremove.size[0]= width/11;
     buttonremove.size[1]= width/11;
     pop();
-    
-    if(buttonadd.check() && mousePressed && addOprimido  == false){
+
+    if (buttonadd.check() && mousePressed && addOprimido  == false) {
       addOprimido = true;
       cantidad++;
     }
-    if(buttonremove.check() && mousePressed && removeOprimido  == false  && cantidad>0){
+    if (buttonremove.check() && mousePressed && removeOprimido  == false  && cantidad>0) {
       removeOprimido = true;
       cantidad--;
     }
-    
-    if(!mousePressed){
+
+    if (!mousePressed) {
       removeOprimido = false;
       addOprimido = false;
     }
-    
+
     buttonadd.display();
     buttonremove.display();
     buttonremove.seleccionador();
     buttonadd.seleccionador();
   }
-  
-  int getTiempoDePreparacion(){
+
+  int getTiempoDePreparacion() {
     return this.tiempo_preparacion;
   }
-  
 }
