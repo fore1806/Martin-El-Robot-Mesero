@@ -1,15 +1,3 @@
-
-
-//void buttons() {
-//  button1 = new Button("boton 1", width/1.5, height/4);
-//  button2 = new Button("boton 2", width/1.5, height/2 );
-//}
-
-//void buttonArray() {
-//  array[0] = button1;
-//  array[1] = button2;
-//}
-
 void showCheckButton(ButtonList array) {
   for (int i = 0; i<array.posF; i++) {
     array.array[i].seleccionador();
@@ -35,16 +23,6 @@ void startScreen() {
     }
   }
   ((Robot)(robotsList.head.data)).setDirection(250, 300);
-
-  //println("bateria: " + ((Robot)(robotsList.head.data)).battery);
-  //println("pos y: " + ((Robot)(robotsList.head.data)).dir[1]);
-  //((Robot)(robotsList.head.next.next.data)).setDirection(420,280);
-  //Node pointer = robotsList.head;
-
-  //  while(pointer!= null){
-  //  println(((Robot)(pointer.data)).battery); 
-  //   pointer = pointer.getNext();
-  //  }
 }
 
 void adminScreen() {
