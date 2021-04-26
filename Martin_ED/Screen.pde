@@ -112,23 +112,19 @@ void pagoScreen() {
 void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
-  //background(#00326E);
-  //producto_categorias = new int[1];
-  if (!menuCreado) {
-    producto_categorias = crearMenu(menuCreado);
-    println(producto_categorias);
+  
+  if (!menuCreado) { //Si no hay menú importado, crea el menú
+    producto_categorias = crearMenu(menuCreado); //Almacenamos los productos por categorias
   }
 
-  println(productos_a_mostrar.isEmpty());
-
-  if (productos_a_mostrar.isEmpty()) {
+  if (productos_a_mostrar.isEmpty()) { //Si no hay productos a mostrar mostramos el menu categorias
     backButton = new Button("Back", (width/2)-520, height-80);
     background(color5);
     showCheckButton(arrayButton);
     if (arrayButton.isEmpty()) {
       Node puntero_categoria = productos2.head;
       for (int i=0; i < producto_categorias.length; i++) {
-        //println(((Producto)(puntero_categoria.data)).nombre);
+
         Button buttondinamic = new Button (((Producto)(puntero_categoria.data)).categoria, buttonX*((i%2) + 1), buttonY* ((i%3) + 0.7), width/4, height/6);
         arrayButton.insert(buttondinamic);
         for (int j = 0; j<producto_categorias[i]; j++) {
@@ -141,8 +137,7 @@ void menuScreen() {
       screenMenu = !screenMenu;
       arrayButton = new ButtonList();
     }
-  } else {
-    //backButton = new Button("Back",(width/2), height-80);
+  } else { //Si ya hay menú
     background(color5);
     Node put = new Node();
     put = (productos_a_mostrar.head);
@@ -160,13 +155,17 @@ void menuScreen() {
       scroll = -22*productos_a_mostrar.elements;
     }
 
-    //scroll %= (25*(productos_a_mostrar.elements));
-    //scroll = -abs(scroll);
-    println(scroll);
-
     //((Producto)(productos_a_mostrar.head)).displayProducto(500,500);
     if (backButton.check() && mousePressed) {
       productos_a_mostrar = new LinkedList();
+     /*    Node puntero_impresion = productos2.head;
+
+    while (puntero_impresion!= null) {
+      println((((Producto)(puntero_impresion.data)).nombre)   + " Cantidad " + ((Producto)(puntero_impresion.data)).cantidad) ; 
+      puntero_impresion = puntero_impresion.getNext();
+    }*/
+      
+      
     }
     backButton = new Button("Back", /*(width/2)-520*/ 1180, height-80);
   }
@@ -181,7 +180,7 @@ void menuScreen() {
 int[] crearMenu(boolean menu_creado) {
   int [] categorias = new int[1];
   if (!menu_creado) {
-    /////////////////////////////////////////////////////////////////////
+
     String[] lines = loadStrings("./menu/menu.txt"); //Cargamos el archivo
     String cantidad_categorias = split(lines[1], " ")[0]; //Obtenemos el primer elemento de la segunda linea (cantidad de categorias)
     categorias = new int[Integer.valueOf(cantidad_categorias)]; //Creamos un arrray con la cantidad de categorias, cada elemento tiene la cantidad de productos de cada uno
@@ -216,7 +215,7 @@ int[] crearMenu(boolean menu_creado) {
         String str_tiempo_preparacion = lines[renglon];
         str_tiempo_preparacion = str_tiempo_preparacion.replace("\t", "");
         int tiempo_preparacion = Integer.valueOf(str_tiempo_preparacion);
-        println(tiempo_preparacion);
+        //println(tiempo_preparacion);
         //                       Producto(categoria,       nombre,       descripcion,             costo,         image   , tiempo preparacion){
         Producto ptr = new Producto(nombre_categoria, nombre_producto, descripcion_producto, precio_producto, imagen, tiempo_preparacion );
         Node puntero_producto = new Node(ptr);
@@ -225,67 +224,35 @@ int[] crearMenu(boolean menu_creado) {
       categorias[i]=numeros_categoria;  //la almacenamos en el array
       renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
     }
-    // DEBUG imprimimos el arreglo
-    // for (int i=0; i<categorias.length; i++) {
-    //  print("[" + categorias[i] + "]");
-    //} 
-    //println();
-
-    Node puntero_impresion = productos2.head;
-
-    while (puntero_impresion!= null) {
-      println(((Producto)(puntero_impresion.data)).nombre); 
-      puntero_impresion = puntero_impresion.getNext();
-    }
-
-    ///////////////////////////////////////
     menuCreado = true;
-  } else {
-    push();
-    textSize(20); 
-    Node puntero_grafico = productos2.head;
-    for (int j=0; j<k; j++) {
-      puntero_grafico = puntero_grafico.next;
-    }
-    ((Producto)puntero_grafico.data).displayProducto(50, height/2);
-    //println(ptr.nombre + "  " + k);
-
-    k++;
-    k %= productos2.elements;
-    pop();
-  }
-
+  } 
   return categorias;
 }
 
-void screenMenuButtons() {
-  if (productos_a_mostrar.isEmpty()) {
+void screenMenuButtons() {  //Detectamos que botone de cateogira fue presionado
+
+  //println("Lista de productos: " + arrayButton.posF);
+  if (productos_a_mostrar.isEmpty()) { 
     scroll=0;
-    int botones_categorias = arrayButton.posF;
-    for (int i=0; i<botones_categorias; i++) {
-      if (arrayButton.array[i].check()) {
-        productos_a_mostrar = new LinkedList();
-        print(arrayButton.array[i].bText);
-        Node puntero = productos2.head;
-        int elementos_anteriores = 0;
+    int botones_categorias = arrayButton.posF; //La cantidad de botones de categoria que hay
+    for (int i=0; i<botones_categorias; i++) { //Revisamos cada boton de categoria   
+      if (arrayButton.array[i].check()) {      //Si está oprimido
+        productos_a_mostrar = new LinkedList();//Vaciamos la lista
+        Node puntero = productos2.head;        //Creamos un puntero
+        int elementos_anteriores = 0;          //Iniciamos un contador
         for (int k=0; k<i; k++) {
-          elementos_anteriores += producto_categorias[k];
+          elementos_anteriores += producto_categorias[k]; //Sumamos todos los productos de categoria para llegar a la que queremos
         }
-        println(elementos_anteriores);
         for (int j=0; j<(elementos_anteriores); j++) { //Llego al primer producto de la categoria
-          //println(((Producto)(puntero.data)).nombre);
-          puntero = puntero.next;
+          puntero = puntero.next;                      //Recorremos
         }
 
         //Aqui obtenemos los que queremos
         for (int l= elementos_anteriores; l<(elementos_anteriores+producto_categorias[i]); l++) {
-          println(((Producto)(puntero.data)).nombre);
-          //((Producto)(puntero.data)).displayProducto(500,500);
           productos_a_mostrar.insertEnd(puntero);
           puntero = puntero.next;
         }
 
-        // println(i + " " + producto_categorias[i] );
       }
     }
   }
