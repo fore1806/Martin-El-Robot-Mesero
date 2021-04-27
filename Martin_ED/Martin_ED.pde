@@ -71,14 +71,9 @@ int intervalo = 600;
 
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
-<<<<<<< HEAD
-int mesasHorizontales = 20;
-int mesasVerticales = 20;
-=======
 
 int mesasHorizontales = 200;
 int mesasVerticales = 200;
->>>>>>> b80cd686bf1efb9cd19f45937ab0a39f54552a15
 
 void setup() {
   size(1300, 650);
