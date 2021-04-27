@@ -39,8 +39,8 @@ void tiempo2() {
       while (pointer != null) {
         Pedido pedido = (Pedido)pointer.getData();
         if (pedido.estaListo() && !pedido.yaSeAsigno) {
-          println("se asigno un robot");
           pedido.robotAsignado = EscogerRobot(robotsinactivos, robotsList, pedido.mesaDestino);
+          println("Se ha asignado el robot "+pedido.robotAsignado.id);
           //pedido.robotAsignado.empty = false;
           pedido.llevarComida();
           pedido.yaSeAsigno = true;
@@ -49,7 +49,7 @@ void tiempo2() {
         robotArrived(pedido);
         if (pedido.robotAsignado!=null) {
           if ((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
-            //println("pase por aki");
+            println("Pedido del robot "+pedido.robotAsignado.id+" entregado");
             pedido.robotAsignado.setDirection(0, 0);
             robotsinactivos.enQueue(new Node(pedido.robotAsignado));
             //robotsActivos.delete(pedido.robotAsignado);
@@ -85,7 +85,6 @@ void crearMesas(int mesasH, int mesasV) {
 void robotArrived(Pedido pedido) {
   if (pedido.robotAsignado!=null) {
     if ((pedido.robotAsignado.pos[0]== pedido.mesaDestino.coordenadas[0]) && (pedido.robotAsignado.pos[1]== pedido.mesaDestino.coordenadas[1]) && (pedido.enCamino==true)) {
-      //println("ahora por aki");
       pedido.robotAsignado.estaenlamesa=true; 
       pedido.horaALaQueLlega=millis();
       pedido.enCamino=false;
@@ -98,4 +97,5 @@ void realizarPedido() {
   p1.HacerPedido();
   Node n = new  Node(p1);
   listaDePedidos.insertEnd(n);
+  println("El pedido se está preparando");
 }
