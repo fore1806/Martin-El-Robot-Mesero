@@ -5,7 +5,7 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
   Robot martinElElegido = null;
   if (RobotsActivos.isEmpty()) {
     martinElElegido =  ((Robot)((Node)listaRobots.deQueue()).getData());
-  }else {
+  } else {
     float dmin =dri;
     for (int i=0; i<RobotsActivos.length(); i++) {
       if ( !((Robot) RobotsActivos.getNth(i).getData()).isMoving() /*&& ((Robot) RobotsActivos.getNth(i).getData()).battery>30*/ ) {      
@@ -23,11 +23,11 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
       martinElElegido = ((Robot)((Node)listaRobots.deQueue()).getData());
     }
   }
-  
-  if(martinElElegido!=null){
-  martinElElegido.battery = 100; //De momento le seteamos la bateria arbitrariamente en 100
+
+  if (martinElElegido!=null) {
+    martinElElegido.battery = 100; //De momento le seteamos la bateria arbitrariamente en 100
   }
-  
+
   return martinElElegido;
 }
 
@@ -36,7 +36,7 @@ void tiempo2() {
     Node pointer;
     if (!listaDePedidos.isEmpty()) {
       pointer = listaDePedidos.head;
-      while(pointer != null){
+      while (pointer != null) {
         Pedido pedido = (Pedido)pointer.getData();
         if (pedido.estaListo() && !pedido.yaSeAsigno) {
           println("se asigno un robot");
@@ -45,7 +45,7 @@ void tiempo2() {
           pedido.llevarComida();
           pedido.yaSeAsigno = true;
         }
-    
+
         robotArrived(pedido);
         if (pedido.robotAsignado!=null) {
           if ((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
@@ -93,8 +93,8 @@ void robotArrived(Pedido pedido) {
   }
 }
 
-void realizarPedido(){
-  Pedido p1 = new Pedido(pedidoEnTramite,(Mesa)mesas.getNth((int)random(1,mesasVerticales*mesasHorizontales)).getData());
+void realizarPedido() {
+  Pedido p1 = new Pedido(pedidoEnTramite, (Mesa)mesas.getNth((int)random(1, mesasVerticales*mesasHorizontales)).getData());
   p1.HacerPedido();
   Node n = new  Node(p1);
   listaDePedidos.insertEnd(n);
