@@ -1,7 +1,7 @@
 /**
  *  Stack
  * 
- *  Clase de tipo genérica para implementar la estructura Stack
+ *  Clase de tipo genérica implementada a partir de referencias.
  */
  
 public class Stack<T> {
