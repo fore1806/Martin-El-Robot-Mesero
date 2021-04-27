@@ -1,10 +1,14 @@
-//Tiempo
+/**
+ * Método encargado de analizar el transcurrir del tiempo
+ * en el software y realizar las operaciones de movimiento
+ * de los robots.
+ */
 
 void tiempo() {
   if (millis() - timer >= intervalo) {
-    
+
     Node pointer;
-    
+
 
     if (!robotsActivos.isEmpty()) {
 
@@ -24,13 +28,13 @@ void tiempo() {
           //println("Bateria: " + ((Robot)(pointer.data)).battery);
           //println("Se mueve?: " + ((Robot)(pointer.data)).isMoving());
         }
-        
+
 
         //if (((Robot)(pointer.data)).battery <= 30) {
         //  robotsToCharge.insertEnd(pointer);
         //  robotsActivos.deleteNode(pointer);
         //}
-        
+
         pointer = pointer.getNext();
       }
     }

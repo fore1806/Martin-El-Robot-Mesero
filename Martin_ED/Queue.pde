@@ -1,7 +1,7 @@
 /**
  *  Queue
  * 
- *  Clase de tipo genérica implementada a partir de referencias 
+ *  Clase de tipo genérica implementada a partir de referencias.
  *  Consta de 2 atributos y 6 métodos
  */
  
