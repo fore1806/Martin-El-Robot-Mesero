@@ -87,6 +87,13 @@ void pagoScreen() {
   showCheckButton(arrayButton);
 }
 
+
+/**
+  * Este metodo muestra las categorias disponibles y elige si mostrar productos o categorias
+  * Creará el menú en caso de que no esté importado, si la lista productos_a_mostrar
+  * tiene productoslos muestra, en caso contrario genera los botones con las categorias 
+  */
+
 void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
@@ -161,7 +168,6 @@ void menuScreen() {
  /**
   * Crea un LinkedList con los productos del archivo de texto.
   * Solo se ejecutará una vez en todo el tiempo de ejecución
-  * Retorna una array 
   *
   * @return array con los productos por categoria, en el orden de las categorias segun el .txt
   * @param menu_creado Booleano que indica si ya se creo el menú anteriormente
