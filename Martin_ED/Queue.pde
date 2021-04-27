@@ -4,6 +4,7 @@
  *  Clase de tipo genérica implementada a partir de referencias 
  *  Consta de 2 atributos y 6 métodos
  */
+ 
 public class Queue <T> {
 
   Node<T> head;

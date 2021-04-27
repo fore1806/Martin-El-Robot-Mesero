@@ -1,3 +1,9 @@
+/**
+ *  Robot
+ * 
+ *  Clase encargada de manejar todo el funcionamiento de los robots 
+ */
+
 public class Robot {
 
   int battery;
@@ -31,10 +37,26 @@ public class Robot {
     this.dir[1] = pos[1];
   }
 
+  /**
+   * Método encargado de definir la dirección a la que debe
+   * dirigirse el robot.
+   *
+   * @param dirX entero que define la dirección en x del Robot.
+   * @param dirY entero que define la dirección en y del Robot.
+   */
+
   void setDirection (int dirX, int dirY) {
     this.dir[0] = dirX;
     this.dir[1] = dirY;
   }
+
+  /**
+   * Método encargado de mover al robot verificando si debe moverse
+   * a la derecha, izquierda, arriba o abajo en la pantalla.
+   *
+   * @param indicador entero que define si el Robot debe moverse en
+   * el eje horizontal o vertical
+   */
 
   void move(int indicador) {
     if (!isMoving()) {//No debemos movernos
@@ -47,6 +69,12 @@ public class Robot {
       else pos[1]+=disMesas;
     }
   }
+
+  /**
+   * Método encargado de definir el movimiento en L del robot moviendolo primero
+   * horizontalmente y posteriormente verticalmente a la vez que descarga el robot
+   * si se cumple con las condiciones necesarias.
+   */
 
   void goDirection() {
     if (isMoving()) {
@@ -65,21 +93,49 @@ public class Robot {
     }
   }
 
+  /**
+   * Función que retorna un booleano que permite conocer si el robot esta libre para atender un pedido.
+   *
+   * @return un booleano que indica si el robot esta libre para atender un pedido.
+   */
+
   boolean isEmpty() {
     return empty;
   }
+
+  /**
+   * Función que retorna un booleano que permite conocer si el robot esta en movimiento.
+   *
+   * @return un booleano que indica si el robot esta en movimiento.
+   */
 
   boolean isMoving() {
     return !(pos[0]==dir[0] && pos[1]==dir[1]);
   }
 
+  /**
+   * Función que retorna un booleano que permite conocer si el robot se esta cargando.
+   *
+   * @return un booleano que indica si el robot se esta cargando.
+   */
+
   boolean isCharging() {
     return charging;
   }
 
+  /**
+   * Función que retorna un booleano que permite conocer si el robot esta entregando un pedido.
+   *
+   * @return un booleano que indica si el robot esta entregando un pedido.
+   */
+
   boolean isInTheTable() {
     return estaenlamesa;
   }
+
+  /**
+   * Método encargado de cargar el robot.
+   */
 
   void charge() {
     if (battery<100 && charging) {
@@ -87,17 +143,13 @@ public class Robot {
     }
   }
 
+  /**
+   * Método encargado de descargar el robot.
+   */
+
   void discharge() {
     if (battery>0 && !charging) {
       this.battery-=1;
     }
-  }
-
-  void connect() {
-    charging = true;
-  }
-
-  void disconnect() {
-    charging = false;
   }
 }
