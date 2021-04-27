@@ -51,7 +51,7 @@ Button button8;
 Button button9;
 
 ButtonList arrayButton = new ButtonList();
-
+//Node ptr = new Node(buttondinamic);
 //Robots
 
 int nRobots = 3;
@@ -71,8 +71,14 @@ int intervalo = 600;
 
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
+<<<<<<< HEAD
 int mesasHorizontales = 20;
 int mesasVerticales = 20;
+=======
+
+int mesasHorizontales = 200;
+int mesasVerticales = 200;
+>>>>>>> b80cd686bf1efb9cd19f45937ab0a39f54552a15
 
 void setup() {
   size(1300, 650);
@@ -92,12 +98,6 @@ void draw() {
   //tiempo3();
   tiempo2();
   if (screenStart) {
-    //print("x: "+martin.pos[0]);
-    //print("y: "+martin.pos[1]);
-    //martin.setDirection(50,100);
-    //martin.goDirection();
-    //print("x: "+martin.pos[0]);
-    //print("y: "+martin.pos[1]);
     startScreen();
   } else if (screenAdmin) {
     adminScreen();

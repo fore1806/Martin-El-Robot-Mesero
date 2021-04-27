@@ -31,7 +31,6 @@ void tiempo() {
         //  robotsActivos.deleteNode(pointer);
         //}
         
-        //println("lista sin datos: " + robotsToCharge.isEmpty());
         pointer = pointer.getNext();
       }
     }
@@ -40,7 +39,7 @@ void tiempo() {
   }
 }
 
-
+//Funcion en desarrollo
 //void tiempo3(){
 //  if (millis() - timer >= intervalo) {
 //  Node pointer2;
