@@ -157,6 +157,16 @@ void menuScreen() {
   //
 }
 
+
+ /**
+  * Crea un LinkedList con los productos del archivo de texto.
+  * Solo se ejecutará una vez en todo el tiempo de ejecución
+  * Retorna una array 
+  *
+  * @return array con los productos por categoria, en el orden de las categorias segun el .txt
+  * @param menu_creado Booleano que indica si ya se creo el menú anteriormente
+  */
+
 int[] crearMenu(boolean menu_creado) {
   int [] categorias = new int[1];
   if (!menu_creado) {
@@ -212,6 +222,12 @@ int[] crearMenu(boolean menu_creado) {
   return categorias;
 }
 
+
+
+ /**
+  * Insertar los productos a mostrar segun categoria.
+  * Insertará los objetos tipo producto en la lista productos_a_mostrar
+  */
 void screenMenuButtons() {  //Detectamos que botone de cateogira fue presionado
 
   //println("Lista de productos: " + arrayButton.posF);
@@ -246,6 +262,12 @@ void thirdScreen() {
   background(0, 0, 255);
 }
 
+
+ /**
+  * Establece en 0 la cantidad detodos los productos
+  * todos los objetos de la lista productos2 serán modificados con el parametro cantidad = 0
+  */
+  
 void reiniciarProductos(){
   Node ptr = new Node();
   ptr = productos2.head;
@@ -255,6 +277,12 @@ void reiniciarProductos(){
     ptr = ptr.next;
   }
 }
+
+
+
+ /**
+  * Inseta en pedidoEnTramite todos los productos que tengan cantidad diferente de 0
+  */
 
 void duplicarPedidos(){
   Node ptr = productos2.head;

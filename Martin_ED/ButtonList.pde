@@ -23,6 +23,13 @@ public class ButtonList {
     posF=0;
   }
   
+  
+  
+/**
+  * Duplica el array si su tamaño está proximo a llenarse
+  * Si el array solo tiene un espacio libre, procede a crear un nuevo array
+  * con el doble del tamaño, copiando el original. 
+  */
   void dupliquer(){
     if(array.length - posF <=1){
       Button[] arrayAux = new Button[2*array.length];

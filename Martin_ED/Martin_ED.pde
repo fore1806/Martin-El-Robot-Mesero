@@ -51,7 +51,7 @@ Button button8;
 Button button9;
 
 ButtonList arrayButton = new ButtonList();
-
+//Node ptr = new Node(buttondinamic);
 //Robots
 
 int nRobots = 3;
