@@ -1,3 +1,9 @@
+/**
+ *  Producto
+ * 
+ *  Clase para instanciar los productos, junto con su visualizacion en el menú
+ */
+
 class Producto implements Cloneable {
   String categoria;
   String nombre;
@@ -28,8 +34,16 @@ class Producto implements Cloneable {
 
   Producto() {
   }
-  
-   public Producto clone() {
+
+
+  /**
+   * Metodo para clonar un producto.
+   * Clona un producto e informa por consola si ocurre un fallo
+   *
+   * @return Producto clone el cual es un clone del producto original
+   */
+
+  public Producto clone() {
     Producto obj=null;
     try {
       obj=(Producto)super.clone();
@@ -39,7 +53,14 @@ class Producto implements Cloneable {
     }
     return obj;
   }
-  
+
+
+  /**
+   * Muestra el producto en la pantalla
+   * Muestra el producto en pantalla, junto con los botones para aumentar su atributo cantidad
+   *
+   * @param int x, int y  coordenadas para dibujar el producto
+   */
 
   void displayProducto(int x, int y) {
     int xTextos =(width - (x + width/3))/2 + (x + width/3) -width/20 ;
@@ -99,6 +120,13 @@ class Producto implements Cloneable {
     buttonadd.seleccionador();
   }
 
+
+
+  /**
+   * Retorna el tiempo de preparacion
+   *
+   * @return tiempo_preparacion
+   */
   int getTiempoDePreparacion() {
     return this.tiempo_preparacion;
   }
