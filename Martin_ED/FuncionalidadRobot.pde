@@ -11,12 +11,10 @@ void tiempo() {
       pointer = robotsActivos.head;
 
       //Mover robots
-      println();
       while (pointer!= null) {
-        print("Robot: " + ((Robot)(pointer.data)).id+" ");
+        // print(((Robot)(pointer.data)).id+" ");
         if (((Robot)(pointer.data)).isMoving()) {
           ((Robot)(pointer.data)).goDirection();
-          println();
           println("Robot: " + ((Robot)(pointer.data)).id);
           println("pos x: " + ((Robot)(pointer.data)).pos[0]);
           println("pos y: " + ((Robot)(pointer.data)).pos[1]);
@@ -25,7 +23,7 @@ void tiempo() {
           //println("dir y: " + ((Robot)(pointer.data)).dir[1]);
           //println("Bateria: " + ((Robot)(pointer.data)).battery);
           //println("Se mueve?: " + ((Robot)(pointer.data)).isMoving());
-        }println();
+        }
         
 
         //if (((Robot)(pointer.data)).battery <= 30) {

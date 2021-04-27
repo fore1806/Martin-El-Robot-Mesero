@@ -89,7 +89,7 @@
 		Helado Costeño
 			Hela'o coteño sabroso
 			2000 helado.jpg
-			0
+			20
 		Cupcake
 			Cupcake de crema
 			2800 cupcake.jpg

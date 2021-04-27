@@ -67,30 +67,18 @@ LinkedList mesas = new LinkedList<Node<Mesa>>();
 //Tiempo
 
 int timer;  //Tiempo 
-int intervalo = 60; 
+int intervalo = 600; 
 
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
-
-//Producto test
-
-//Producto pej = new Producto(2000);
-//Node n1 = new Node(pej);
-//LinkedList<Node<Producto>> llpr = new LinkedList();
-//Pedido p1 = new Pedido();
-
-int mesasHorizontales = 200;
-int mesasVerticales = 200;
+int mesasHorizontales = 20;
+int mesasVerticales = 20;
 
 void setup() {
   size(1300, 650);
   startImage = loadImage("robot.png");
   addRobots(5); 
   crearMesas(mesasHorizontales, mesasVerticales);
-  //llpr.insertFront(n1);
-  //p1.productos = llpr;
-  //p1.mesaDestino = m;
-  //p1.HacerPedido();
 }
 
 void draw() {
@@ -186,7 +174,6 @@ void mousePressed() {
     screenMenuButtons();
       if (finalizarpedido.check()){
         realizarPedido();
-        println("sisirve");
       }
   }
 }
