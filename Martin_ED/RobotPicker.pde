@@ -24,7 +24,10 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
     }
   }
   
+  if(martinElElegido!=null){
   martinElElegido.battery = 100; //De momento le seteamos la bateria arbitrariamente en 100
+  }
+  
   return martinElElegido;
 }
 
