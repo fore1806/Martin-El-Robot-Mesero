@@ -72,13 +72,6 @@ int intervalo = 60;
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
 
-//Producto test
-
-//Producto pej = new Producto(2000);
-//Node n1 = new Node(pej);
-//LinkedList<Node<Producto>> llpr = new LinkedList();
-//Pedido p1 = new Pedido();
-
 int mesasHorizontales = 200;
 int mesasVerticales = 200;
 
@@ -87,10 +80,6 @@ void setup() {
   startImage = loadImage("robot.png");
   addRobots(5); 
   crearMesas(mesasHorizontales, mesasVerticales);
-  //llpr.insertFront(n1);
-  //p1.productos = llpr;
-  //p1.mesaDestino = m;
-  //p1.HacerPedido();
 }
 
 void draw() {
@@ -104,12 +93,6 @@ void draw() {
   //tiempo3();
   tiempo2();
   if (screenStart) {
-    //print("x: "+martin.pos[0]);
-    //print("y: "+martin.pos[1]);
-    //martin.setDirection(50,100);
-    //martin.goDirection();
-    //print("x: "+martin.pos[0]);
-    //print("y: "+martin.pos[1]);
     startScreen();
   } else if (screenAdmin) {
     adminScreen();
