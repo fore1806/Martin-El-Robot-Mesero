@@ -42,9 +42,9 @@ public class Queue <T> {
     tail=null;
   }
 
-  public void print() {
+  public void printQueue() {
     Node pointer = head;
-    while (pointer!=null&&pointer.getNext()!=null) {
+    while (pointer!=null && pointer.getNext()!=null) {
       System.out.println(pointer.getData());
       pointer = pointer.getNext();
     }
