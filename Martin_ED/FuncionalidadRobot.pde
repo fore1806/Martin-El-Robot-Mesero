@@ -2,7 +2,7 @@
 
 void tiempo() {
   if (millis() - timer >= intervalo) {
-
+    
     Node pointer;
     
 
@@ -11,19 +11,22 @@ void tiempo() {
       pointer = robotsActivos.head;
 
       //Mover robots
-
+      println();
       while (pointer!= null) {
-
+        print("Robot: " + ((Robot)(pointer.data)).id+" ");
         if (((Robot)(pointer.data)).isMoving()) {
           ((Robot)(pointer.data)).goDirection();
-          println("Robot");
+          println();
+          println("Robot: " + ((Robot)(pointer.data)).id);
           println("pos x: " + ((Robot)(pointer.data)).pos[0]);
           println("pos y: " + ((Robot)(pointer.data)).pos[1]);
-          println("dir x: " + ((Robot)(pointer.data)).dir[0]);
-          println("dir y: " + ((Robot)(pointer.data)).dir[1]);
-          println("Bateria: " + ((Robot)(pointer.data)).battery);
-          println("Se mueve?: " + ((Robot)(pointer.data)).isMoving());
-        }
+          println();
+          //println("dir x: " + ((Robot)(pointer.data)).dir[0]);
+          //println("dir y: " + ((Robot)(pointer.data)).dir[1]);
+          //println("Bateria: " + ((Robot)(pointer.data)).battery);
+          //println("Se mueve?: " + ((Robot)(pointer.data)).isMoving());
+        }println();
+        
 
         //if (((Robot)(pointer.data)).battery <= 30) {
         //  robotsToCharge.insertEnd(pointer);

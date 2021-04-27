@@ -28,27 +28,35 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
   return martinElElegido;
 }
 
-void tiempo2(Pedido pedido) {
+void tiempo2() {
   if (millis() - timer2 >= intervalo2) {
-    if (pedido.estaListo() && !pedido.yaSeAsigno) {
-      println("se asigno un robot");
-      pedido.robotAsignado = EscogerRobot(robotsinactivos, robotsList, pedido.mesaDestino);
-      //pedido.robotAsignado.empty = false;
-      pedido.llevarComida();
-      pedido.yaSeAsigno = true;
-    }
-
-    robotArrived(pedido);
-    if (pedido.robotAsignado!=null) {
-      if ((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
-        println("pase por aki");
-        pedido.robotAsignado.setDirection(0, 0);
-        robotsinactivos.enQueue(new Node(pedido.robotAsignado));
-        pedido.robotAsignado.activo = false;
-        pedido.robotAsignado.empty = true;
+    Node pointer;
+    if (!listaDePedidos.isEmpty()) {
+      pointer = listaDePedidos.head;
+      while(pointer != null){
+        Pedido pedido = (Pedido)pointer.getData();
+        if (pedido.estaListo() && !pedido.yaSeAsigno) {
+          println("se asigno un robot");
+          pedido.robotAsignado = EscogerRobot(robotsinactivos, robotsList, pedido.mesaDestino);
+          //pedido.robotAsignado.empty = false;
+          pedido.llevarComida();
+          pedido.yaSeAsigno = true;
+        }
+    
+        robotArrived(pedido);
+        if (pedido.robotAsignado!=null) {
+          if ((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
+            //println("pase por aki");
+            pedido.robotAsignado.setDirection(0, 0);
+            robotsinactivos.enQueue(new Node(pedido.robotAsignado));
+            //robotsActivos.delete(pedido.robotAsignado);
+            pedido.robotAsignado.activo = false;
+            pedido.robotAsignado.empty = true;
+          }
+        }
+        pointer = pointer.getNext();
       }
     }
-
     timer2=millis();
   }
 }
@@ -74,10 +82,17 @@ void crearMesas(int mesasH, int mesasV) {
 void robotArrived(Pedido pedido) {
   if (pedido.robotAsignado!=null) {
     if ((pedido.robotAsignado.pos[0]== pedido.mesaDestino.coordenadas[0]) && (pedido.robotAsignado.pos[1]== pedido.mesaDestino.coordenadas[1]) && (pedido.enCamino==true)) {
-      println("ahora por aki");
+      //println("ahora por aki");
       pedido.robotAsignado.estaenlamesa=true; 
       pedido.horaALaQueLlega=millis();
       pedido.enCamino=false;
     }
   }
+}
+
+void realizarPedido(){
+  Pedido p1 = new Pedido(pedidoEnTramite,(Mesa)mesas.getNth((int)random(1,mesasVerticales*mesasHorizontales)).getData());
+  p1.HacerPedido();
+  Node n = new  Node(p1);
+  listaDePedidos.insertEnd(n);
 }

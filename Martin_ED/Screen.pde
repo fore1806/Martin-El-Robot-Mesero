@@ -90,8 +90,7 @@ void pagoScreen() {
 void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
-  Button finalizarpedido = new Button("Realizar pedido", width/2, height-80,400,110);
-  
+  finalizarpedido = new Button("Realizar pedido", width/2, height-80,400,110);
   if (!menuCreado) { //Si no hay menú importado, crea el menú
     producto_categorias = crearMenu(menuCreado); //Almacenamos los productos por categorias
   }
@@ -161,7 +160,8 @@ void menuScreen() {
 int[] crearMenu(boolean menu_creado) {
   int [] categorias = new int[1];
   if (!menu_creado) {
-
+    int to = millis();
+    
     String[] lines = loadStrings("./menu/menu.txt"); //Cargamos el archivo
     String cantidad_categorias = split(lines[1], " ")[0]; //Obtenemos el primer elemento de la segunda linea (cantidad de categorias)
     categorias = new int[Integer.valueOf(cantidad_categorias)]; //Creamos un arrray con la cantidad de categorias, cada elemento tiene la cantidad de productos de cada uno
@@ -206,6 +206,8 @@ int[] crearMenu(boolean menu_creado) {
       renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
     }
     menuCreado = true;
+    int tf = millis()-to;
+    //println(tf);
   } 
   return categorias;
 }

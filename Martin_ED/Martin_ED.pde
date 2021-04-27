@@ -16,6 +16,10 @@ LinkedList productos2 = new LinkedList<Node<Producto>>();
 LinkedList pedidoEnTramite = new LinkedList<Node<Producto>>();
 LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
 
+LinkedList listaDePedidos = new LinkedList<Node<Pedido>>();
+
+Button finalizarpedido;
+
 int k = 0;
 float scroll=0;
 int[] producto_categorias;
@@ -70,21 +74,23 @@ int intervalo2 = 20;
 
 //Producto test
 
-Producto pej = new Producto(2000);
-Node n1 = new Node(pej);
-LinkedList<Node<Producto>> llpr = new LinkedList();
-Pedido p1 = new Pedido();
+//Producto pej = new Producto(2000);
+//Node n1 = new Node(pej);
+//LinkedList<Node<Producto>> llpr = new LinkedList();
+//Pedido p1 = new Pedido();
+
+int mesasHorizontales = 200;
+int mesasVerticales = 200;
 
 void setup() {
   size(1300, 650);
   startImage = loadImage("robot.png");
   addRobots(5); 
-  crearMesas(6, 6);
-  Mesa m = new Mesa("120-120");
-  llpr.insertFront(n1);
-  p1.productos = llpr;
-  p1.mesaDestino = m;
-  p1.HacerPedido();
+  crearMesas(mesasHorizontales, mesasVerticales);
+  //llpr.insertFront(n1);
+  //p1.productos = llpr;
+  //p1.mesaDestino = m;
+  //p1.HacerPedido();
 }
 
 void draw() {
@@ -96,7 +102,7 @@ void draw() {
   pop();
   tiempo();
   //tiempo3();
-  tiempo2(p1);
+  tiempo2();
   if (screenStart) {
     //print("x: "+martin.pos[0]);
     //print("y: "+martin.pos[1]);
@@ -178,6 +184,10 @@ void mousePressed() {
     }
   } else if (screenMenu) {
     screenMenuButtons();
+      if (finalizarpedido.check()){
+        realizarPedido();
+        println("sisirve");
+      }
   }
 }
 
