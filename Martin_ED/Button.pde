@@ -1,3 +1,9 @@
+/**
+ *  Button
+ * 
+ *  Clase para implementar un botón
+ */
+
 public class Button {
   int [] size = {220, 100};
   float [] pos = {0, 0};
@@ -33,6 +39,12 @@ public class Button {
     this.textColor = textColor;
   }
 
+
+/**
+  * Muestra el boton en pantalla.
+  * Dibuja el boton en la pantalla
+  *
+  */
   void display() {
     push();
     fill(fillColor);
@@ -46,7 +58,11 @@ public class Button {
     text(bText, pos[0], pos[1]);
     pop();
   }
-
+/**
+  * Comprueba si el mouse está encima del botón
+  *
+  * @return Boolean true si el mouse está encima del botón
+  */
   boolean check() { 
     if ((mouseX > pos[0] - size[0]/2) && (mouseX < pos[0] + size[0]/2) && (mouseY > pos[1] - size[1]/2) && (mouseY < pos[1] + size[1]/2)) {
       return true;
@@ -55,6 +71,11 @@ public class Button {
     }
   }
 
+/**
+  * Colorea los bordes del boton si el mouse está encima del boton
+  * Si el mouse está encima del botón aumenta el grosor de los bordes y cambia el color
+  *
+  */
   void seleccionador() {  //Metodo para cambiar el color del stroke, que nos indica cuando el mouse esta sobre el botón
     if (check()) {
       strokeSeleccioned = strokeColor;
