@@ -1,3 +1,13 @@
+/**
+ * Función que define cual es el robot que debe ser escogido para entregar
+ * el pedido.
+ *
+ * @param listaRobots Cola en la que se almacenan los robots que están en (0, 0).
+ * @param RobotsActivos Lista en la que se almacenan los robots que están en la zona de mesas.
+ * @param mesa Mesa a la que debe ser llevado el pedido
+ * @return Robot escogido para entregar el pedido.
+ */
+
 Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> RobotsActivos, Mesa mesa ) {
   int[] cm = mesa.getCoordenadas();
   float dri = sqrt((cm[0]^2)+(cm[1]^2));
@@ -30,6 +40,12 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
 
   return martinElElegido;
 }
+
+/**
+ * Método encargado de analizar el transcurrir del tiempo
+ * en el software y realizar las operaciones de selección
+ * para la entrega de los pedidos.
+ */
 
 void tiempo2() {
   if (millis() - timer2 >= intervalo2) {
@@ -64,6 +80,12 @@ void tiempo2() {
   }
 }
 
+/**
+ * Método encargado de inicializar robots para el restaurante
+ *
+ * @param cantidad entero que define la cantidad de robots a crear
+ */
+ 
 void addRobots(int cantidad) {
   for (int i=0; i<=cantidad; i++) {
     Robot martin = new Robot(0, 0, 100, i);
@@ -71,6 +93,13 @@ void addRobots(int cantidad) {
     robotsinactivos.enQueue(n);
   }
 }
+
+/**
+ * Método encargado de inicializar las mesas del restaurante
+ *
+ * @param mesasH entero que define la cantidad de mesas por fila
+ * @param mesasV entero que define la cantidad de mesas por hilera
+ */
 
 void crearMesas(int mesasH, int mesasV) {
   for (int i=0; i<=mesasH; i++) {
@@ -82,6 +111,12 @@ void crearMesas(int mesasH, int mesasV) {
   }
 }
 
+/**
+ * Método encargado de simular la entrega de los pedidos
+ *
+ * @param pedido Objeto de tipo Pedido que fue entregado
+ */
+
 void robotArrived(Pedido pedido) {
   if (pedido.robotAsignado!=null) {
     if ((pedido.robotAsignado.pos[0]== pedido.mesaDestino.coordenadas[0]) && (pedido.robotAsignado.pos[1]== pedido.mesaDestino.coordenadas[1]) && (pedido.enCamino==true)) {
@@ -91,6 +126,10 @@ void robotArrived(Pedido pedido) {
     }
   }
 }
+
+/**
+ * Método encargado de simular la realización de los pedidos
+ */
 
 void realizarPedido() {
   Pedido p1 = new Pedido(pedidoEnTramite, (Mesa)mesas.getNth((int)random(1, mesasVerticales*mesasHorizontales)).getData());

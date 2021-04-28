@@ -1,4 +1,4 @@
-# :robot: Martin-El-Robot-Mesero  :robot:
+# :robot: Martin El Robot Mesero  :robot:
 
 ## Autores
 
@@ -48,7 +48,7 @@ Los principales requerimientos funcionales del programa son:
 
 ## Implementación
 
-Para el desarrollo de la primera fase, se hace un uso primordial de estructuras de datos lineales, tales como listas enlazadas y colas, a continuación se describe brevemente su utilización en el proyecto.
+El proyecto se encuentra desarrollado en el lenguaje de programación Processing, se utiliza documentación JavaDoc para explicar su funcionamiento. En el desarrollo de la primera fase, se hace un uso primordial de estructuras de datos lineales, tales como listas enlazadas y colas, a continuación se describe brevemente su utilización en el proyecto.
 
 ### Listas Enlazadas
 
