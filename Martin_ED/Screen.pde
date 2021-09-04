@@ -365,7 +365,21 @@ void idScreen(){
         arrayButton.makeEmpty();
         cedula = Long.parseLong(cedulaStr);
         
-        clientes.update(cedula);
+        /*
+        for(int j = 0; j<= 150000; j++){
+          //clientes.update(cedula);
+          clientes.update((long)random(0,5));
+        }
+        println("Factor :" + clientes.factor + " n: " + clientes.n);
+        */
+         
+         
+        String[] linesData = loadStrings("./dataset/cedulas.txt"); //Cargamos el archivo
+        for(int j = 0; j<linesData.length; j++){
+          clientes.update(Long.parseLong(linesData[j])); 
+          println("Factor :" + clientes.factor + " n: " + clientes.n);
+        }
+        
         
         println(cedula);
       }

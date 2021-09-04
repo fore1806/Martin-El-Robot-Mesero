@@ -60,7 +60,7 @@ public class HashTableIntF {
       nToUpdate = new Node(new Cliente(hFunction(CC), CC));
       this.table[hFunction(CC)].pushBack(nToUpdate);
       this.n += 1;
-      this.factor = n/m;
+      this.factor = ((float)n)/((float)m);
     }
     ((Cliente)(nToUpdate.data)).nuevaVisita();
     println("Para el cliente " + CC + " Visitas= " + ((Cliente)(nToUpdate.data)).nVisitas);
