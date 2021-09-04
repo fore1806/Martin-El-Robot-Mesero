@@ -38,8 +38,10 @@ public class HashTableIntF {
   
   Node find (long CC) {
     Node founded = null;
-    println("Hashnumber: " +  hFunction(CC));
-    if(!this.table[hFunction(CC)].isEmpty()){
+    print("hashCode " + hFunction(CC));
+    if (this.table[hFunction(CC)]==null){
+      this.table[hFunction(CC)]= new LinkedList();
+    }else if(!this.table[hFunction(CC)].isEmpty()){
       Node pointer = this.table[hFunction(CC)].getHead();
       while (pointer!= null) {
         if (((Cliente)(pointer.data)).CC == CC) {
@@ -49,7 +51,6 @@ public class HashTableIntF {
         pointer = pointer.getNext();
       }
     }
-    
     return founded;
   }
   
