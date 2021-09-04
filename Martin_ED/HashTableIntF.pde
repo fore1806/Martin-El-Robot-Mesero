@@ -38,7 +38,7 @@ public class HashTableIntF {
   
   Node find (long CC) {
     Node founded = null;
-    print("hashCode " + hFunction(CC));
+    println("hashCode " + hFunction(CC));
     if (this.table[hFunction(CC)]==null){
       this.table[hFunction(CC)]= new LinkedList();
     }else if(!this.table[hFunction(CC)].isEmpty()){
@@ -62,5 +62,6 @@ public class HashTableIntF {
       this.n += 1;
     }
     ((Cliente)(nToUpdate.data)).nuevaVisita();
+    println("Para el cliente " + CC + " Visitas= " + ((Cliente)(nToUpdate.data)).nVisitas);
   }
 }
