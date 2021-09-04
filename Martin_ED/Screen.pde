@@ -305,3 +305,24 @@ void duplicarPedidos(){
     ptr = ptr.next;
   }*/
 }
+
+
+void idScreen(){
+  background(color5);
+  if (arrayButton.isEmpty()) {
+    button1 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
+    button2 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
+    button3 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
+    button4 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
+    button5 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
+    button6 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
+    button7 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
+    button8 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
+    backButton = new Button ("Back", (width/2)-520, height-80);
+    arrayButton.insert(button1);
+    arrayButton.insert(button2);
+    arrayButton.insert(backButton);
+  }
+  
+  showCheckButton(arrayButton);
+}

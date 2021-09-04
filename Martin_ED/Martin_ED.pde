@@ -3,6 +3,7 @@
 boolean screenStart = true;
 boolean screenAdmin = false;
 boolean screenClient = false;
+boolean screenId = false;
 boolean screenPedidos = false;
 boolean screenMesas = false;
 boolean screenRobots = false;
@@ -49,6 +50,7 @@ Button button6;
 Button button7;
 Button button8;
 Button button9;
+Button button10;
 
 ButtonList arrayButton = new ButtonList();
 //Node ptr = new Node(buttondinamic);
@@ -98,7 +100,10 @@ void draw() {
     adminScreen();
   } else if (screenClient) {
     clientScreen();
-  } else if (screenPedidos) {
+  }// else if (screenId){
+   // idScreen(); */
+  //}
+  else if (screenPedidos) {
     pedidosScreen();
   } else if (screenMesas) {
     mesasScreen();
@@ -119,7 +124,8 @@ void mousePressed() {
       arrayButton.makeEmpty();
     } else if (button2.check()) {
       screenStart = !screenStart;
-      screenClient = !screenClient;
+      screenClient = !screenClient; 
+      //screenId = !screenId;
       arrayButton.makeEmpty();
     }
   } else if (screenAdmin) {

@@ -10,7 +10,7 @@ public class ButtonList {
   int posF = 0;
 
   ButtonList() {
-    array = new Button[10];
+    array = new Button[11];
   }
 
  /**
