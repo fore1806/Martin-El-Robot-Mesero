@@ -374,11 +374,11 @@ void idScreen(){
         */
          
          
-        String[] linesData = loadStrings("./dataset/cedulas.txt"); //Cargamos el archivo
+        /*String[] linesData = loadStrings("./dataset/cedulas.txt"); //Cargamos el archivo
         for(int j = 0; j<linesData.length; j++){
           clientes.update(Long.parseLong(linesData[j])); 
           println("Factor :" + clientes.factor + " n: " + clientes.n);
-        }
+        }*/
         
         
         println(cedula);
