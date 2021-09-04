@@ -105,8 +105,7 @@ void crearMesas(int mesasH, int mesasV) {
   for (int i=0; i<=mesasH; i++) {
     for (int j=0; j<=mesasV; j++) {
       Mesa m = new Mesa(str(i)+'-'+str(j));
-      Node n = new Node(m);
-      mesas.insertEnd(n);
+      mesas.pushBack(m);
     }
   }
 }
@@ -134,7 +133,6 @@ void robotArrived(Pedido pedido) {
 void realizarPedido() {
   Pedido p1 = new Pedido(pedidoEnTramite, (Mesa)mesas.getNth((int)random(1, mesasVerticales*mesasHorizontales)).getData());
   p1.HacerPedido();
-  Node n = new  Node(p1);
-  listaDePedidos.insertEnd(n);
+  listaDePedidos.pushBack(p1);
   println("El pedido se está preparando");
 }

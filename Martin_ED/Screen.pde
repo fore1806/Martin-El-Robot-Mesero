@@ -19,7 +19,7 @@ void startScreen() {
   text("Martin El Robot Mesero", width/2, 100);
   if (robotsList.isEmpty()) {
     for (int i = 0; i<nRobots; i++) {
-      robotsList.insertEnd(new Node(new Robot(0, 0, (20 + (int) (Math.random()*81)))));
+      robotsList.pushBack(new Robot(0, 0, (20 + (int) (Math.random()*81))));
     }
   }
   ((Robot)(robotsList.head.data)).setDirection(250, 300);
@@ -215,8 +215,7 @@ int[] crearMenu(boolean menu_creado) {
         //println(tiempo_preparacion);
         //                       Producto(categoria,       nombre,       descripcion,             costo,         image   , tiempo preparacion){
         Producto ptr = new Producto(nombre_categoria, nombre_producto, descripcion_producto, precio_producto, imagen, tiempo_preparacion );
-        Node puntero_producto = new Node(ptr);
-        productos2.insertEnd(puntero_producto);
+        productos2.pushBack(ptr);
       }
       categorias[i]=numeros_categoria;  //la almacenamos en el array
       renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
@@ -254,7 +253,7 @@ void screenMenuButtons() {  //Detectamos que botone de cateogira fue presionado
 
         //Aqui obtenemos los que queremos
         for (int l= elementos_anteriores; l<(elementos_anteriores+producto_categorias[i]); l++) {
-          productos_a_mostrar.insertEnd(puntero);
+          productos_a_mostrar.pushBack(puntero);
           puntero = puntero.next;
         }
 
@@ -296,8 +295,7 @@ void duplicarPedidos(){
     if(((Producto)(ptr.data)).cantidad!=0){
       Producto puntero = new Producto();
       puntero = ((Producto)(ptr.data)).clone();
-      Node nodo = new Node(puntero);
-      pedidoEnTramite.insertEnd(nodo);
+      pedidoEnTramite.pushBack(puntero);
     }
     ptr = ptr.next;
   }

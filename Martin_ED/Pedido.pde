@@ -89,8 +89,7 @@ class Pedido {
       int[] c = this.mesaDestino.getCoordenadas();       
       this.robotAsignado.setDirection(c[0], c[1]);
       this.enCamino=true;
-      Node n = new Node(this.robotAsignado);
-      robotsActivos.insertEnd(n);
+      robotsActivos.pushBack(this.robotAsignado);
       this.robotAsignado.activo = true;
     }
   }
