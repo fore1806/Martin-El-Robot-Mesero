@@ -82,7 +82,7 @@ public class HashTableIntF {
           if (tableReHash[hFunction(((Cliente)(pointer.data)).CC)]==null) {
             tableReHash[hFunction(((Cliente)(pointer.data)).CC)]= new LinkedList();
           }
-          tableReHash[hFunction(((Cliente)(pointer.data)).CC)].pushBack(new Node(new Cliente(hFunction(CC), CC)))
+          tableReHash[hFunction(((Cliente)(pointer.data)).CC)].pushBack(new Node(new Cliente(hFunction(((Cliente)(pointer.data)).CC), (((Cliente)(pointer.data)).CC))));
             pointer = pointer.getNext();
         }
       }
