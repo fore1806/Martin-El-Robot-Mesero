@@ -28,6 +28,6 @@ public class HashTableInt {
   }
   
   public void insertar (int k){
-    int [] 
+    //int [] 
   }
 }

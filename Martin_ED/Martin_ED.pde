@@ -11,6 +11,11 @@ boolean screenMenu = false;
 boolean pedidoRealizado = false;
 boolean screenPago = false;
 
+//HashTable Clienet
+
+HashTableIntF clientes = new HashTableIntF();
+
+
 //menú
 boolean menuCreado = false;
 LinkedList productos2 = new LinkedList<Node<Producto>>();
@@ -86,6 +91,7 @@ void setup() {
   startImage = loadImage("robot.png");
   addRobots(5); 
   crearMesas(mesasHorizontales, mesasVerticales);
+  
 }
 
 void draw() {

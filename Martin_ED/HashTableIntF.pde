@@ -38,6 +38,7 @@ public class HashTableIntF {
   
   Node find (long CC) {
     Node founded = null;
+    println("Hashnumber: " +  hFunction(CC));
     if(!this.table[hFunction(CC)].isEmpty()){
       Node pointer = this.table[hFunction(CC)].getHead();
       while (pointer!= null) {
@@ -57,6 +58,7 @@ public class HashTableIntF {
     if (nToUpdate == null) {
       nToUpdate = new Node(new Cliente(hFunction(CC), CC));
       this.table[hFunction(CC)].pushBack(nToUpdate);
+      this.n += 1;
     }
     ((Cliente)(nToUpdate.data)).nuevaVisita();
   }

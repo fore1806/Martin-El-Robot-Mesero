@@ -364,6 +364,9 @@ void idScreen(){
         screenId = !screenId;
         arrayButton.makeEmpty();
         cedula = Long.parseLong(cedulaStr);
+        
+        clientes.update(cedula);
+        
         println(cedula);
       }
       
