@@ -77,6 +77,10 @@ int intervalo2 = 20;
 int mesasHorizontales = 200;
 int mesasVerticales = 200;
 
+String cedulaStr = "";
+boolean oprimido = false;
+long cedula;
+
 void setup() {
   size(1300, 650);
   startImage = loadImage("robot.png");
@@ -100,9 +104,9 @@ void draw() {
     adminScreen();
   } else if (screenClient) {
     clientScreen();
-  }// else if (screenId){
-   // idScreen(); */
-  //}
+  }else if (screenId){
+    idScreen(); 
+  }
   else if (screenPedidos) {
     pedidosScreen();
   } else if (screenMesas) {
@@ -124,8 +128,8 @@ void mousePressed() {
       arrayButton.makeEmpty();
     } else if (button2.check()) {
       screenStart = !screenStart;
-      screenClient = !screenClient; 
-      //screenId = !screenId;
+      //screenClient = !screenClient; 
+      screenId = !screenId;
       arrayButton.makeEmpty();
     }
   } else if (screenAdmin) {
@@ -146,7 +150,16 @@ void mousePressed() {
       screenAdmin = !screenAdmin;
       arrayButton = new ButtonList();
     }
-  } else if (screenClient) {
+  } else if (screenId){
+      if (backButton.check()) {
+      screenId= !screenId;
+      screenStart = !screenStart;
+      arrayButton = new ButtonList();
+    }
+  }
+  
+  
+  else if (screenClient) {
     if (button5.check()) {
       screenClient = !screenClient;
       screenMenu = !screenMenu;
@@ -187,5 +200,4 @@ void mouseWheel(MouseEvent event) {
 
 void mouseRelased() {
   realeased = true;
-  ;
 }

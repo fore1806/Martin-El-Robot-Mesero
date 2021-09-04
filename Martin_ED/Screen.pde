@@ -308,21 +308,75 @@ void duplicarPedidos(){
 
 
 void idScreen(){
+
   background(color5);
+  text("Ingrese su cedula:", (width/2)-180, height/12);
+  text("C.C. " + cedulaStr, (2.8*width/4), height/2.5);
   if (arrayButton.isEmpty()) {
-    button1 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
-    button2 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
-    button3 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
-    button4 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
-    button5 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
-    button6 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
-    button7 = new Button("Pago en efectivo", (width/2)-180, height/2, 320, 100 );
-    button8 = new Button("Pago con tarjeta", (width/2)-180, (height/2)+150, 320, 100 );
+    int desplazamientoX = 190;
+    button1 = new Button("1", (width/2)-240-desplazamientoX, height/2-150, 100, 100 );
+    button2 = new Button("2", (width/2)-120-desplazamientoX, (height/2)-150, 100, 100 );
+    button3 = new Button("3", (width/2)-desplazamientoX, (height/2)-150, 100, 100 );
+    button4 = new Button("4", (width/2)-240-desplazamientoX, (height/2)-30, 100, 100 );
+    button5 = new Button("5", (width/2)-120-desplazamientoX, height/2-30, 100, 100 );
+    button6 = new Button("6", (width/2)-desplazamientoX, (height/2)-30, 100, 100 );
+    button7 = new Button("7", (width/2)-240-desplazamientoX, (height/2)+90, 100, 100 );
+    button8 = new Button("8", (width/2)-120-desplazamientoX, (height/2)+90, 100, 100 );
+    button9 = new Button("9", (width/2)-desplazamientoX, (height/2)+90, 100, 100 );
+    button10 = new Button("0", (width/2)-120-desplazamientoX, (height/2)+210, 100, 100 );
     backButton = new Button ("Back", (width/2)-520, height-80);
+    
     arrayButton.insert(button1);
     arrayButton.insert(button2);
+    arrayButton.insert(button3);
+    arrayButton.insert(button4);
+    arrayButton.insert(button5);
+    arrayButton.insert(button6);
+    arrayButton.insert(button7);
+    arrayButton.insert(button8);
+    arrayButton.insert(button9);
+    arrayButton.insert(button10);
+    
+    arrayButton.dupliquer();
+    
+    Button buttonEnter = new Button("Borrar", (width)-390, height-80);
+    Button buttonErase = new Button("Enter", (width)-140, height-80);;
+    
+    arrayButton.insert(buttonEnter);
+    arrayButton.insert(buttonErase);
     arrayButton.insert(backButton);
+    
+     
   }
   
   showCheckButton(arrayButton);
+  Button ptr;
+  for(int i=0; i<20; i++){
+    ptr = arrayButton.array[i];
+    if(ptr != null && ptr.check() && mousePressed && oprimido == false){
+      oprimido = true;
+      if(i<=9){
+      cedulaStr += ptr.bText; 
+      } else if(i==10){ 
+        cedulaStr = "";
+      } else if(i==11 && cedulaStr != ""){  //Boton Enter
+        screenClient = !screenClient; 
+        screenId = !screenId;
+        arrayButton.makeEmpty();
+        cedula = Long.parseLong(cedulaStr);
+        println(cedula);
+      }
+      
+    } 
+    
+    
+    if (!mousePressed) {
+      //println("falseado" + millis());
+      oprimido = false;
+    }
+  }
+  
+  
+  
+  
 }
