@@ -318,6 +318,16 @@ public class LinkedList <T> {
     }
     return data;
   }
+  
+  public Node<T> peekFrontNode() {
+    Node<T> node;
+    if (this.isEmpty()) {
+      node = null;
+    } else {
+      node = getHead();
+    }
+    return node;
+  }
 
   public T peekBack() {
     T data;
