@@ -9,8 +9,8 @@
  */
 
 Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> RobotsActivos, Mesa mesa ) {
-  int[] cm = mesa.getCoordenadas();
-  float dri = sqrt((cm[0]^2)+(cm[1]^2));
+  float[] cm = mesa.getCoordenadas();
+  float dri = sqrt((cm[0]*cm[0])+(cm[1]*cm[1]));
   int ganador= -1;
   Robot martinElElegido = null;
   if (RobotsActivos.isEmpty()) {
@@ -19,8 +19,8 @@ Robot EscogerRobot(Queue<Node<Robot>> listaRobots, LinkedList<Node<Robot>> Robot
     float dmin =dri;
     for (int i=0; i<RobotsActivos.length(); i++) {
       if ( !((Robot) RobotsActivos.getNth(i).getData()).isMoving() /*&& ((Robot) RobotsActivos.getNth(i).getData()).battery>30*/ ) {      
-        int[] cr = ((Robot) RobotsActivos.getNth(i).getData()).pos; 
-        float dra = abs(sqrt((cr[0]-cm[0])^2)+((cr[1]-cm[1])^2));
+        float[] cr = ((Robot) RobotsActivos.getNth(i).getData()).pos; 
+        float dra = abs(sqrt((cr[0]-cm[0])*(cr[0]-cm[0]))+((cr[1]-cm[1])*(cr[1]-cm[1])));
         if (dra<dmin) {
           dmin=dra;
           ganador=i;
@@ -66,7 +66,7 @@ void tiempo2() {
         if (pedido.robotAsignado!=null) {
           if ((pedido.robotAsignado.estaenlamesa==true) && pedido.yaSirvio() && pedido.robotAsignado.activo) {
             println("Pedido del robot "+pedido.robotAsignado.id+" entregado");
-            pedido.robotAsignado.setDirection(0, 0);
+            pedido.robotAsignado.setDirection(300-5*disMesasX, 50);
             robotsinactivos.enQueue(new Node(pedido.robotAsignado));
             //robotsActivos.delete(pedido.robotAsignado);
             pedido.robotAsignado.activo = false;
@@ -88,7 +88,7 @@ void tiempo2() {
  
 void addRobots(int cantidad) {
   for (int i=0; i<=cantidad; i++) {
-    Robot martin = new Robot(0, 0, 100, i);
+    Robot martin = new Robot(300-5*disMesasX, 50, 100, i, disMesasX, disMesasY);
     Node n = new Node(martin);
     robotsinactivos.enQueue(n);
   }
@@ -104,7 +104,7 @@ void addRobots(int cantidad) {
 void crearMesas(int mesasH, int mesasV) {
   for (int i=0; i<=mesasH; i++) {
     for (int j=0; j<=mesasV; j++) {
-      Mesa m = new Mesa(str(i)+'-'+str(j));
+      Mesa m = new Mesa(str(300+(disMesasX)*i)+'-'+str(50 + ((disMesasY)*j)));
       mesas.pushBack(m);
     }
   }

@@ -8,12 +8,12 @@ class Mesa {
   String id;
   boolean estaOcupada;
   boolean estaSucia;
-  int[] coordenadas;
+  float[] coordenadas;
 
   Mesa(String id) {
     this.id = id;
     String[] coordenadasTxt = split(id, '-');
-    int[] x = {Integer.valueOf(coordenadasTxt[0]), Integer.valueOf(coordenadasTxt[1])};
+    float[] x = {Float.valueOf(coordenadasTxt[0]), Float.valueOf(coordenadasTxt[1])};
     this.coordenadas = x;
   }
 
@@ -62,7 +62,7 @@ class Mesa {
    *
    * @return coordenadas Array con las coordenadas de la mesa
    */
-  int[] getCoordenadas() {
+  float[] getCoordenadas() {
     return this.coordenadas;
   }
 }

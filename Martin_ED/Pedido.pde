@@ -20,6 +20,7 @@ class Pedido {
     this.mesaDestino = mesaDes;
     this.productos = p;
   }
+  
   Pedido() {
   }
 
@@ -86,7 +87,7 @@ class Pedido {
    */
   void llevarComida() {
     if (robotAsignado != null) {
-      int[] c = this.mesaDestino.getCoordenadas();       
+      float[] c = this.mesaDestino.getCoordenadas();       
       this.robotAsignado.setDirection(c[0], c[1]);
       this.enCamino=true;
       robotsActivos.pushBack(this.robotAsignado);

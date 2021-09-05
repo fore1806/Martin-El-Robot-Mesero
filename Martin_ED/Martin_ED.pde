@@ -10,6 +10,7 @@ boolean screenRobots = false;
 boolean screenMenu = false;
 boolean pedidoRealizado = false;
 boolean screenPago = false;
+boolean screenRestaurant = false;
 
 //HashTable Clienet
 
@@ -71,6 +72,12 @@ LinkedList robotsActivos = new LinkedList<Node<Robot>>();
 
 LinkedList mesas = new LinkedList<Node<Mesa>>();
 
+int mesasHorizontales = 50;
+int mesasVerticales = 25;
+
+float disMesasX = 980/mesasHorizontales;
+float disMesasY = 550/mesasVerticales;
+
 //Tiempo
 
 int timer;  //Tiempo 
@@ -79,23 +86,22 @@ int intervalo = 600;
 int timer2;  //Tiempo 
 int intervalo2 = 20; 
 
-int mesasHorizontales = 200;
-int mesasVerticales = 200;
-
 String cedulaStr = "";
 boolean oprimido = false;
 long cedula;
 
 void setup() {
+  background(color1);
   size(1300, 650);
   startImage = loadImage("robot.png");
   addRobots(5); 
   crearMesas(mesasHorizontales, mesasVerticales);
   
+  
 }
 
 void draw() {
-  background(color1);
+  //background(color1);
   push();
   rectMode(CENTER);
   fill(color5);
@@ -123,6 +129,8 @@ void draw() {
     menuScreen();
   } else if (screenPago) {
     pagoScreen();
+  } else if (screenRestaurant){
+    restaurantScreen();
   }
 }
 
@@ -162,10 +170,7 @@ void mousePressed() {
       screenStart = !screenStart;
       arrayButton = new ButtonList();
     }
-  }
-  
-  
-  else if (screenClient) {
+  } else if (screenClient) {
     if (button5.check()) {
       screenClient = !screenClient;
       screenMenu = !screenMenu;
@@ -175,6 +180,10 @@ void mousePressed() {
     } else if (button7.check()) {
       screenClient = !screenClient;
       screenPago = !screenPago;
+      arrayButton = new ButtonList();
+    } else if (button8.check()) {
+      screenClient = !screenClient;
+      screenRestaurant = !screenRestaurant;
       arrayButton = new ButtonList();
     } else if (backButton.check()) {
       screenStart = !screenStart;
@@ -195,6 +204,12 @@ void mousePressed() {
       if (finalizarpedido.check()){
         realizarPedido();
       }
+  } else if(screenRestaurant){
+    if (backButton.check()) {
+      screenRestaurant = !screenRestaurant;
+      screenClient = !screenClient;
+      arrayButton = new ButtonList();
+    }
   }
 }
 

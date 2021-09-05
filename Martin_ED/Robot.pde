@@ -7,9 +7,10 @@
 public class Robot {
 
   int battery;
-  int [] pos = new int [2]; //x,y
-  int [] dir = {-100, -100}; //x,y
-  int disMesas = 1; //Cambiar esta a lo que se decida
+  float [] pos = new float [2]; //x,y
+  float [] dir = {-100, -100}; //x,y
+  float disMesasX; //Cambiar esta a lo que se decida
+  float disMesasY;
   int dischargeM = 120;
   int dischargeC = 0;
   boolean empty = true;
@@ -20,21 +21,25 @@ public class Robot {
   Pedido pedidoAct;
 
 
-  Robot (int posX, int posY, int battery, int idR) { //El disMesas sera una constante que debe ser definida :v
+  Robot (float posX, float posY, int battery, int idR, float disMesasX, float disMesasY) { //El disMesas sera una constante que debe ser definida :v
     this.pos[0] = posX;
     this.pos[1] = posY;
     this.battery = battery;
     this.dir[0] = pos[0];
     this.dir[1] = pos[1];
     this.id = idR;
+    this.disMesasX = disMesasX;
+    this.disMesasY = disMesasY;
   }
 
-  Robot (int posX, int posY, int battery) { //El disMesas sera una constante que debe ser definida :v
+  Robot (float posX, float posY, int battery, float disMesasX, float disMesasY) { //El disMesas sera una constante que debe ser definida :v
     this.pos[0] = posX;
     this.pos[1] = posY;
     this.battery = battery;
     this.dir[0] = pos[0];
     this.dir[1] = pos[1];
+    this.disMesasX = disMesasX;
+    this.disMesasY = disMesasY;
   }
 
   /**
@@ -45,7 +50,7 @@ public class Robot {
    * @param dirY entero que define la dirección en y del Robot.
    */
 
-  void setDirection (int dirX, int dirY) {
+  void setDirection (float dirX, float dirY) {
     this.dir[0] = dirX;
     this.dir[1] = dirY;
   }
@@ -62,11 +67,11 @@ public class Robot {
     if (!isMoving()) {//No debemos movernos
       this.empty = true; //Ya llego asi que es nuevamente libre
     } else if (indicador==0 && pos[0]!=dir[0]) {//Movernos en x
-      if (dir[0]<pos[0])pos[0]-=disMesas;
-      else pos[0]+=disMesas;
+      if (dir[0]<pos[0])pos[0]-=disMesasX;
+      else pos[0]+=disMesasX;
     } else if (indicador==1 && pos[1]!=dir[1]) { //Movernos en y
-      if (dir[1]<pos[1])pos[1]-=disMesas;
-      else pos[1]+=disMesas;
+      if (dir[1]<pos[1])pos[1]-=disMesasY;
+      else pos[1]+=disMesasY;
     }
   }
 
