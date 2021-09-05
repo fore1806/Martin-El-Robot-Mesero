@@ -90,4 +90,11 @@ public class HashTableIntF {
     
     this.table = tableReHash;
   }
+  
+  void delete(long CC){
+    Node nToDelete = find(CC);
+    if (nToDelete!=null) {
+      this.table[hFunction(CC)].delete(nToDelete);
+    }
+  }
 }
