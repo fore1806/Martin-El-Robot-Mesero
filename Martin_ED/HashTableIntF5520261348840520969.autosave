@@ -38,7 +38,7 @@ public class HashTableIntF {
 
   Node find (long CC) {
     Node founded = null;
-    //println("hashCode " + hFunction(CC));
+    println("hashCode " + hFunction(CC));
     if (this.table[hFunction(CC)]==null) {
       this.table[hFunction(CC)]= new LinkedList();
     } else if (!this.table[hFunction(CC)].isEmpty()) {
@@ -63,7 +63,7 @@ public class HashTableIntF {
       this.factor = ((float)n)/((float)m);
     }
     ((Cliente)(nToUpdate.data)).nuevaVisita();
-    //println("Para el cliente " + CC + " Visitas= " + ((Cliente)(nToUpdate.data)).nVisitas);
+    println("Para el cliente " + CC + " Visitas= " + ((Cliente)(nToUpdate.data)).nVisitas);
 
     if (factor > maxFactor) {
       reHash();
@@ -82,19 +82,12 @@ public class HashTableIntF {
           if (tableReHash[hFunction(((Cliente)(pointer.data)).CC)]==null) {
             tableReHash[hFunction(((Cliente)(pointer.data)).CC)]= new LinkedList();
           }
-          tableReHash[hFunction(((Cliente)(pointer.data)).CC)].pushBack(new Node(new Cliente(hFunction(((Cliente)(pointer.data)).CC), (((Cliente)(pointer.data)).CC))));
+          tableReHash[hFunction(((Cliente)(pointer.data)).CC)].pushBack(new Node(new Cliente(hFunction(CC), CC)))
             pointer = pointer.getNext();
         }
       }
     }
     
     this.table = tableReHash;
-  }
-  
-  void delete(long CC){
-    Node nToDelete = find(CC);
-    if (nToDelete!=null) {
-      this.table[hFunction(CC)].delete(nToDelete);
-    }
   }
 }

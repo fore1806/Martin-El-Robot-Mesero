@@ -370,18 +370,26 @@ void idScreen(){
           //clientes.update(cedula);
           clientes.update((long)random(0,5));
         }
-        println("Factor :" + clientes.factor + " n: " + clientes.n);
+        println("Factor :" + clientes.factor + " n: " + clientes.n + "Memory " + (Runtime.getRuntime().totalMemory())/1024);
         */
-         
-         
-        /*String[] linesData = loadStrings("./dataset/cedulas.txt"); //Cargamos el archivo
+        long tiempo_inicial = millis();
+        println("Memoria antes de cargar " +((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())/1024.0)/1024.0);
+        String[] linesData = loadStrings("./dataset/cedulas.txt"); //Cargamos el archivo
+        long tiempo_de_carga = millis()-tiempo_inicial;
+        println("Memoria despues de cargar " +((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())/1024.0)/1024.0);
+        
+        long tiempo_de_ejecucion_inicial = millis();
         for(int j = 0; j<linesData.length; j++){
           clientes.update(Long.parseLong(linesData[j])); 
-          println("Factor :" + clientes.factor + " n: " + clientes.n);
-        }*/
+          //println(j);
+        }
+        long tiempo_de_ejecucion = millis()- tiempo_de_ejecucion_inicial;
+        println("Tiempo de carga del archivo " + tiempo_de_carga);
+        println("Tiempo de ejecucion " + tiempo_de_ejecucion);
+        println("Memoria despeus de hashear " +((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())/1024.0)/1024.0);
+        println("Factor :" + clientes.factor);
         
-        
-        println(cedula);
+
       }
       
     } 
