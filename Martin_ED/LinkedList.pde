@@ -242,6 +242,13 @@ public class LinkedList <T> {
     this.elements = 1;
   }
 
+  /**
+   * Inserta la información al principio de la lista  
+   * El dato data se inserta al principio de la lista
+   *
+   * @param data dato generico el cual queremos agregar
+   */
+
   public void pushFront(T data) {
     Node <T> nodeInsert = new Node(data);
     if (this.isEmpty()) {
@@ -254,6 +261,13 @@ public class LinkedList <T> {
     this.elements ++;
   }
 
+  /**
+   * Inserta la información al final de la lista  
+   * El dato data se inserta al final de la lista
+   *
+   * @param data dato generico el cual queremos agregar
+   */
+
   public void pushBack(T data) {
     Node <T> nodeInsert = new Node(data);
     if (this.isEmpty()) {
@@ -265,7 +279,14 @@ public class LinkedList <T> {
     this.setTail(nodeInsert);
     this.elements ++;
   }
-  
+
+  /**
+   * Inserte el nodo newN al final
+   * Inserta el nodo newN al final de la lista 
+   *
+   * @param newN Node el cual queremos insertar
+   */
+
   void pushBack(Node newN) {
     newN.prev = tail;
     if (isEmpty()) {
@@ -276,6 +297,12 @@ public class LinkedList <T> {
     tail = newN;
     elements+=1;
   }
+
+  /**
+   * Elimina el nodo del comienzo  
+   * Elimina el nodo comienzo comprobando que la lista no esté vacia
+   * Si está vacia arroja una alerta por consola
+   */
 
   public T popFront() {
     T toReturn;
@@ -293,6 +320,12 @@ public class LinkedList <T> {
     return toReturn;
   }
 
+  /**
+   * Elimina el nodo del final  
+   * Elimina el nodo final comprobando que la lista no esté vacia
+   * Si está vacia arroja una alerta por consola
+   */
+
   public T popBack() {
     T toReturn;
     if (this.isEmpty()) {
@@ -309,6 +342,12 @@ public class LinkedList <T> {
     return toReturn;
   }
 
+  /**
+   * Muestra la información del nodo del comienzo 
+   * Muestra la información del nodo comienzo comprobando que la lista no esté vacia
+   * Si está vacia arroja una alerta por consola
+   */
+
   public T peekFront() {
     T data;
     if (this.isEmpty()) {
@@ -318,7 +357,13 @@ public class LinkedList <T> {
     }
     return data;
   }
-  
+
+  /**
+   * Muestra el nodo del comienzo 
+   * Muestra el nodo comienzo comprobando que la lista no esté vacia
+   * Si está vacia arroja una alerta por consola
+   */
+   
   public Node<T> peekFrontNode() {
     Node<T> node;
     if (this.isEmpty()) {
@@ -328,6 +373,12 @@ public class LinkedList <T> {
     }
     return node;
   }
+
+  /**
+   * Muestra la información del nodo del final  
+   * Muestra la información del nodo final comprobando que la lista no esté vacia
+   * Si está vacia arroja una alerta por consola
+   */
 
   public T peekBack() {
     T data;
@@ -345,6 +396,12 @@ public class LinkedList <T> {
       System.out.println((pointer.getData()));
     }
   }
+
+  /**
+   * Elimina el nodo nToDelete 
+   *
+   * @param nToDelete Node el cual queremos eliminar
+   */
 
   public void delete(Node<T> nToDelete) {
     if (nToDelete==this.head) {
