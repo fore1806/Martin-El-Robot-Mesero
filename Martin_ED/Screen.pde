@@ -418,13 +418,9 @@ void restaurantScreen() {
     }
   }
   
-  if (!pedidoEnTramite.isEmpty()) {
-    
-    println("hola");
-    println("hola");
-    println("hola");
+  if (!listaDePedidos.isEmpty()) {
 
-    Node pointer = pedidoEnTramite.head;
+    Node pointer = listaDePedidos.head;
 
     //Mostrar Mesas Ocupadas
     while (pointer!= null) {
@@ -433,7 +429,9 @@ void restaurantScreen() {
       //fill(#61CE62);
       fill(color4);
       rectMode(CENTER);
-      rect(((Mesa)(((Pedido)(pointer.data)).mesaDestino)).getCoordenadas()[0], ((Mesa)(pointer.data)).getCoordenadas()[1], 6, 6);
+      //Pedido pedidillo = ((Pedido)(pointer.data));
+      //Mesa mesilla = ((Mesa)(pedidillo.mesaDestino));
+      rect(((Mesa)(((Pedido)(pointer.data)).mesaDestino)).getCoordenadas()[0], ((Mesa)(((Pedido)(pointer.data)).mesaDestino)).getCoordenadas()[1], 6, 6);
       pointer = pointer.getNext();
       pop();
     }
