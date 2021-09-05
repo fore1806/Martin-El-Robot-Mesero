@@ -5,6 +5,7 @@ void showCheckButton(ButtonList array) {
   }
 }
 void startScreen() {
+  push();
   image(startImage, width/8, 180, 3*width/4, height-180);
   if (arrayButton.isEmpty()) {
     button1 = new Button("ADMIN", (width/2)-390, (height/2)-50 );
@@ -23,9 +24,11 @@ void startScreen() {
     }
   }
   //((Robot)(robotsList.head.data)).setDirection(250, 300);  Esto hace algo?????
+  pop();
 }
 
 void adminScreen() {
+  push();
   if (arrayButton.isEmpty()) {
     button1 = new Button("Pedidos", (width/2)-180, (height/2)-220, 320, 100 );
     button2 = new Button("Mesas", (width/2)-180, (height/2)-40, 320, 100 );
@@ -37,26 +40,34 @@ void adminScreen() {
     arrayButton.insert(backButton);
   }
   showCheckButton(arrayButton);
+  pop();
 }
 
 void pedidosScreen() {
+  push();
   background(color5);
   if (arrayButton.isEmpty()) {
     button4 = new Button ("botón de prueba", 450, 450);
     arrayButton.insert(button4);
   }
   showCheckButton(arrayButton);
+  pop();
 }
 
 void mesasScreen() {
+  push();
   background(color5);
+  pop();
 }
 
 void robotsScreen() {
+  push();
   background(color5);
+  pop();
 }
 
 void clientScreen() {
+  push();
   background(color5);
   if (arrayButton.isEmpty()) {
     button5 = new Button ("Menu", 450, (height/2)-200, 320, 100);
@@ -71,9 +82,11 @@ void clientScreen() {
     arrayButton.insert(backButton);
   }
   showCheckButton(arrayButton);
+  pop();
 }
 
 void pagoScreen() {
+  push();
   background(245, 200, 66);
   textSize(40);
   fill(color2);
@@ -87,6 +100,7 @@ void pagoScreen() {
     arrayButton.insert(backButton);
   }
   showCheckButton(arrayButton);
+  pop();
 }
 
 
@@ -97,6 +111,7 @@ void pagoScreen() {
  */
 
 void menuScreen() {
+  push();
   int buttonX = width/3;
   int buttonY = height/4;
   finalizarpedido = new Button("Realizar pedido", width/2, height-80, 400, 110);
@@ -162,6 +177,7 @@ void menuScreen() {
 
   backButton.seleccionador();
   backButton.display();
+  pop();
 
   //
 }
@@ -236,6 +252,7 @@ int[] crearMenu(boolean menu_creado) {
  * Insertará los objetos tipo producto en la lista productos_a_mostrar
  */
 void screenMenuButtons() {  //Detectamos que botone de cateogira fue presionado
+  push();
 
   //println("Lista de productos: " + arrayButton.posF);
   if (productos_a_mostrar.isEmpty()) { 
@@ -261,6 +278,7 @@ void screenMenuButtons() {  //Detectamos que botone de cateogira fue presionado
       }
     }
   }
+  pop();
 }
 
 
@@ -310,6 +328,7 @@ void duplicarPedidos() {
 
 void idScreen() {
 
+  push();
   //background(color5);
   text("Ingrese su cedula:", (width/2)-180, height/12);
   text("C.C. " + cedulaStr, (2.8*width/4), height/2.5);
@@ -398,9 +417,13 @@ void idScreen() {
       oprimido = false;
     }
   }
+  
+  pop();
 }
 
 void restaurantScreen() {
+  
+  push();
 
   if (!mesas.isEmpty()) {
 
@@ -417,7 +440,7 @@ void restaurantScreen() {
       pop();
     }
   }
-  
+
   if (!listaDePedidos.isEmpty()) {
 
     Node pointer = listaDePedidos.head;
@@ -468,4 +491,6 @@ void restaurantScreen() {
   backButton = new Button ("Back", (width/2)-520, height-80);
   arrayButton.insert(backButton);
   showCheckButton(arrayButton);
+  
+  pop();
 }
