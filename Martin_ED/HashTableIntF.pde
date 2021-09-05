@@ -6,6 +6,7 @@ public class HashTableIntF {
   int p;
   int a;
   int b;
+  int reHashTimes;
   float factor;
   float maxFactor;
   LinkedList[] table;
@@ -89,6 +90,8 @@ public class HashTableIntF {
     }
     
     this.table = tableReHash;
+    reHashTimes += 1;
+    println("Número de ReHashes " + reHashTimes);
   }
   
   void delete(long CC){
