@@ -11,6 +11,8 @@ boolean screenMenu = false;
 boolean pedidoRealizado = false;
 boolean screenPago = false;
 boolean screenRestaurant = false;
+boolean screenFiltro1 = false;
+boolean screenFiltro2 = false;
 
 //HashTable Clienet
 
@@ -22,10 +24,13 @@ boolean menuCreado = false;
 LinkedList productos2 = new LinkedList<Node<Producto>>();
 LinkedList pedidoEnTramite = new LinkedList<Node<Producto>>();
 LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
+BinarySearchTree treeproductos = new BinarySearchTree();
 
 LinkedList listaDePedidos = new LinkedList<Node<Pedido>>();
 
 Button finalizarpedido;
+Button filtro1;
+Button filtro2;
 
 int k = 0;
 float scroll=0;
@@ -110,6 +115,7 @@ void draw() {
   tiempo();
   //tiempo3();
   tiempo2();
+
   if (screenStart) {
     startScreen();
   } else if (screenAdmin) {
@@ -127,7 +133,11 @@ void draw() {
     robotsScreen();
   } else if (screenMenu) {
     menuScreen();
-  } else if (screenPago) {
+  } else if(screenFiltro1){
+    screenFiltro1();
+  }else if(screenFiltro2){
+    screenFiltro2();
+  }else if (screenPago) {
     pagoScreen();
   } else if (screenRestaurant){
     restaurantScreen();
@@ -203,8 +213,29 @@ void mousePressed() {
     screenMenuButtons();
       if (finalizarpedido.check()){
         realizarPedido();
-      }
-  } else if(screenRestaurant){
+      }else if(filtro1.check()){
+      screenFiltro1=!screenFiltro1;
+      screenMenu=!screenMenu;
+      
+    }else if(filtro2.check()){
+      screenFiltro2=!screenFiltro2;
+      screenMenu=!screenMenu;
+    }
+      
+  }
+  else if(screenFiltro1){
+    if(backButton.check()){
+    screenFiltro1=!screenFiltro1;
+    screenMenu=!screenMenu;
+  }
+  }
+  else if(screenFiltro2){
+    if(backButton.check()){
+    screenFiltro2=!screenFiltro2;
+    screenMenu=!screenMenu;
+    }
+  }
+  else if(screenRestaurant){
     if (backButton.check()) {
       screenRestaurant = !screenRestaurant;
       screenClient = !screenClient;
@@ -214,7 +245,7 @@ void mousePressed() {
 }
 
 void mouseWheel(MouseEvent event) {
-  if (screenMenu) {
+  if (screenMenu || screenFiltro1 || screenFiltro2) {
     scroll += event.getCount();
   }
 }
