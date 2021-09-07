@@ -11,12 +11,14 @@ public class Node<T> {
   Node<T> next;
   Node<T> prev;
   Node<T> left;
-    Node<T> right;
+  Node<T> right;
+  int fe;
 
   Node() {
     this.next = null;
     this.prev = null;
     this.data = null;
+    this.fe = 0;
   }
 
   Node(T data){
@@ -25,6 +27,7 @@ public class Node<T> {
         this.next = null;
         this.left = null;
         this.right = null;
+        this.fe = 0;
     }
   
 

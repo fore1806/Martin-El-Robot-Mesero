@@ -24,8 +24,8 @@ boolean menuCreado = false;
 LinkedList productos2 = new LinkedList<Node<Producto>>();
 LinkedList pedidoEnTramite = new LinkedList<Node<Producto>>();
 LinkedList productos_a_mostrar = new LinkedList<Node<Producto>>();
-BinarySearchTree treeproductos = new BinarySearchTree();
-
+//BinarySearchTree treeproductos = new BinarySearchTree();
+ArbolAVL treeproductos = new ArbolAVL();
 LinkedList listaDePedidos = new LinkedList<Node<Pedido>>();
 
 Button finalizarpedido;

@@ -196,8 +196,8 @@ void menuScreen() {
 void screenFiltro1(){
   push();
   background(color5);
-  treeproductos.contadorBST = 0;
-  treeproductos.traverseBST();
+  treeproductos.contadorAVL = 0;
+  treeproductos.traverseAVL();
   backButton = new Button("Back", (width/2)-520, height-80);
 
   if (backButton.check() && mousePressed) {
@@ -212,8 +212,8 @@ void screenFiltro1(){
 void screenFiltro2(){
   push();
   background(color5);
-  treeproductos.contadorBST = 0;
-  treeproductos.invtraverseBST();
+  treeproductos.contadorAVL = 0;
+  treeproductos.invtraverseAVL();
   backButton = new Button("Back", (width/2)-520, height-80);
 
   if (backButton.check() && mousePressed) {
@@ -244,7 +244,8 @@ int[] crearMenu(boolean menu_creado) {
     String cantidad_categorias = split(lines[1], " ")[0]; //Obtenemos el primer elemento de la segunda linea (cantidad de categorias)
     categorias = new int[Integer.valueOf(cantidad_categorias)]; //Creamos un arrray con la cantidad de categorias, cada elemento tiene la cantidad de productos de cada uno
     int renglon = 2; //Iniciamos el analisis en el renglon 2 (Primera categoria
-
+    
+    int tiempoinicial = millis();
     for (int i=0; i<categorias.length; i++) {
       String categoria = lines[renglon];  //obtenemos el renglon
       categoria = categoria.replace("\t", ""); //quitamos la tabulacion
@@ -277,12 +278,15 @@ int[] crearMenu(boolean menu_creado) {
         //println(tiempo_preparacion);
         //                       Producto(categoria,       nombre,       descripcion,             costo,         image   , tiempo preparacion){
         Producto ptr = new Producto(nombre_categoria, nombre_producto, descripcion_producto, precio_producto, imagen, tiempo_preparacion );
-        treeproductos.insertBST(ptr);
+        treeproductos.insert(ptr);
         productos2.pushBack(ptr);
       }
+      
       categorias[i]=numeros_categoria;  //la almacenamos en el array
       renglon +=  1;  //Obtenemos el proximo renglon, donde estará la proxima categoria
     }
+    int tiempofinal = millis()-tiempoinicial;
+    println(tiempofinal);
     menuCreado = true;
     int tf = millis()-to;
     //println(tf);
