@@ -379,6 +379,7 @@ void idScreen() {
 
   push();
   //background(color5);
+  textAlign(CENTER,CENTER);
   text("Ingrese su cedula:", (width/2)-180, height/12);
   text("C.C. " + cedulaStr, (2.8*width/4), height/2.5);
   if (arrayButton.isEmpty()) {
