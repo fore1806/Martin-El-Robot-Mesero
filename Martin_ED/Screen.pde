@@ -432,6 +432,7 @@ void idScreen() {
         screenId = !screenId;
         arrayButton.makeEmpty();
         cedula = Long.parseLong(cedulaStr);
+        clientes.update(cedula);
         //arrayButton = new ButtonList();
 
         /*
@@ -440,7 +441,9 @@ void idScreen() {
          clientes.update((long)random(0,5));
          }
          println("Factor :" + clientes.factor + " n: " + clientes.n + "Memory " + (Runtime.getRuntime().totalMemory())/1024);
-         */
+         
+         
+         
         long tiempo_inicial = millis();
         println("Memoria antes de cargar " +((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())/1024.0)/1024.0);
         String[] linesData = loadStrings("./dataset/cedulas.txt"); //Cargamos el archivo
@@ -457,6 +460,7 @@ void idScreen() {
         println("Tiempo de ejecucion " + tiempo_de_ejecucion);
         println("Memoria despeus de hashear " +((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())/1024.0)/1024.0);
         println("Factor :" + clientes.factor);
+        */
       }
     } 
 
