@@ -115,6 +115,12 @@ void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
   finalizarpedido = new Button("Realizar pedido", width/2, height-80, 400, 110);
+  filtro1 = new Button("Más barato",50,200);
+  filtro1.seleccionador();
+  
+  filtro2 = new Button("Más caro",50,400);
+  filtro2.seleccionador();
+  
   if (!menuCreado) { //Si no hay menú importado, crea el menú
     producto_categorias = crearMenu(menuCreado); //Almacenamos los productos por categorias
   }
@@ -124,18 +130,22 @@ void menuScreen() {
     backButton = new Button("Back", (width/2)-520, height-80);
     background(color5);
     showCheckButton(arrayButton);
+    
+    
     if (arrayButton.isEmpty()) {
       Node puntero_categoria = productos2.head;
       for (int i=0; i < producto_categorias.length; i++) {
 
         Button buttondinamic = new Button (((Producto)(puntero_categoria.data)).categoria, buttonX*((i%2) + 1), buttonY* ((i%3) + 0.7), width/4, height/6);
         arrayButton.insert(buttondinamic);
+        
         for (int j = 0; j<producto_categorias[i]; j++) {
           puntero_categoria = puntero_categoria.next;
         }
       }
+      
     }
-    if (backButton.check() && mousePressed) {
+    if (backButton.check() && mousePressed){
       ordenados = 0;
       reiniciarProductos();
       pedidoEnTramite = new LinkedList<Node<Producto>>();
@@ -173,13 +183,47 @@ void menuScreen() {
     finalizarpedido.display();
     //println("Hay pedido chicos, repito, hay foto" +  ordenados);
   }
-
+ 
 
   backButton.seleccionador();
   backButton.display();
+  filtro1.display();
+  filtro2.display();
   pop();
 
   //
+}
+void screenFiltro1(){
+  push();
+  background(color5);
+  treeproductos.contadorBST = 0;
+  treeproductos.traverseBST();
+  backButton = new Button("Back", (width/2)-520, height-80);
+
+  if (backButton.check() && mousePressed) {
+      screenMenu=!screenMenu;
+      screenFiltro1=!screenFiltro1;
+    }
+    backButton = new Button("Back", /*(width/2)-520*/ 1180, height-80);
+  backButton.seleccionador();
+  backButton.display();
+  pop();
+}
+void screenFiltro2(){
+  push();
+  background(color5);
+  treeproductos.contadorBST = 0;
+  treeproductos.invtraverseBST();
+  backButton = new Button("Back", (width/2)-520, height-80);
+
+  if (backButton.check() && mousePressed) {
+      screenMenu=!screenMenu;
+      screenFiltro1=!screenFiltro1;
+    }
+    backButton = new Button("Back", /*(width/2)-520*/ 1180, height-80);
+  backButton.seleccionador();
+  backButton.display();
+  pop();
 }
 
 
@@ -233,6 +277,7 @@ int[] crearMenu(boolean menu_creado) {
         //println(tiempo_preparacion);
         //                       Producto(categoria,       nombre,       descripcion,             costo,         image   , tiempo preparacion){
         Producto ptr = new Producto(nombre_categoria, nombre_producto, descripcion_producto, precio_producto, imagen, tiempo_preparacion );
+        treeproductos.insertBST(ptr);
         productos2.pushBack(ptr);
       }
       categorias[i]=numeros_categoria;  //la almacenamos en el array
