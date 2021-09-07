@@ -58,11 +58,23 @@ Se implementa una lista a través de arreglos que permite el facil almacenamient
 
 Se realiza su implementación a través de referencia, y se utiliza para almacenar los robots que se encuentran en la zona de espera de pedidos.
 
+### Tablas Hash
+
+Las tablas Hash en el proyecto se utilizaron con números enteros en formato long al tratarse de los números de identificación de los clientes del restaurante, es por esto que se realizó su implementación basados en una familia universal para el hashing de enteros.
+
+Para esto se utiliza un arreglo de longitud m, compuesto de listas enlazadas implementadas con referencias. Finalmente, la implementación permite que una vez se inserte un dato se actualice el factor de carga de la tabla, a través de la ecuación.
+
+Cada vez que este factor supere un máximo establecido por el equipo de trabajo, para el caso de la implementación se usó 0.9, se debe realizar un reHashing. Este último es un método en el que se debe duplicar la cardinalidad m de la tabla, y modificar el arreglo al cambiar el valor de la clave (usando la función hash) de cada uno de los elementos ya insertados en la tabla.
+
 ## Dificultades y Lecciones aprendidas
 
 - El equipo de trabajo encontró en la comunicación, la principal herramienta para realizar un trabajo efectivo y de esta manera evitar errores de sincronización del repositorio remoto. Esto después de que en dos ocasiones se presentaran problemas al trabajar conjuntamente en la misma sección del código.
 
 - El trabajo en equipo fue satisfactorio debido a la división de tareas, a la coordinación entre los integrantes y a la colaboración entre cada uno de ellos al momento de solucionar dudas o considerar otras posibilidades de solución.
+
+- En el caso de la Tabla Hash se logró no solo analizar el tiempo de ejecución de las operaciones, sino que también evidenciar cuánta memoria será utilizada al ejecutar el Hash. Esta información es relevante para conocer más a detalle el funcionamiento de la estructura de datos.
+
+- Para una correcta interpretación de las gráficas de la Tabla Hash fue importante hacer una amortización de estas, con el fin de evidenciar que el tiempo de insertar un solo elemento es constante.
 
 - Realizar un cronograma de trabajo para las siguientes entregas, es indispensable para optimizar el tiempo de trabajo de los integrantes.
 
