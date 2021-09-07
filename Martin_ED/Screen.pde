@@ -115,10 +115,10 @@ void menuScreen() {
   int buttonX = width/3;
   int buttonY = height/4;
   finalizarpedido = new Button("Realizar pedido", width/2, height-80, 400, 110);
-  filtro1 = new Button("Más barato",50,200);
+  filtro1 = new Button("Más barato",(width/2)+520, height-80);
   filtro1.seleccionador();
   
-  filtro2 = new Button("Más caro",50,400);
+  filtro2 = new Button("Más caro",(width/2)+520, height-200);
   filtro2.seleccionador();
   
   if (!menuCreado) { //Si no hay menú importado, crea el menú
