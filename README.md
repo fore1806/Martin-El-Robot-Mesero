@@ -66,6 +66,10 @@ Para esto se utiliza un arreglo de longitud m, compuesto de listas enlazadas imp
 
 Cada vez que este factor supere un máximo establecido por el equipo de trabajo, para el caso de la implementación se usó 0.9, se debe realizar un reHashing. Este último es un método en el que se debe duplicar la cardinalidad m de la tabla, y modificar el arreglo al cambiar el valor de la clave (usando la función hash) de cada uno de los elementos ya insertados en la tabla.
 
+### Árboles
+
+Los árboles se utilizaron en este proyecto con el fin de organizar los productos de forma que podamos filtrar según el precio, los árboles fueron implementados de dos maneras, con AVL y con BST, esto para poder probar cual era más eficiente al momento de realizar la inserción de los productos a la estructura y la eficiencia al mostrar los productos en orden según su precio de venta, esto para permitir que los usuarios encuentren más cómoda su 
+
 ## Dificultades y Lecciones aprendidas
 
 - El equipo de trabajo encontró en la comunicación, la principal herramienta para realizar un trabajo efectivo y de esta manera evitar errores de sincronización del repositorio remoto. Esto después de que en dos ocasiones se presentaran problemas al trabajar conjuntamente en la misma sección del código.
